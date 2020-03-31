@@ -28,12 +28,14 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="index.html">
+      <form class="form-login" action="/login_patient/proses" method="post">
+        
+        <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
         <h2 class="form-login-heading">sign in now</h2>
         <div class="login-wrap">
-          <input type="text" class="form-control" placeholder="User ID" autofocus>
+          <input type="text" class="form-control" placeholder="User ID" name="username" autofocus>
           <br>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password">
           <label class="checkbox">
             <!-- <input type="checkbox" value="remember-me"> Remember me -->
             <span class="pull-right">

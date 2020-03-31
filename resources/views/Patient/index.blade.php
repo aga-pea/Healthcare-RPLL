@@ -203,7 +203,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="/logout_patient">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -217,7 +217,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h5 class="centered">{{Session::get('name')}}</h5>
           <li>
             <a href="profile.html">
               <i class="fa fa-user"></i>
@@ -266,7 +266,7 @@
               </div>
               <!-- /col-md-4 -->
               <div class="col-md-4 profile-text">
-                <h3>Sam Soffes</h3>
+                <h3>{{Session::get('name')}}</h3>
                 <h6>Main Administrator</h6>
                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
                 <br>
