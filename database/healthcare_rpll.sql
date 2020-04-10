@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 08, 2020 at 03:08 AM
+-- Generation Time: Apr 10, 2020 at 01:49 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
@@ -124,7 +124,9 @@ CREATE TABLE `medical_staff` (
   `medstaff_id` int(11) NOT NULL,
   `medstaff_age` int(11) DEFAULT NULL,
   `medstaff_name` varchar(50) DEFAULT NULL,
-  `department_id` int(11) DEFAULT NULL
+  `department_id` int(11) DEFAULT NULL,
+  `medstaff_uname` varchar(50) DEFAULT NULL,
+  `medstaff_pwd` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -166,7 +168,9 @@ CREATE TABLE `medicine` (
 CREATE TABLE `nonmedical_staff` (
   `nonmed_id` int(11) NOT NULL,
   `nonmed_name` varchar(50) DEFAULT NULL,
-  `nonmed_job` varchar(50) DEFAULT NULL
+  `nonmed_job` varchar(50) DEFAULT NULL,
+  `nonmed_uname` varchar(50) DEFAULT NULL,
+  `nonmed_pwd` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
