@@ -16,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('welcome'); });
 Route::get('/login', function () { return view('login'); });
 Route::get('/inbox', function () { return view('inbox'); });
+
 Route::get('/mail_compose', function () { return view('mail_compose'); });
+
 Route::get('/patient_main', function () { return view('Patient/index'); });
+Route::get('/patient_inbox', function () { return view('Patient/inbox'); });
+Route::get('/patient_mail_compose', function () { return view('Patient/mail_compose'); });
+Route::get('/patient_medical_record', function () { return view('Patient/advanced_table'); });
+
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
+
 Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
 Route::get('/receptionist_main', function () { return view('Receptionist/index'); });
 

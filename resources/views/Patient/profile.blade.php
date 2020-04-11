@@ -14,7 +14,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="profile.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="profile.html" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -219,13 +219,13 @@
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li>
-            <a href="profile.html">
+            <a href="{{url('/patient_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
               </a>
           </li>
           <li>
-            <a href="inbox.html">
+            <a href="{{url('/patient_inbox')}}">
               <i class="fa fa-envelope"></i>
               <span>Mail </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
@@ -241,146 +241,202 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper">
-        <!-- page start-->
+      <section class="wrapper site-min-height">
         <div class="row mt">
-          <div class="col-sm-3">
-            <section class="panel">
-              <div class="panel-body">
-                <a href="{{url('/mail_compose')}}" class="btn btn-compose">
-                  <i class="fa fa-pencil"></i>  Compose Mail
-                  </a>
-                <ul class="nav nav-pills nav-stacked mail-nav">
-                  <li class="active"><a href="{{url('/inbox')}}"> <i class="fa fa-inbox"></i> Inbox  <span class="label label-theme pull-right inbox-notification">3</span></a></li>
+          <div class="col-lg-12">
+            <div class="row content-panel">
+              <div class="col-md-4 profile-text mt mb centered">
+                <!-- <div class="right-divider hidden-sm hidden-xs"> -->
+                  <!-- <h4>1922</h4>
+                  <h6>FOLLOWERS</h6>
+                  <h4>290</h4>
+                  <h6>FOLLOWING</h6>
+                  <h4>$ 13,980</h4>
+                  <h6>MONTHLY EARNINGS</h6> -->
+                <!-- </div> -->
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 profile-text">
+                <h3>Sam Soffes</h3>
+                <h6>Main Administrator</h6>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
+                <br>
+                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 centered">
+                <div class="profile-pic">
+                  <p><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle"></p>
+                  <!-- <p>
+                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
+                    <button class="btn btn-theme02">Add</button>
+                  </p> -->
+                </div>
+              </div>
+              <!-- /col-md-4 -->
+            </div>
+            <!-- /row -->
+          </div>
+          <!-- /col-lg-12 -->
+          <div class="col-lg-12 mt">
+            <div class="row content-panel">
+              <div class="panel-heading">
+                <ul class="nav nav-tabs nav-justified">
+                  <!-- <li class="active">
+                    <a data-toggle="tab" href="#overview">Overview</a>
+                  </li> -->
+                  <li class="active">
+                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#edit">Edit Profile</a>
+                  </li>
                 </ul>
               </div>
-            </section>
-          </div>
-          <div class="col-sm-9">
-            <section class="panel">
-              <header class="panel-heading wht-bg">
-                <h4 class="gen-case">
-                    Inbox (2)
-                    <form action="#" class="pull-right mail-src-position">
-                      <div class="input-append">
-                        <input type="text" class="form-control " placeholder="Search Mail">
+              <!-- /panel-heading -->
+              <div class="panel-body">
+                <div class="tab-content">
+                  <!-- /tab-pane -->
+                  <div id="contact" class="tab-pane active">
+                    <div class="row">
+                      <div class="col-md-6 detailed">
+                        <h4>Contacts</h4>
+                        <div class="col-md-8 col-md-offset-2 mt">
+                          <p>
+                            Phone: +33 4898-4303<br/> Cell: 48 4389-4393<br/>
+                          </p>
+                          <br>
+                          <p>
+                            Email: hello@dashiotheme.com<br/> Skype: UseDashio<br/> Website: http://Alvarez.is
+                          </p>
+                        </div>
                       </div>
-                    </form>
-                  </h4>
-              </header>
-              <div class="panel-body minimal">
-                <div class="mail-option">
-                  <div class="chk-all">
-                    <div class="pull-left mail-checkbox">
-                      <input type="checkbox" class="">
+                      <!-- /col-md-6 -->
+                      <div class="col-md-6 detailed">
+                        <h4>Location</h4>
+                        <div class="col-md-8 col-md-offset-2 mt">
+                          <p>
+                            Postal Address<br/> PO BOX 12988, Sutter Ave<br/> Brownsville, New York.
+                          </p>
+                          <br>
+                          <p>
+                            Headquarters<br/> 844 Sutter Ave,<br/> 9003, New York.
+                          </p>
+                        </div>
+                      </div>
+                      <!-- /col-md-6 -->
                     </div>
-                    <div class="btn-group">
-                      <a data-toggle="dropdown" href="#" class="btn mini all">
-                        All
-                        <i class="fa fa-angle-down "></i>
-                        </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"> None</a></li>
-                        <li><a href="#"> Read</a></li>
-                        <li><a href="#"> Unread</a></li>
-                      </ul>
+                    <!-- /row -->
+                  </div>
+                  <!-- /tab-pane -->
+                  <div id="edit" class="tab-pane">
+                    <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2 detailed">
+                        <h4 class="mb">Personal Information</h4>
+                        <form role="form" class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label"> Avatar</label>
+                            <div class="col-lg-6">
+                              <input type="file" id="exampleInputFile" class="file-pos">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Company</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="c-name" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Lives In</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="lives-in" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Country</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="country" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Description</label>
+                            <div class="col-lg-10">
+                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
+                        <h4 class="mb">Contact Information</h4>
+                        <form role="form" class="form-horizontal">
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Address 1</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="addr1" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Address 2</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="addr2" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Phone</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="phone" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Cell</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="cell" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="email" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">Skype</label>
+                            <div class="col-lg-6">
+                              <input type="text" placeholder=" " id="skype" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                              <button class="btn btn-theme" type="submit">Save</button>
+                              <button class="btn btn-theme04" type="button">Cancel</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /col-lg-8 -->
                     </div>
+                    <!-- /row -->
                   </div>
-                  <div class="btn-group">
-                    <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
-                      <i class=" fa fa-refresh"></i>
-                      </a>
-                  </div>
-                  <div class="btn-group hidden-phone">
-                    <a data-toggle="dropdown" href="#" class="btn mini blue">
-                      More
-                      <i class="fa fa-angle-down "></i>
-                      </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                      <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                    </ul>
-                  </div>
-                  <div class="btn-group">
-                    <a data-toggle="dropdown" href="#" class="btn mini blue">
-                      Move to
-                      <i class="fa fa-angle-down "></i>
-                      </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                      <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                    </ul>
-                  </div>
-                  <ul class="unstyled inbox-pagination">
-                    <li><span>1-50 of 99</span></li>
-                    <li>
-                      <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
-                    </li>
-                    <li>
-                      <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
-                    </li>
-                  </ul>
+                  <!-- /tab-pane -->
                 </div>
-                <div class="table-inbox-wrap ">
-                  <table class="table table-inbox table-hover">
-                    <tbody>
-                      <tr class="unread">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                        <td class="view-message  dont-show"><a href="mail_view.html">Google Inc.</a></td>
-                        <td class="view-message "><a href="mail_view.html">Your new account is ready.</a></td>
-                        <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                        <td class="view-message  text-right">08:10 AM</td>
-                      </tr>
-                      <tr class="unread">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Facebook</a></td>
-                        <td class="view-message"><a href="mail_view.html">New Friendship Request</a></td>
-                        <td class="view-message inbox-small-cells"></td>
-                        <td class="view-message text-right">March 13</td>
-                      </tr>
-                      <tr class="">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Mark Webber <span class="label label-danger pull-right">urgent</span></a></td>
-                        <td class="view-message"><a href="mail_view.html">The server is down</a></td>
-                        <td class="view-message inbox-small-cells"></td>
-                        <td class="view-message text-right">March 09</td>
-                      </tr>
-                      <tr class="">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Facebook</a></td>
-                        <td class="view-message"><a href="mail_view.html">New message from Patrick S.</a></td>
-                        <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                        <td class="view-message text-right">March 08</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                <!-- /tab-content -->
               </div>
-            </section>
+              <!-- /panel-body -->
+            </div>
+            <!-- /col-lg-12 -->
           </div>
+          <!-- /row -->
         </div>
+        <!-- /container -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -401,7 +457,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="inbox.html#" class="go-top">
+        <a href="profile.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -411,9 +467,32 @@
   <!-- js placed at the end of the document so the pages load faster -->
   @include('subs.meta-foot')
   <!--common script for all pages-->
-  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
+  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+  <script>
+    $('.contact-map').click(function() {
 
+      //google map in tab click initialize
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
+        var mapOptions = {
+          zoom: 11,
+          scrollwheel: false,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Dashio Admin Theme!'
+        });
+      }
+      google.maps.event.addDomListener(window, 'click', initialize);
+    });
+  </script>
 </body>
 
 </html>

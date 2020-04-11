@@ -216,7 +216,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li>
             <a href="profile.html">
@@ -253,7 +253,7 @@
           <div class="col-sm-3">
             <section class="panel">
               <div class="panel-body">
-                <a href="mail_compose.html" class="btn btn-compose">
+                <a href="{{url('/mail_compose')}}" class="btn btn-compose">
                   <i class="fa fa-pencil"></i>  Compose Mail
                   </a>
                 <ul class="nav nav-pills nav-stacked mail-nav">

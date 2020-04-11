@@ -10,23 +10,19 @@
   <title>TOKlinik</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="{{asset('assets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/lib/advanced-datatable/css/demo_page.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/lib/advanced-datatable/css/demo_table.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{asset('assets/lib/advanced-datatable/css/DT_bootstrap.css')}}" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +36,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="profile.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="{{url('/patient_main')}}" class="logo"><b>TOK<span>LINIK</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -242,31 +238,28 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li>
-            <a href="profile.html">
+            <a href="{{url('/patient_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
               </a>
           </li>
           <li>
-            <a href="inbox.html">
+            <a href="{{url('/patient_inbox')}}">
               <i class="fa fa-envelope"></i>
               <span>Mail </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
               </a>
           </li>
           <li class="sub-menu">
-            <a href="advanced_table.html">
+            <a href="{{url('/patient_medical_record')}}">
               <i class="fa fa-th"></i>
               <span>Medical Records</span>
               </a>
           </li>
         </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
         <!-- sidebar menu end-->
       </div>
     </aside>
@@ -276,193 +269,37 @@
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper site-min-height">
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="row content-panel">
-              <div class="col-md-4 profile-text mt mb centered">
-                <!-- <div class="right-divider hidden-sm hidden-xs"> -->
-                  <!-- <h4>1922</h4>
-                  <h6>FOLLOWERS</h6>
-                  <h4>290</h4>
-                  <h6>FOLLOWING</h6>
-                  <h4>$ 13,980</h4>
-                  <h6>MONTHLY EARNINGS</h6> -->
-                <!-- </div> -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 profile-text">
-                <h3>Sam Soffes</h3>
-                <h6>Main Administrator</h6>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 centered">
-                <div class="profile-pic">
-                  <p><img src="img/ui-sam.jpg" class="img-circle"></p>
-                  <!-- <p>
-                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
-                    <button class="btn btn-theme02">Add</button>
-                  </p> -->
-                </div>
-              </div>
-              <!-- /col-md-4 -->
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Medical Record</h3>
+        <div class="row mb">
+          <!-- page start-->
+          <div class="content-panel">
+            <div class="adv-table">
+              <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                  <tr>
+                    <th>Anamnesia</th>
+                    <th>Diagnosa</th>
+                    <th class="hidden-phone">Medicine(s)</th>
+                    <th class="hidden-phone">Referral/th>
+                    <th class="hidden-phone">Doctor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="gradeA">
+                    <td>Pasien mengeluh sakit di daerah pantat.</td>
+                    <td>Ambeien</td>
+                    <td class="hidden-phone">Steroid</td>
+                    <td class="center hidden-phone">-</td>
+                    <td class="center hidden-phone">Dr. Fanny</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <!-- /row -->
           </div>
-          <!-- /col-lg-12 -->
-          <div class="col-lg-12 mt">
-            <div class="row content-panel">
-              <div class="panel-heading">
-                <ul class="nav nav-tabs nav-justified">
-                  <!-- <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
-                  </li> -->
-                  <li class="active">
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
-                  </li>
-                  <li>
-                    <a data-toggle="tab" href="#edit">Edit Profile</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /panel-heading -->
-              <div class="panel-body">
-                <div class="tab-content">
-                  <!-- /tab-pane -->
-                  <div id="contact" class="tab-pane active">
-                    <div class="row">
-                      <div class="col-md-6 detailed">
-                        <h4>Contacts</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Phone: +33 4898-4303<br/> Cell: 48 4389-4393<br/>
-                          </p>
-                          <br>
-                          <p>
-                            Email: hello@dashiotheme.com<br/> Skype: UseDashio<br/> Website: http://Alvarez.is
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                      <div class="col-md-6 detailed">
-                        <h4>Location</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Postal Address<br/> PO BOX 12988, Sutter Ave<br/> Brownsville, New York.
-                          </p>
-                          <br>
-                          <p>
-                            Headquarters<br/> 844 Sutter Ave,<br/> 9003, New York.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                  <div id="edit" class="tab-pane">
-                    <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">Personal Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label"> Avatar</label>
-                            <div class="col-lg-6">
-                              <input type="file" id="exampleInputFile" class="file-pos">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Company</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Lives In</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Country</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Description</label>
-                            <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
-                        <h4 class="mb">Contact Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 1</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr1" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 2</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr2" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Phone</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="phone" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Cell</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="cell" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="email" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Skype</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="skype" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">Save</button>
-                              <button class="btn btn-theme04" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- /col-lg-8 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                </div>
-                <!-- /tab-content -->
-              </div>
-              <!-- /panel-body -->
-            </div>
-            <!-- /col-lg-12 -->
-          </div>
-          <!-- /row -->
+          <!-- page end-->
         </div>
-        <!-- /container -->
+        <!-- /row -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -483,7 +320,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="profile.html#" class="go-top">
+        <a href="advanced_table.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -491,36 +328,71 @@
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="lib/jquery.scrollTo.min.js"></script>
-  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+  @include('subs.meta-foot')
+  <script type="text/javascript" language="javascript" src="{{asset('assets/lib/advanced-datatable/js/jquery.dataTables.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/advanced-datatable/js/DT_bootstrap.js')}}"></script>
   <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
+  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
   <!--script for this page-->
-  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-  <script>
-    $('.contact-map').click(function() {
+  <script type="text/javascript">
+    /* Formating function for row details */
+    function fnFormatDetails(oTable, nTr) {
+      var aData = oTable.fnGetData(nTr);
+      var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+      sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+      sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+      sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+      sOut += '</table>';
 
-      //google map in tab click initialize
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
-        var mapOptions = {
-          zoom: 11,
-          scrollwheel: false,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+      return sOut;
+    }
+
+    $(document).ready(function() {
+      /*
+       * Insert a 'details' column to the table
+       */
+      var nCloneTh = document.createElement('th');
+      var nCloneTd = document.createElement('td');
+      nCloneTd.innerHTML = '<img src="assets/lib/advanced-datatable/images/details_open.png">';
+      nCloneTd.className = "center";
+
+      $('#hidden-table-info thead tr').each(function() {
+        this.insertBefore(nCloneTh, this.childNodes[0]);
+      });
+
+      $('#hidden-table-info tbody tr').each(function() {
+        this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+      });
+
+      /*
+       * Initialse DataTables, with no sorting on the 'details' column
+       */
+      var oTable = $('#hidden-table-info').dataTable({
+        "aoColumnDefs": [{
+          "bSortable": false,
+          "aTargets": [0]
+        }],
+        "aaSorting": [
+          [1, 'asc']
+        ]
+      });
+
+      /* Add event listener for opening and closing details
+       * Note that the indicator for showing which row is open is not controlled by DataTables,
+       * rather it is done here
+       */
+      $('#hidden-table-info tbody td img').live('click', function() {
+        var nTr = $(this).parents('tr')[0];
+        if (oTable.fnIsOpen(nTr)) {
+          /* This row is already open - close it */
+          this.src = "lib/advanced-datatable/media/images/details_open.png";
+          oTable.fnClose(nTr);
+        } else {
+          /* Open this row */
+          this.src = "lib/advanced-datatable/images/details_close.png";
+          oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
         }
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Dashio Admin Theme!'
-        });
-      }
-      google.maps.event.addDomListener(window, 'click', initialize);
+      });
     });
   </script>
 </body>

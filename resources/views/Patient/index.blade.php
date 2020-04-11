@@ -216,23 +216,23 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">{{Session::get('name')}}</h5>
           <li>
-            <a href="profile.html">
+            <a href="{{url('/patient_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
               </a>
           </li>
           <li>
-            <a href="inbox.html">
+            <a href="{{url('/patient_inbox')}}">
               <i class="fa fa-envelope"></i>
               <span>Mail </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
               </a>
           </li>
           <li class="sub-menu">
-            <a href="advanced_table.html">
+            <a href="{{url('/patient_medical_record')}}">
               <i class="fa fa-th"></i>
               <span>Medical Records</span>
               </a>
@@ -275,7 +275,7 @@
               <!-- /col-md-4 -->
               <div class="col-md-4 centered">
                 <div class="profile-pic">
-                  <p><img src="img/ui-sam.jpg" class="img-circle"></p>
+                  <p><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle"></p>
                   <!-- <p>
                     <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
                     <button class="btn btn-theme02">Add</button>
