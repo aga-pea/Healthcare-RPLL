@@ -17,8 +17,7 @@ class Medical_Staff extends Model
      * @var array
      */
     protected $fillable = [
-        'patient_id', 'patient_name', 'patient_address','patient_age','patient_dob','patient_gender',
-        'patient_uname','patient_pwd'
+        'medstaff_id', 'medstaff_age', 'medstaff_name','medstaff_uname','medstaff_pwd','department_id'
     ];
 
     /**
