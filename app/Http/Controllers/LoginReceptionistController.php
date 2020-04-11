@@ -3,32 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Patient;
+use App\Receptionist;
 
-include("..\Use_Case\PatientUseCase.php");
-
-class LoginPatientController extends Controller
+class LoginReceptionistController extends Controller
 {
     public function proses(Request $request){
         $username = $request->input('username');
         $password = $request->input('password');
-        $patient = new PatientUseCase();
-        $usercek = $patient->getWithUsername($username);
+        $usercek = Receptionist::where('receptionist_uname', $username)->first(); 
         
         if($usercek){
-            if($patient->getWithPassword($username)==$password){
+            if($usercek->med_staff_pwd==$password){
                 $request->session()->put('username',$username);
-                $request->session()->put('name',$usercek->patient_name);
-                return redirect('/patient_main');
-            }
-             else{
+                $request->session()->put('name',$usercek->med_staff_name);
+                return redirect('/receptionist_main');
+            }else{
                 return "Password Salah";
             }
-        }
-         else{
+        }else{
             return "Username salah";
         }
-        
     }
 
     public function logout(Request $request) {
