@@ -225,7 +225,7 @@
               </a>
           </li>
           <li>
-            <a href="inbox.html">
+            <a href="{{url('/inbox')}}">
               <i class="fa fa-envelope"></i>
               <span>Mail </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
@@ -257,7 +257,7 @@
                   <i class="fa fa-pencil"></i>  Compose Mail
                   </a>
                 <ul class="nav nav-pills nav-stacked mail-nav">
-                  <li class="active"><a href="inbox.html"> <i class="fa fa-inbox"></i> Inbox  <span class="label label-theme pull-right inbox-notification">3</span></a></li>
+                  <li class="active"><a href="{{url('/inbox')}}"> <i class="fa fa-inbox"></i> Inbox  <span class="label label-theme pull-right inbox-notification">3</span></a></li>
                 </ul>
               </div>
             </section>
