@@ -14,7 +14,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="profile.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="profile.html" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -203,7 +203,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_patient">Logout</a></li>
+          <li><a class="logout" href="login.html">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -217,7 +217,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">{{Session::get('name')}}</h5>
+          <h5 class="centered">Sam Soffes</h5>
           <li>
             <a href="profile.html">
               <i class="fa fa-user"></i>
@@ -241,202 +241,82 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper site-min-height">
+      <section class="wrapper">
+        <!-- page start-->
         <div class="row mt">
-          <div class="col-lg-12">
-            <div class="row content-panel">
-              <div class="col-md-4 profile-text mt mb centered">
-                <!-- <div class="right-divider hidden-sm hidden-xs"> -->
-                  <!-- <h4>1922</h4>
-                  <h6>FOLLOWERS</h6>
-                  <h4>290</h4>
-                  <h6>FOLLOWING</h6>
-                  <h4>$ 13,980</h4>
-                  <h6>MONTHLY EARNINGS</h6> -->
-                <!-- </div> -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 profile-text">
-                <h3>{{Session::get('name')}}</h3>
-                <h6>Main Administrator</h6>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 centered">
-                <div class="profile-pic">
-                  <p><img src="img/ui-sam.jpg" class="img-circle"></p>
-                  <!-- <p>
-                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
-                    <button class="btn btn-theme02">Add</button>
-                  </p> -->
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-          </div>
-          <!-- /col-lg-12 -->
-          <div class="col-lg-12 mt">
-            <div class="row content-panel">
-              <div class="panel-heading">
-                <ul class="nav nav-tabs nav-justified">
-                  <!-- <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
-                  </li> -->
-                  <li class="active">
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
-                  </li>
-                  <li>
-                    <a data-toggle="tab" href="#edit">Edit Profile</a>
-                  </li>
+          <div class="col-sm-3">
+            <section class="panel">
+              <div class="panel-body">
+                <a href="mail_compose.html" class="btn btn-compose">
+                  <i class="fa fa-pencil"></i>  Compose Mail
+                  </a>
+                <ul class="nav nav-pills nav-stacked mail-nav">
+                  <li class="active"><a href="inbox.html"> <i class="fa fa-inbox"></i> Inbox  <span class="label label-theme pull-right inbox-notification">3</span></a></li>
                 </ul>
               </div>
-              <!-- /panel-heading -->
-              <div class="panel-body">
-                <div class="tab-content">
-                  <!-- /tab-pane -->
-                  <div id="contact" class="tab-pane active">
-                    <div class="row">
-                      <div class="col-md-6 detailed">
-                        <h4>Contacts</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Phone: +33 4898-4303<br/> Cell: 48 4389-4393<br/>
-                          </p>
-                          <br>
-                          <p>
-                            Email: hello@dashiotheme.com<br/> Skype: UseDashio<br/> Website: http://Alvarez.is
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                      <div class="col-md-6 detailed">
-                        <h4>Location</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Postal Address<br/> PO BOX 12988, Sutter Ave<br/> Brownsville, New York.
-                          </p>
-                          <br>
-                          <p>
-                            Headquarters<br/> 844 Sutter Ave,<br/> 9003, New York.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                  <div id="edit" class="tab-pane">
-                    <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">Personal Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label"> Avatar</label>
-                            <div class="col-lg-6">
-                              <input type="file" id="exampleInputFile" class="file-pos">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Company</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Lives In</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Country</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Description</label>
-                            <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
-                        <h4 class="mb">Contact Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 1</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr1" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 2</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr2" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Phone</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="phone" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Cell</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="cell" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="email" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Skype</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="skype" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">Save</button>
-                              <button class="btn btn-theme04" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- /col-lg-8 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                </div>
-                <!-- /tab-content -->
-              </div>
-              <!-- /panel-body -->
-            </div>
-            <!-- /col-lg-12 -->
+            </section>
           </div>
-          <!-- /row -->
+          <div class="col-sm-9">
+            <section class="panel">
+              <header class="panel-heading wht-bg">
+                <h4 class="gen-case">
+                    Compose Mail
+                    <form action="#" class="pull-right mail-src-position">
+                      <div class="input-append">
+                        <input type="text" class="form-control " placeholder="Search Mail">
+                      </div>
+                    </form>
+                  </h4>
+              </header>
+              <div class="panel-body">
+                <div class="compose-btn pull-right">
+                  <button class="btn btn-theme btn-sm"><i class="fa fa-check"></i> Send</button>
+                  <button class="btn btn-sm"><i class="fa fa-times"></i> Discard</button>
+                  <button class="btn btn-sm">Draft</button>
+                </div>
+                <div class="compose-mail">
+                  <form role="form-horizontal" method="post">
+                    <div class="form-group">
+                      <label for="to" class="">To:</label>
+                      <input type="text" tabindex="1" id="to" class="form-control">
+                      <div class="compose-options">
+                        <a onclick="$(this).hide(); $('#cc').parent().removeClass('hidden'); $('#cc').focus();" href="javascript:;">Cc</a>
+                        <a onclick="$(this).hide(); $('#bcc').parent().removeClass('hidden'); $('#bcc').focus();" href="javascript:;">Bcc</a>
+                      </div>
+                    </div>
+                    <div class="form-group hidden">
+                      <label for="cc" class="">Cc:</label>
+                      <input type="text" tabindex="2" id="cc" class="form-control">
+                    </div>
+                    <div class="form-group hidden">
+                      <label for="bcc" class="">Bcc:</label>
+                      <input type="text" tabindex="2" id="bcc" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="subject" class="">Subject:</label>
+                      <input type="text" tabindex="1" id="subject" class="form-control">
+                    </div>
+                    <div class="compose-editor">
+                      <textarea class="wysihtml5 form-control" rows="9"></textarea>
+                      <input type="file" class="default">
+                    </div>
+                    <div class="compose-btn">
+                      <button class="btn btn-theme btn-sm"><i class="fa fa-check"></i> Send</button>
+                      <button class="btn btn-sm"><i class="fa fa-times"></i> Discard</button>
+                      <button class="btn btn-sm">Draft</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-        <!-- /container -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -457,7 +337,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="profile.html#" class="go-top">
+        <a href="mail_compose.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -467,31 +347,17 @@
   <!-- js placed at the end of the document so the pages load faster -->
   @include('subs.meta-foot')
   <!--common script for all pages-->
-  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-  <script>
-    $('.contact-map').click(function() {
+  <script type="text/javascript" src="lib/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
 
-      //google map in tab click initialize
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
-        var mapOptions = {
-          zoom: 11,
-          scrollwheel: false,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Dashio Admin Theme!'
-        });
-      }
-      google.maps.event.addDomListener(window, 'click', initialize);
-    });
+  <script type="text/javascript">
+    //wysihtml5 start
+
+    $('.wysihtml5').wysihtml5();
+
+    //wysihtml5 end
   </script>
 </body>
 
