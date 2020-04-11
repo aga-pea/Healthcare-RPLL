@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('welcome'); });
 Route::get('/login', function () { return view('login'); });
+Route::get('/inbox', function () { return view('inbox'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
 
