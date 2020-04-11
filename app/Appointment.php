@@ -6,9 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class NonMedical_Staff extends Model
+class Appointment extends Model
 {
-    protected $table="nonmedical_staff";
+    protected $table="appointment";
     use Notifiable;
 
     /**
@@ -17,7 +17,7 @@ class NonMedical_Staff extends Model
      * @var array
      */
     protected $fillable = [
-        'nonmed_id', 'nonmed_name', 'nonmed_job', 'nonmed_uname', 'nonmed_pwd'
+        'appt_id', 'appt_date', 'appt_time','patient_id','medstaff_id',
     ];
 
     /**
