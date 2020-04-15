@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Patient;
-
-include("..\Use_Case\PatientUseCase.php");
+use App\Use_Case\PatientUseCase;
 
 class LoginPatientController extends Controller
 {
@@ -14,11 +13,13 @@ class LoginPatientController extends Controller
         $password = $request->input('password');
         $patient = new PatientUseCase();
         $usercek = $patient->getWithUsername($username);
-        
+        $name = $patient->getWithName($username);
+        $id = $patient->getWithId($username);
         if($usercek){
             if($patient->getWithPassword($username)==$password){
                 $request->session()->put('username',$username);
-                $request->session()->put('name',$usercek->patient_name);
+                $request->session()->put('name',$name);
+                $request->session()->put('patient_id',$id);
                 return redirect('/patient_main');
             }
              else{

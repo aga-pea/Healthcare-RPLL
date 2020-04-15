@@ -1,11 +1,12 @@
 <?php
-    use App\NonMedical_Staff;
+    namespace App\Dao;
+    use App\Patient;
 
     class PatientDao
     {
         public static function getPatient($username)
         {
-            $patient = NonMedical_Staff::where('patient_uname', $username)->first();
+            $patient = Patient::where('patient_uname', $username)->first();
             return $patient;
         }
     }
