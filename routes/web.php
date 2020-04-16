@@ -26,7 +26,6 @@ Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/doctor_schedule', function () { return view('Doctor/calendar'); });
 Route::get('/patients_medical_record', function () { return view('Doctor/advanced_table'); });
 
-
 Route::get('/warehouse_login', function () { return view('Warehouse/login'); });
 Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
 
