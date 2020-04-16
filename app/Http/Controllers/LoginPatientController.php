@@ -35,6 +35,6 @@ class LoginPatientController extends Controller
     public function logout(Request $request) {
         $request->session()->forget('username');
         $request->session()->forget('name');
-        return redirect('/login');
+        return redirect('/');
     }
 }

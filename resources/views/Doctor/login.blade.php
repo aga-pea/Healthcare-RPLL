@@ -9,7 +9,7 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="/login_patient/proses" method="post">
+      <form class="form-login" action="/login_doctor/proses" method="post">
         
         <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
         <h2 class="form-login-heading">sign in now</h2>

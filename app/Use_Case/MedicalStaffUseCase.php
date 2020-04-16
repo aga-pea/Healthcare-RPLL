@@ -16,7 +16,7 @@
         public static function getWithPassword($username)
         {
             $cekmedstaff = new MedicalStaffDao();
-            $medstaff=$cekmedstaff->getmedstaff($username);
+            $medstaff=$cekmedstaff->getMedicalStaff($username);
             $medstaff_pwd = $medstaff->medstaff_pwd;
             return $medstaff_pwd;
         }
@@ -24,7 +24,7 @@
         public static function getWithName($username)
         {
             $cekmedstaff =  new MedicalStaffDao();
-            $medstaff=$cekmedstaff->getmedstaff($username);
+            $medstaff=$cekmedstaff->getMedicalStaff($username);
             $medstaff_uname = $medstaff->medstaff_name;
             return $medstaff_uname;
         }
@@ -32,9 +32,9 @@
         public static function getWithId($username)
         {
             $cekmedstaff =  new MedicalStaffDao();
-            $medstaff=$cekmedstaff->getmedstaff($username);
-            $medstaff_uname = $medstaff->medstaff_id;
-            return $medstaff_uname;
+            $medstaff=$cekmedstaff->getMedicalStaff($username);
+            $medstaff_id = $medstaff->medstaff_id;
+            return $medstaff_id;
         }
     }
 ?>

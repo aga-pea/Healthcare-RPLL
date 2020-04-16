@@ -26,20 +26,26 @@ Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/warehouse_login', function () { return view('Warehouse/login'); });
 Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
 
-
 Route::get('/receiptionist_login', function () { return view('Receiptionist/login'); });
 Route::get('/receiptionist_main', function () { return view('Receiptionist/index'); });
 
-Route::get('/login_patient', function () { return view('login'); });
+Route::get('/cashier_login', function () { return view('Cashier/login'); });
+Route::get('/cashier_main', function () { return view('Cashier/index'); });
+
 Route::post('/login_patient/proses', 'LoginPatientController@proses');
 Route::get('/logout_patient', 'LoginPatientController@logout');
 
-Route::get('/login_doctor', function () { return view('login'); });
 Route::post('/login_doctor/proses', 'LoginMedStaffController@proses');
 Route::get('/logout_doctor', 'LoginMedStaffController@logout');
 
+Route::post('/login_receiptionist/proses', 'LoginReceptionistController@proses');
+Route::get('/logout_receiptionist', 'LoginReceptionistController@logout');
 
+Route::post('/login_warehouse/proses', 'LoginWarehouseController@proses');
+Route::get('/logout_warehouse', 'LoginWarehouseController@logout');
+
+Route::post('/login_cashier/proses', 'LoginCashierController@proses');
+Route::get('/logout_cashier', 'LoginCashierController@logout');
 // Testing Routes
-Route::get('/login', function () { return view('login'); });
 // Route::get('/inbox', function () { return view('inbox'); });
 // Route::get('/mail_compose', function () { return view('mail_compose'); });
