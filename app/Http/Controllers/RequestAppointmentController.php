@@ -19,13 +19,11 @@ class RequestAppointmentController extends Controller
         $doctor_id = $request->input('doctor_id');
         $patient_id = $request->session()->get('patient_id');
 
-        // $newDate = date("c", strtotime($appoint_date));
-        $desiredFormat = "YYYY-mm-dd";
-        $appoint_date->format($desiredFormat);
+        $newDate = date("Y-m-d", strtotime($appoint_date));
 
         $appointment = new AppointmentUseCase();
-        $appointment->requestAppointment($appoint_date, $appoint_time, $patient_id, $doctor_id);
-
+        $appointment->requestAppointment($newDate, $appoint_time, $patient_id, $doctor_id);
+        return redirect("/patient_main");
     }
 
 }

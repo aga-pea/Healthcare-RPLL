@@ -291,7 +291,7 @@
                   <label class="control-label col-md-3">Jam Pertemuan</label>
                   <div class="col-md-4">
                     <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24">
+                      <input type="text" class="form-control timepicker-24" name="appoint_time">
                       <span class="input-group-btn">
                         <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
                       </span>
