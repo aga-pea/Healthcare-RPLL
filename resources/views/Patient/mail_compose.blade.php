@@ -266,23 +266,24 @@
           <!--  DATE PICKERS -->
           <div class="col-lg-12">
             <div class="form-panel">
-              <form action="#" class="form-horizontal style-form">
+              <form action="/patient_appointment_add" class="form-horizontal style-form">
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
                 <div class="form-group">
                   <label class="control-label col-md-3">Dokter</label>
                   <div class="col-md-3 col-xs-11">
-                    <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" name="doctor_id">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-3">Tanggal Pertemuan</label>
                   <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">
+                    <input class="form-control form-control-inline input-medium default-date-picker" name="appoint_date" size="16" type="text" value="">
                     <span class="help-block">Click kolom diatas untuk memunculkan tanggal</span>
                   </div>
                 </div>
