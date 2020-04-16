@@ -3,6 +3,19 @@
 
 @include('subs.meta-head')
 
+<head>
+  <!--external css-->
+  <link href="{{asset('assets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datepicker/css/datepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-timepicker/compiled/timepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datetimepicker/datertimepicker.css')}}" />
+  <!-- Custom styles for this template -->
+  <link href="{{asset('assets/scss/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet">
+</head>
+
 <body>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
@@ -14,7 +27,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="profile.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="{{url('/patient_main')}}"" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -24,7 +37,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
               <span class="badge bg-theme">4</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -93,7 +106,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
               <span class="badge bg-theme">5</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -103,49 +116,49 @@
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
                   <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
+                    <span class="from">Zac Snider</span>
+                    <span class="time">Just now</span>
                   </span>
                   <span class="message">
-                  Hi mate, how is everything?
+                    Hi mate, how is everything?
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
                   <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
+                    <span class="from">Divya Manian</span>
+                    <span class="time">40 mins.</span>
                   </span>
                   <span class="message">
-                  Hi, I need your help with this.
+                    Hi, I need your help with this.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
+                    <span class="from">Dan Rogers</span>
+                    <span class="time">2 hrs.</span>
                   </span>
                   <span class="message">
-                  Love your new Dashboard.
+                    Love your new Dashboard.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
+                    <span class="from">Dj Sherman</span>
+                    <span class="time">4 hrs.</span>
                   </span>
                   <span class="message">
-                  Please, answer asap.
+                    Please, answer asap.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all messages</a>
@@ -158,7 +171,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended notification">
               <div class="notify-arrow notify-arrow-yellow"></div>
               <li>
@@ -169,28 +182,28 @@
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Server Overloaded.
                   <span class="small italic">4 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-warning"><i class="fa fa-bell"></i></span>
                   Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-success"><i class="fa fa-plus"></i></span>
                   New User Registered.
                   <span class="small italic">3 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all notifications</a>
@@ -216,26 +229,26 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li>
-            <a href="profile.html">
+            <a href="{{url('/patient_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
-              </a>
+            </a>
           </li>
           <li>
-            <a href="{{url('/inbox')}}">
+            <a href="{{url('/patient_appointment')}}">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
+              <span>Request Appointment </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
-              </a>
+            </a>
           </li>
           <li class="sub-menu">
-            <a href="advanced_table.html">
+            <a href="{{url('/patient_medical_record')}}">
               <i class="fa fa-th"></i>
               <span>Medical Records</span>
-              </a>
+            </a>
           </li>
         </ul>
         <!-- sidebar menu end-->
@@ -248,117 +261,63 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <!-- page start-->
+        <h3><i class="fa fa-angle-right"></i> Request Appointment</h3>
         <div class="row mt">
-          <div class="col-sm-3">
-            <section class="panel">
-              <div class="panel-body">
-                <a href="{{url('/patient_mail_compose')}}" class="btn btn-compose">
-                  <i class="fa fa-pencil"></i>  Compose Mail
-                  </a>
-                <ul class="nav nav-pills nav-stacked mail-nav">
-                  <li class="active"><a href="{{url('/patient_inbox')}}"> <i class="fa fa-inbox"></i> Inbox  <span class="label label-theme pull-right inbox-notification">3</span></a></li>
-                </ul>
-              </div>
-            </section>
-          </div>
-          <div class="col-sm-9">
-            <section class="panel">
-              <header class="panel-heading wht-bg">
-                <h4 class="gen-case">
-                    Compose Mail
-                    <form action="#" class="pull-right mail-src-position">
-                      <div class="input-append">
-                        <input type="text" class="form-control " placeholder="Search Mail">
-                      </div>
-                    </form>
-                  </h4>
-              </header>
-              <div class="panel-body">
-                <div class="compose-btn pull-right">
-                  <button class="btn btn-theme btn-sm"><i class="fa fa-check"></i> Send</button>
-                  <button class="btn btn-sm"><i class="fa fa-times"></i> Discard</button>
-                  <button class="btn btn-sm">Draft</button>
+          <!--  DATE PICKERS -->
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <form action="#" class="form-horizontal style-form">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Dokter</label>
+                  <div class="col-md-3 col-xs-11">
+                    <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="compose-mail">
-                  <form role="form-horizontal" method="post">
-                    <div class="form-group">
-                      <label for="to" class="">To:</label>
-                      <input type="text" tabindex="1" id="to" class="form-control">
-                      <div class="compose-options">
-                        <a onclick="$(this).hide(); $('#cc').parent().removeClass('hidden'); $('#cc').focus();" href="javascript:;">Cc</a>
-                        <a onclick="$(this).hide(); $('#bcc').parent().removeClass('hidden'); $('#bcc').focus();" href="javascript:;">Bcc</a>
-                      </div>
-                    </div>
-                    <div class="form-group hidden">
-                      <label for="cc" class="">Cc:</label>
-                      <input type="text" tabindex="2" id="cc" class="form-control">
-                    </div>
-                    <div class="form-group hidden">
-                      <label for="bcc" class="">Bcc:</label>
-                      <input type="text" tabindex="2" id="bcc" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="subject" class="">Subject:</label>
-                      <input type="text" tabindex="1" id="subject" class="form-control">
-                    </div>
-                    <div class="compose-editor">
-                      <textarea class="wysihtml5 form-control" rows="9"></textarea>
-                      <input type="file" class="default">
-                    </div>
-                    <div class="compose-btn">
-                      <button class="btn btn-theme btn-sm"><i class="fa fa-check"></i> Send</button>
-                      <button class="btn btn-sm"><i class="fa fa-times"></i> Discard</button>
-                      <button class="btn btn-sm">Draft</button>
-                    </div>
-                  </form>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Tanggal Pertemuan</label>
+                  <div class="col-md-3 col-xs-11">
+                    <input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">
+                    <span class="help-block">Click kolom diatas untuk memunculkan tanggal</span>
+                  </div>
                 </div>
-              </div>
-            </section>
+                <button type="submit" class="btn btn-theme" name="submitAppointment">Submit Request</button>
+              </form>
+            </div>
+            <!-- /form-panel -->
           </div>
+          <!-- /col-lg-12 -->
         </div>
+        <!-- /row -->
       </section>
-      <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="mail_compose.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
-      </div>
-    </footer>
-    <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   @include('subs.meta-foot')
   <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
+  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <!--custom switch-->
+  <script src="{{asset('assets/lib/bootstrap-switch.js')}}"></script>
+  <!--custom tagsinput-->
+  <script src="{{asset('assets/lib/jquery.tagsinput.js')}}"></script>
+  <!--custom checkbox & radio-->
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/date.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
+  <script src="{{asset('assets/lib/form-component.js')}}"></script>
   <!--script for this page-->
-  <script type="text/javascript" src="lib/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-
-  <script type="text/javascript">
-    //wysihtml5 start
-
-    $('.wysihtml5').wysihtml5();
-
-    //wysihtml5 end
-  </script>
 </body>
 
 </html>
