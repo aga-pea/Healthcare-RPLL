@@ -27,7 +27,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="{{url('/patient_main')}}"" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="{{url('/patient_main')}}"" class=" logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -285,6 +285,17 @@
                   <div class="col-md-3 col-xs-11">
                     <input class="form-control form-control-inline input-medium default-date-picker" name="appoint_date" size="16" type="text" value="">
                     <span class="help-block">Click kolom diatas untuk memunculkan tanggal</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Jam Pertemuan</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                      <input type="text" class="form-control timepicker-24">
+                      <span class="input-group-btn">
+                        <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-theme" name="submitAppointment">Submit Request</button>
