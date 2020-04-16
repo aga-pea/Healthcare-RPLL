@@ -10,24 +10,17 @@
   <title>Doctor</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link href="lib/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+  <link href="{{asset('assets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/lib/fullcalendar/bootstrap-fullcalendar.css')}}" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +34,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
+      <a href="{{url('/doctor_main')}}" class="logo"><b>TOK<span>linik</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -247,19 +240,19 @@
           <h5 class="centered">Sam Soffes</h5>
          
           <li class="sub-menu">
-            <a href="profile.html">
+            <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a href="advanced_table.html">
+            <a href="{{url('/patients_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
               </a>
           </li>
           <li>
-            <a href="calendar.html">
+            <a href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
               <span>Schedule</span>
               </a>
@@ -331,17 +324,17 @@
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="lib/fullcalendar/fullcalendar.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="lib/jquery.scrollTo.min.js"></script>
-  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
+  <script src="{{asset('assets/lib/fullcalendar/fullcalendar.min.js')}}"></script>
+  <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
   <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
+  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
   <!--script for this page-->
-  <script src="lib/calendar-conf-events.js"></script>
+  <script src="{{asset('assets/lib/calendar-conf-events.js')}}"></script>
 
 </body>
 
