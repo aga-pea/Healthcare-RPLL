@@ -268,7 +268,7 @@
             <div class="form-panel">
               <form action="#" class="form-horizontal style-form">
                 <div class="form-group">
-                  <label class="control-label col-md-3">Dokter</label>
+                  <label class="control-label col-md-3">Nama Dokter</label>
                   <div class="col-md-3 col-xs-11">
                     <select class="form-control">
                       <option>1</option>
@@ -283,7 +283,7 @@
                   <label class="control-label col-md-3">Tanggal Pertemuan</label>
                   <div class="col-md-3 col-xs-11">
                     <input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value="">
-                    <span class="help-block">Click kolom diatas untuk memunculkan tanggal</span>
+                    <span class="help-block">Click kolom diatas untuk menampilkan tanggal.</span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -295,6 +295,7 @@
                         <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
                       </span>
                     </div>
+                    <span>Click tombol merah dikanan kolom untuk menampilkan jam</span>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-theme" name="submitAppointment">Submit Request</button>
@@ -311,24 +312,23 @@
     <!--main content end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  @include('subs.meta-foot')
+  <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
   <!--common script for all pages-->
   <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <!--script for this page-->
   <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <!--custom switch-->
-  <script src="{{asset('assets/lib/bootstrap-switch.js')}}"></script>
-  <!--custom tagsinput-->
-  <script src="{{asset('assets/lib/jquery.tagsinput.js')}}"></script>
-  <!--custom checkbox & radio-->
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
   <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
   <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/date.js')}}"></script>
   <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
-  <script src="{{asset('assets/lib/form-component.js')}}"></script>
-  <!--script for this page-->
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/moment.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
+  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
 </body>
 
 </html>
