@@ -39,7 +39,7 @@ class ReadMedicalDataController extends Controller
             $dataMedical=[];
 
             $id_medical = $data->medical_id;
-            $id_doctor = $data->doctor_id;
+            $id_doctor = $data->medstaff_id;
             $id_medicine = $data->medicine_id;
 
             $doctor = new MedicalStaffUseCase;
@@ -50,11 +50,10 @@ class ReadMedicalDataController extends Controller
             $dataMedical["doctor"] = $doctor_name;
             $dataMedical["medicine"] = $medicine_name;
             array_push($recordData,$dataMedical);
-
-            print($dataMedical["doctor"]);
-        }
-        // print($recordData[0]);
-
+        }        
+        print(var_dump($recordData[0]));
+        print("<br>");
+        print($recordData[0]["doctor"]);
         // return view('Patient/advanced_table',['med_record'=>$medicalrecord]);
     }
 
