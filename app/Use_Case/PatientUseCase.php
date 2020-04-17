@@ -9,8 +9,16 @@
         {
             $cekpatient =  new PatientDao();
             $patient=$cekpatient->getPatient($username);
-            $patient_uname = $patient->patient_uname;
-            return $patient_uname;
+            if($patient)
+            {
+                $patient_uname = $patient->patient_uname;
+                return $patient_uname;
+            }
+            else
+            {
+                return "tidak ada";
+            }
+            
         }
 
         public static function getWithPassword($username)
@@ -25,8 +33,8 @@
         {
             $cekpatient =  new PatientDao();
             $patient=$cekpatient->getPatient($username);
-            $patient_uname = $patient->patient_name;
-            return $patient_uname;
+            $patient_name = $patient->patient_name;
+            return $patient_name;
         }
 
         public static function getWithId($username)

@@ -9,8 +9,15 @@
         {
             $ceknonmedstaff =  new NonMedicalStaffDao();
             $nonmedstaff=$ceknonmedstaff->getNonMedicalStaff($username);
-            $nonmedstaff_uname = $nonmedstaff->nonmed_uname;
-            return $nonmedstaff_uname;
+            if($nonmedstaff)
+            {
+                $nonmedstaff_uname = $nonmedstaff->nonmed_uname;
+                return $nonmedstaff_uname;
+            }
+            else
+            {
+                return "tidak ada";
+            }
         }
 
         public static function getWithPassword($username)

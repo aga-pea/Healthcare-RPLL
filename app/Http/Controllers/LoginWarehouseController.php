@@ -12,10 +12,11 @@ class LoginWarehouseController extends Controller
         $password = $request->input('password');
         $nonmed_staff = new NonMedicalStaffUseCase();
         $usercek = $nonmed_staff->getWithUsername($username);
-        $name = $nonmed_staff->getWithName($username);
-        $id = $nonmed_staff->getWithId($username);
-        $job = $nonmed_staff->getWithJob($username);
-        if($usercek){
+
+        if($usercek==$username){ 
+            $name = $nonmed_staff->getWithName($username);
+            $id = $nonmed_staff->getWithId($username);
+            $job = $nonmed_staff->getWithJob($username);
             if($job=="Warehouse")
             {
                 if($nonmed_staff->getWithPassword($username)==$password){
@@ -25,23 +26,24 @@ class LoginWarehouseController extends Controller
                     return redirect('/warehouse_main');
                 }
                  else{
-                    return "Password Salah";
+                    return redirect()->back()->with('alert', 'Password yang anda masukkan salah');
                 }
             }
             else
             {
-                return "Role tidak sesuai";
+                return redirect()->back()->with('alert', 'Role tidak sesuai');
             }
             
         }
          else{
-            return "Username salah";
+            return redirect()->back()->with('alert', 'Username tidak tersedia');
         }
     }
 
     public function logout(Request $request) {
         $request->session()->forget('username');
         $request->session()->forget('name');
+        $request->session()->forget('nonmed_id');
         return redirect('/');
     }
 }

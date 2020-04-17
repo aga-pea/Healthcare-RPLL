@@ -18,7 +18,8 @@ Route::get('/', function () { return view('lock_screen'); });
 Route::get('/patient_login', function () { return view('Patient/login'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
 Route::get('/patient_appointment', function () { return view('Patient/mail_compose'); });
-Route::get('/patient_medical_record', function () { return view('Patient/advanced_table'); });
+Route::get('/patient_medical_record', 'RequestController@index');
+
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
 
 Route::get('/doctor_login', function () { return view('Doctor/login'); });

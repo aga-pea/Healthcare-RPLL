@@ -9,8 +9,16 @@
         {
             $cekmedstaff =  new MedicalStaffDao();
             $medstaff=$cekmedstaff->getMedicalStaff($username);
-            $medstaff_uname = $medstaff->medstaff_uname;
-            return $medstaff_uname;
+            if($medstaff)
+            {
+                $medstaff_uname = $medstaff->medstaff_uname;
+                return $medstaff_uname;
+            }
+            else
+            {
+                return "tidak ada";
+            }
+            
         }
 
         public static function getWithPassword($username)
