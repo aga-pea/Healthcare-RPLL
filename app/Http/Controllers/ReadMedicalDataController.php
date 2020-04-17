@@ -14,23 +14,13 @@ class ReadMedicalDataController extends Controller
     //     return view("Patient/mail_compose",['doctor_NameId' => $doctor_nameid]);
     // }
 
-    public function indexMedicine(Request $request){
-        $medicine = new MedicineUseCase;
-        $medicine_nameid = $medicine->getWithNameId();
-        return view("Patient/mail_compose",['medicine_NameId' => $medicine_nameid]);
-    }
+    
 
     // public function indexHospital(Request $request){
     //     $doctor = new MedicalStaffUseCase;
     //     $doctor_nameid = $doctor->getWithNameId();
     //     return view("Patient/mail_compose",['doctor_NameId' => $doctor_nameid]);
     // }
-
-    public function indexDoctor(Request $request){
-        $doctor = new MedicalStaffUseCase;
-        $doctor_nameid = $doctor->getWithNameId();
-        return view("Patient/mail_compose",['doctor_NameId' => $doctor_nameid]);
-    }
 
     public function readMedicalData(Request $request){
         $patient_id = $request->session()->get('patient_id');
@@ -42,8 +32,22 @@ class ReadMedicalDataController extends Controller
         // $doctor_id = $med_record->getWithDoctor($patient_id);
         // $record_id = $med_record->getWithRecord($patient_id);
         $medicalrecord = $med_record->getAllData($patient_id);
-     
-        return view('Patient/advanced_table',['med_record'=>$medicalrecord]);
+        $recordData=[];
+        foreach($medicalrecord as $data)
+        {   $dataMedical=[];
+            $id_medical = $data->medical_id;
+            $id_doctor = $data->doctor_id;
+            $id_medicine = $data->medicine_id;
+            $doctor = new MedicalStaffUseCase;
+            $doctor_name = $doctor->getWithName($id_doctor);
+            $medicine = new MedicineUseCase;
+            $medicine_name = $medicine->getWithName($id_medicine);
+            $dataMedical["doctor"]=$doctor_name;
+            $dataMedical["medicine"]=$medicine_name;
+            array_push($recordData,$dataMedical);
+        }
+        print($recordData);
+        // return view('Patient/advanced_table',['med_record'=>$medicalrecord]);
     }
 
 }

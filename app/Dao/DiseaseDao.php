@@ -4,7 +4,7 @@
 
     class DiseaseDao
     {
-        public static function getDisease($id)
+        public static function getAllDisease($id)
         {
             $record = Disease::where('disease_id', $id)->get();
             return $record;
@@ -20,7 +20,7 @@
         }
 
         public static function deleteDisease($id){
-            
+
         }
     }
 ?>

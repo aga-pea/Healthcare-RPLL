@@ -6,11 +6,11 @@
     class MedicineUseCase
     {
         
-        public static function getWithNameId()
+        public static function getWithNameId($id)
         {
             $cekmedicine =  new MedicineDao();
-            $medicine_nameid = $cekmedicine->getMedicineStaffNameId();
-            return $medicine_nameid;
+            $medicine_name = $cekmedicine->getMedicineWithId($id);
+            return $medicine_name;
         }
     }
 ?>

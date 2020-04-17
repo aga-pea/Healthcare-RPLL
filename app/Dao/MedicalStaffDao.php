@@ -15,5 +15,11 @@
             $medstaff_nameid = Medical_Staff::select('medstaff_id','medstaff_name')->get();
             return $medstaff_nameid;
         }
+
+        public static function getMedStaffWithId($id)
+        {
+            $medstaff = Medical_Staff::where('medstaff_id',$id)->first();
+            return $medstaff_nameid;
+        }
     }
 ?>
