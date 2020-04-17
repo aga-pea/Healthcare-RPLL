@@ -5,10 +5,9 @@
 
     class ScheduleDao
     {
-        public static function createSchedule($schedule_id, $schedule_date, $schedule_time, $medstaff_id)
+        public static function createSchedule($schedule_date, $schedule_time, $medstaff_id)
         {
             Schedule::create([
-                'schedule_id' => $schedule_id,
                 'schedule_date' => $schedule_date,
                 'schedule_time' => $schedule_time,
                 'medstaff_id' => $medstaff_id
