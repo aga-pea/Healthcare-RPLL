@@ -16,9 +16,9 @@ class RequestAppointmentController extends Controller
     }
     
     public function reqAppointment(Request $request){
-      
         $appoint_date = $request->input('appoint_date');
         $appoint_time = $request->input('appoint_time');
+        
         #Viewnya nama dokter, input doctor_id
         $doctor_id = $request->input('doctor_id');
         $patient_id = $request->session()->get('patient_id');

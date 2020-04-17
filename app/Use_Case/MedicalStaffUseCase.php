@@ -33,8 +33,8 @@
         {
             $cekmedstaff =  new MedicalStaffDao();
             $medstaff=$cekmedstaff->getMedicalStaff($username);
-            $medstaff_uname = $medstaff->medstaff_name;
-            return $medstaff_uname;
+            $medstaff_name = $medstaff->medstaff_name;
+            return $medstaff_name;
         }
 
         public static function getWithId($username)

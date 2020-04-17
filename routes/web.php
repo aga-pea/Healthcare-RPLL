@@ -25,7 +25,6 @@ Route::get('/patient_medical_record', 'ReadMedicalDataController@indexMedicine')
 Route::get('/patient_appointment', 'RequestAppointmentController@index');
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
 
-
 Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/doctor_schedule', function () { return view('Doctor/calendar'); });
