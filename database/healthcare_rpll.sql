@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 17, 2020 at 02:15 PM
+-- Generation Time: Apr 17, 2020 at 02:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
@@ -112,7 +112,8 @@ CREATE TABLE `medical_record` (
   `medstaff_id` int(11) DEFAULT NULL,
   `disease_id` int(11) DEFAULT NULL,
   `medicine_id` int(11) DEFAULT NULL,
-  `hospital_id` int(11) DEFAULT NULL
+  `hospital_id` int(11) DEFAULT NULL,
+  `anamnesia` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
