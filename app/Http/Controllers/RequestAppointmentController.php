@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Use_Case\AppointmentUseCase;
+use App\Use_Case\MedicalStaffUseCase;
 
 class RequestAppointmentController extends Controller
 {
 
     public function index(Request $request){
-        return view("Patient/mail_compose",['doctor' => $doctor_name]);
+        $doctor = new MedicalStaffUseCase;
+        $doctor_nameid = $doctor->getWithNameId();
+        return view("Patient/mail_compose",['doctor_NameId' => $doctor_nameid]);
     }
+    
     public function reqAppointment(Request $request){
       
         $appoint_date = $request->input('appoint_date');

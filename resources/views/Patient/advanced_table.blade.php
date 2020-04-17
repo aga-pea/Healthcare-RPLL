@@ -286,8 +286,10 @@
                   </tr>
                 </thead>
                 <tbody>
+             
                 @foreach($med_record as $data)
                   <tr class="gradeA">
+                    <td>Pasien mengeluh sakit di daerah pantat.</td>
                     <td>{{$data->record_id}}</td>
                     <td>{{$data->disease_id}}</td>
                     <td>{{$data->medicine_id}}</td>

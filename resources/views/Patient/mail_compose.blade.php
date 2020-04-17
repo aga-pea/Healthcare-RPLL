@@ -272,11 +272,9 @@
                   <label class="control-label col-md-3">Nama Dokter</label>
                   <div class="col-md-3 col-xs-11">
                     <select class="form-control" name="doctor_id">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
+                      @foreach($doctor_NameId as $data)
+                        <option value={{$data->medstaff_id}}>{{$data->medstaff_name}}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>

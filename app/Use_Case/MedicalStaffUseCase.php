@@ -44,5 +44,12 @@
             $medstaff_id = $medstaff->medstaff_id;
             return $medstaff_id;
         }
+        
+        public static function getWithNameId()
+        {
+            $cekmedstaff =  new MedicalStaffDao();
+            $medstaff_nameid = $cekmedstaff->getMedStaffNameId();
+            return $medstaff_nameid;
+        }
     }
 ?>
