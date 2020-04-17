@@ -18,13 +18,14 @@ Route::get('/', function () { return view('lock_screen'); });
 Route::get('/patient_login', function () { return view('Patient/login'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
 Route::get('/patient_appointment', function () { return view('Patient/mail_compose'); });
-Route::get('/patient_medical_record', function () { return view('Patient/advanced_table'); });
+Route::get('/patient_medical_record', 'ReadMedicalDataController@readMedicalData');
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
+
 
 Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/doctor_schedule', function () { return view('Doctor/calendar'); });
-Route::get('/patients_medical_record', function () { return view('Doctor/advanced_table'); });
+Route::get('/doctor_medical_record', function () { return view('Doctor/advanced_table'); });
 
 
 Route::get('/warehouse_login', function () { return view('Warehouse/login'); });

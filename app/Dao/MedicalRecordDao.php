@@ -2,11 +2,11 @@
     namespace App\Dao;
     use App\Medical_Record;
 
-    class MedicalRecord
+    class MedicalRecordDao
     {
         public static function getMedicalRecord($record_patient)
         {
-            $record = Medical_Record::where('patient_id', $record_patient)->first();
+            $record = Medical_Record::where('patient_id', $record_patient)->get();
             return $record;
         }
     }

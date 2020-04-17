@@ -286,13 +286,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                @foreach($med_record as $data)
                   <tr class="gradeA">
-                    <td>Pasien mengeluh sakit di daerah pantat.</td>
-                    <td>Ambeien</td>
-                    <td class="hidden-phone">Steroid</td>
-                    <td class="center hidden-phone">-</td>
-                    <td class="center hidden-phone">Dr. Fanny</td>
+                    <td>{{$data->record_id}}</td>
+                    <td>{{$data->disease_id}}</td>
+                    <td>{{$data->medicine_id}}</td>
+                    <td>{{$data->hospital_id}}</td>
+                    <td>{{$data->doctor_id}}</td>
                   </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
