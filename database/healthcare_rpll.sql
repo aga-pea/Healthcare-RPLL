@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 16, 2020 at 02:22 PM
+-- Generation Time: Apr 17, 2020 at 02:15 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.11
 
@@ -32,6 +32,7 @@ CREATE TABLE `appointment` (
   `appt_id` int(11) NOT NULL,
   `appt_date` date DEFAULT NULL,
   `appt_time` time DEFAULT NULL,
+  `appt_status` tinyint(1) DEFAULT NULL,
   `patient_id` varchar(10) DEFAULT NULL,
   `medstaff_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -228,7 +229,6 @@ CREATE TABLE `schedule` (
   `schedule_id` varchar(10) NOT NULL,
   `schedule_date` date DEFAULT NULL,
   `schedule_time` time DEFAULT NULL,
-  `patient_id` varchar(10) DEFAULT NULL,
   `medstaff_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -352,7 +352,6 @@ ALTER TABLE `referral_hospital`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`schedule_id`),
-  ADD KEY `patient_id` (`patient_id`),
   ADD KEY `medstaff_id` (`medstaff_id`);
 
 --
@@ -409,8 +408,7 @@ ALTER TABLE `patient_room`
 -- Constraints for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
-  ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`medstaff_id`) REFERENCES `medical_staff` (`medstaff_id`);
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`medstaff_id`) REFERENCES `medical_staff` (`medstaff_id`);
 
 --
 -- Constraints for table `vehicles`
