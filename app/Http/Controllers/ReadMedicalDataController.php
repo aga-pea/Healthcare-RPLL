@@ -19,8 +19,9 @@ class ReadMedicalDataController extends Controller
         // $hospital_id = $med_record->getWithHospital($patient_id);
         // $doctor_id = $med_record->getWithDoctor($patient_id);
         // $record_id = $med_record->getWithRecord($patient_id);
-        
-        return view('Patient/advanced_table',['med_record'=>$med_record]);
+        $medicalrecord = $med_record->getAllData($patient_id);
+        print($medicalrecord);
+        // return view('Patient/advanced_table',['med_record'=>$med_record]);
     }
 
 }
