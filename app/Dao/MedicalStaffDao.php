@@ -19,7 +19,7 @@
         public static function getMedStaffWithId($id)
         {
             $medstaff = Medical_Staff::where('medstaff_id',$id)->first();
-            return $medstaff_nameid;
+            return $medstaff;
         }
     }
 ?>

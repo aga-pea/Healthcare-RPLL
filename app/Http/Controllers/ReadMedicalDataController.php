@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Use_Case\MedicalDataUseCase;
 use App\Use_Case\MedicineUseCase;
+use App\Use_Case\MedicalStaffUseCase;
 
 class ReadMedicalDataController extends Controller
 {
@@ -13,8 +14,6 @@ class ReadMedicalDataController extends Controller
     //     $doctor_nameid = $doctor->getWithNameId();
     //     return view("Patient/mail_compose",['doctor_NameId' => $doctor_nameid]);
     // }
-
-    
 
     // public function indexHospital(Request $request){
     //     $doctor = new MedicalStaffUseCase;
@@ -32,21 +31,30 @@ class ReadMedicalDataController extends Controller
         // $doctor_id = $med_record->getWithDoctor($patient_id);
         // $record_id = $med_record->getWithRecord($patient_id);
         $medicalrecord = $med_record->getAllData($patient_id);
+
         $recordData=[];
+
         foreach($medicalrecord as $data)
-        {   $dataMedical=[];
+        {   
+            $dataMedical=[];
+
             $id_medical = $data->medical_id;
             $id_doctor = $data->doctor_id;
             $id_medicine = $data->medicine_id;
+
             $doctor = new MedicalStaffUseCase;
-            $doctor_name = $doctor->getWithName($id_doctor);
+            $doctor_name = $doctor->getNameWithId($id_doctor);
             $medicine = new MedicineUseCase;
-            $medicine_name = $medicine->getWithName($id_medicine);
-            $dataMedical["doctor"]=$doctor_name;
-            $dataMedical["medicine"]=$medicine_name;
+            $medicine_name = $medicine->getNameWithId($id_medicine);
+
+            $dataMedical["doctor"] = $doctor_name;
+            $dataMedical["medicine"] = $medicine_name;
             array_push($recordData,$dataMedical);
+
+            print($dataMedical["doctor"]);
         }
-        print($recordData);
+        // print($recordData[0]);
+
         // return view('Patient/advanced_table',['med_record'=>$medicalrecord]);
     }
 

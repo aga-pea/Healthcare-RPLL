@@ -19,8 +19,6 @@ Route::get('/patient_login', function () { return view('Patient/login'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
 
 Route::get('/patient_medical_record', 'ReadMedicalDataController@readMedicalData');
-Route::get('/patient_medical_record', 'ReadMedicalDataController@indexDoctor');
-Route::get('/patient_medical_record', 'ReadMedicalDataController@indexMedicine');
 
 Route::get('/patient_appointment', 'RequestAppointmentController@index');
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
