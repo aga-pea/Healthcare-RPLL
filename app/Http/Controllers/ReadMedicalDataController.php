@@ -51,10 +51,11 @@ class ReadMedicalDataController extends Controller
             $dataMedical["medicine"] = $medicine_name;
             array_push($recordData,$dataMedical);
         }        
-        print(var_dump($recordData[0]));
-        print("<br>");
-        print($recordData[0]["doctor"]);
-        // return view('Patient/advanced_table',['med_record'=>$medicalrecord]);
+        // print(var_dump($recordData[0]));
+        // print("<br>");
+        // print($recordData[0]["doctor"]);
+
+        return view('Patient/advanced_table',['med_record'=>$medicalrecord, 'record_data'=>$recordData]);
     }
 
 }

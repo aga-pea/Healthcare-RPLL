@@ -281,7 +281,7 @@
                     <th>Anamnesia</th>
                     <th>Diagnosa</th>
                     <th class="hidden-phone">Medicine(s)</th>
-                    <th class="hidden-phone">Referral/th>
+                    <th class="hidden-phone">Referral</th>
                     <th class="hidden-phone">Doctor</th>
                   </tr>
                 </thead>
@@ -290,11 +290,10 @@
                 @foreach($med_record as $data)
                   <tr class="gradeA">
                     <td>Pasien mengeluh sakit di daerah pantat.</td>
-                    <td>{{$data->record_id}}</td>
                     <td>{{$data->disease_id}}</td>
-                    <td>{{$data->medicine_id}}</td>
+                    <td>{{$record_data[$data->record_id-1]["medicine"]}}</td>
                     <td>{{$data->hospital_id}}</td>
-                    <td>{{$data->doctor_id}}</td>
+                    <td>{{$record_data[$data->record_id-1]["doctor"]}}</td>
                   </tr>
                 @endforeach
                 </tbody>
