@@ -55,9 +55,9 @@
         public static function getNameWithId($id){
             $cekmedstaff =  new MedicalStaffDao();
             $medstaff = $cekmedstaff->getMedStaffWithId($id);
-            // $medstaff_name = $medstaff->medstaff_name;
+            $medstaff_name = $medstaff->medstaff_name;
             // print($medstaff);
-            return $medstaff;
+            // return $medstaff_name;
         }
     }
 ?>

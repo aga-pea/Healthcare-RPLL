@@ -30,8 +30,8 @@ class ReadMedicalDataController extends Controller
         // $hospital_id = $med_record->getWithHospital($patient_id);
         // $doctor_id = $med_record->getWithDoctor($patient_id);
         // $record_id = $med_record->getWithRecord($patient_id);
+        
         $medicalrecord = $med_record->getAllData($patient_id);
-
         $recordData=[];
 
         foreach($medicalrecord as $data)
