@@ -136,6 +136,7 @@ CREATE TABLE medical_record(
 	disease_id int,
 	medicine_id int,
 	hospital_id int,
+	anamnesia VARCHAR(500),
 	PRIMARY KEY(record_id),
 	FOREIGN KEY(patient_id) REFERENCES patient(patient_id),
 	FOREIGN KEY(medstaff_id) REFERENCES medical_staff(medstaff_id),
