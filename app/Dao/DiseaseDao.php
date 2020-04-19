@@ -22,5 +22,12 @@
         public static function deleteDisease($id){
 
         }
+
+        public static function getDiseaseWithId($id)
+        {
+            $disease = Disease::where('disease_id',$id)->first();
+            return $disease;
+        }
     }
+    
 ?>

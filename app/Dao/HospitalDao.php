@@ -22,5 +22,11 @@
         public static function deleteHospital($id){
             
         }
+
+        public static function getHospitalWithId($id)
+        {
+            $hospital = Hospital::where('hospital_id',$id)->first();
+            return $hospital;
+        }
     }
 ?>

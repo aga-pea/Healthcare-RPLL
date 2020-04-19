@@ -19,5 +19,13 @@
             $hospital_name = $hospital->hospital_name;
             return $hospital_name;
         }
+
+        public static function getNameWithId($id)
+        {
+            $cekHospital =  new HospitalDao();
+            $hospital = $cekHospital->getHospitalWithId($id);
+            $hospital_name = $hospital->hospital_name;
+            return $hospital_name;
+        }
     }
 ?>

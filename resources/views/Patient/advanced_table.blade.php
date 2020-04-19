@@ -290,9 +290,9 @@
                 @foreach($med_record as $data)
                   <tr class="gradeA">
                     <td>Pasien mengeluh sakit di daerah pantat.</td>
-                    <td>{{$data->disease_id}}</td>
+                    <td>{{$record_data[$data->record_id-1]["disease"]}}</td>
                     <td>{{$record_data[$data->record_id-1]["medicine"]}}</td>
-                    <td>{{$data->hospital_id}}</td>
+                    <td>{{$record_data[$data->record_id-1]["hospital"]}}</td>
                     <td>{{$record_data[$data->record_id-1]["doctor"]}}</td>
                   </tr>
                 @endforeach
