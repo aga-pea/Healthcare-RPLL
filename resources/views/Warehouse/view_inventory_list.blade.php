@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@include('subs.meta-head')
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +32,20 @@
 </head>
 
 <body>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
+  <style type="text/css">
+		.pagination li{
+			float: left;
+			list-style-type: none;
+			margin:5px;
+		}
+	</style>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -227,7 +243,7 @@
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li>
-            <a class="logout" href="login.html">Logout</a>
+            <a class="logout" href="/logout_warehouse">Logout</a>
           </li>
         </ul>
       </div>
@@ -241,181 +257,61 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered">
-            <a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a>
-          </p>
+          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="/warehouse_main">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li>
-                <a href="general.html">General</a>
-              </li>
-              <li>
-                <a href="buttons.html">Buttons</a>
-              </li>
-              <li>
-                <a href="panels.html">Panels</a>
-              </li>
-              <li>
-                <a href="font_awesome.html">Font Awesome</a>
-              </li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li>
-                <a href="grids.html">Grids</a>
-              </li>
-              <li>
-                <a href="calendar.html">Calendar</a>
-              </li>
-              <li>
-                <a href="gallery.html">Gallery</a>
-              </li>
-              <li>
-                <a href="todo_list.html">Todo List</a>
-              </li>
-              <li>
-                <a href="dropzone.html">Dropzone File Upload</a>
-              </li>
-              <li>
-                <a href="inline_editor.html">Inline Editor</a>
-              </li>
-              <li>
-                <a href="file_upload.html">Multiple File Upload</a>
-              </li>
-            </ul>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Extra Pages</span>
               </a>
             <ul class="sub">
-              <li>
-                <a href="blank.html">Blank Page</a>
-              </li>
-              <li>
-                <a href="login.html">Login</a>
-              </li>
-              <li>
-                <a href="lock_screen.html">Lock Screen</a>
-              </li>
-              <li>
-                <a href="profile.html">Profile</a>
-              </li>
-              <li>
-                <a href="invoice.html">Invoice</a>
-              </li>
-              <li>
-                <a href="pricing_table.html">Pricing Table</a>
-              </li>
-              <li>
-                <a href="faq.html">FAQ</a>
-              </li>
-              <li>
-                <a href="404.html">404 Error</a>
-              </li>
-              <li>
-                <a href="500.html">500 Error</a>
-              </li>
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="lock_screen.html">Lock Screen</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="invoice.html">Invoice</a></li>
+              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="/warehouse_input">
               <i class="fa fa-tasks"></i>
-              <span>Forms</span>
+              <span>Input New Item</span>
               </a>
-            <ul class="sub">
-              <li>
-                <a href="form_component.html">Form Components</a>
-              </li>
-              <li>
-                <a href="advanced_form_components.html">Advanced Components</a>
-              </li>
-              <li>
-                <a href="form_validation.html">Form Validation</a>
-              </li>
-            </ul>
+            <!-- <ul class="sub">
+              <li class="active"><a href="form_component.html">Form Components</a></li>
+              <li><a href="advanced_form_components.html">Advanced Components</a></li>
+              <li><a href="form_validation.html">Form Validation</a></li>
+              <li><a href="contactform.html">Contact Form</a></li>
+            </ul> -->
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a class="active" href="/warehouse_view">
               <i class="fa fa-th"></i>
-              <span>Data Tables</span>
-              </a>
-            <ul class="sub">
-              <li class="active">
-                <a href="basic_table.html">Basic Table</a>
-              </li>
-              <li>
-                <a href="responsive_table.html">Responsive Table</a>
-              </li>
-              <li>
-                <a href="advanced_table.html">Advanced Table</a>
-              </li>
-            </ul>
+              <span>View Inventory</span>
+            </a>
           </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class=" fa fa-bar-chart-o"></i>
               <span>Charts</span>
               </a>
             <ul class="sub">
-              <li>
-                <a href="morris.html">Morris</a>
-              </li>
-              <li>
-                <a href="chartjs.html">Chartjs</a>
-              </li>
-              <li>
-                <a href="flot_chart.html">Flot Charts</a>
-              </li>
-              <li>
-                <a href="xchart.html">xChart</a>
-              </li>
+              <li><a href="morris.html">Morris</a></li>
+              <li><a href="chartjs.html">Chartjs</a></li>
+              <li><a href="flot_chart.html">Flot Charts</a></li>
+              <li><a href="xchart.html">xChart</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li>
-                <a href="lobby.html">Lobby</a>
-              </li>
-              <li>
-                <a href="chat_room.html"> Chat Room</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
-          </li>
+          </li> -->
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -427,170 +323,111 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <h4><i class="fa fa-angle-right"></i> Basic Table</h4>
-              <hr>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- /col-md-12 -->
-          <div class="col-md-12 mt">
-            <div class="content-panel">
-              <table class="table table-hover">
-                <h4><i class="fa fa-angle-right"></i> Hover Table</h4>
-                <hr>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Simon</td>
-                    <td>Mosa</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- /col-md-12 -->
-        </div>
+        <?php $value = session('tipe');?>
+        <h3><i class="fa fa-angle-right"></i>Table {{$value}}</h3>
+        
         <!-- row -->
         <div class="row mt">
           <div class="col-md-12">
             <div class="content-panel">
               <table class="table table-striped table-advance table-hover">
-                <h4><i class="fa fa-angle-right"></i> Advanced Table</h4>
-                <hr>
+              @if(\Session::get('tipe')=='Medicine')
                 <thead>
                   <tr>
-                    <th><i class="fa fa-bullhorn"></i> Company</th>
-                    <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
-                    <th><i class="fa fa-bookmark"></i> Profit</th>
-                    <th><i class=" fa fa-edit"></i> Status</th>
+                    <th>Name</th>
+                    <th class="hidden-phone">Expired Date</th>
+                    <th>Level</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Tipe</th>
+                    <th>Vendor</th>
+                    <th><i class=" fa fa-edit"></i>Edit</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($list as $data)
                   <tr>
+                    <form action="/warehouse_view_detail" method="get">
+                    @csrf
+                    <input type='hidden' name='tipe' value="Medicine">
+                    <input type='hidden' name='id' value='{{$data->medicine_id}}'>
+                    <td>{{$data->medicine_name}}</td>
+                    <td class="hidden-phone">{{$data->medicine_exp_date}}</td>
+                    <td>{{$data->medicine_level}}</td>
+                    <td>{{$data->medicine_price}}</td>
+                    <td>{{$data->medicine_qty}}</td>
+                    <td>{{$data->medicine_type}}</td>
+                    <td>{{$data->medicine_vendor}}</td>
                     <td>
-                      <a href="basic_table.html#">Company Ltd</a>
+                      <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs" name="submit" value='delete'><i class="fa fa-trash-o "></i></button>
                     </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>12000.00$ </td>
-                    <td><span class="label label-info label-mini">Due</span></td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
+                    </form>
                   </tr>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">
-                        Dashio co
-                        </a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>17900.00$ </td>
-                    <td><span class="label label-warning label-mini">Due</span></td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">
-                        Another Co
-                        </a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>14400.00$ </td>
-                    <td><span class="label label-success label-mini">Paid</span></td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">Dashio ext</a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>22000.50$ </td>
-                    <td><span class="label label-success label-mini">Paid</span></td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">Total Ltd</a>
-                    </td>
-                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                    <td>12120.00$ </td>
-                    <td><span class="label label-warning label-mini">Due</span></td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
-                  </tr>
+                  @endforeach
+                    
                 </tbody>
+                {{ $list->links() }}
+              @elseif(\Session::get('tipe')=='Electronics')
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Tipe</th>
+                    <th><i class=" fa fa-edit"></i>Edit</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($list as $data)
+                  <tr>
+                    <form action="/warehouse_view_detail" method="get">
+                    @csrf
+                    <input type='hidden' name='tipe' value="Electronics">
+                    <input type='hidden' name='id' value='{{$data->electronic_id}}'>
+                    <td>{{$data->electronic_name}}</td>
+                    <td>{{$data->electronic_qty}}</td>
+                    <td>{{$data->electronic_type}}</td>
+                    <td>
+                      <button class="btn btn-primary btn-xs" name="submit"value='edit'><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs" name="submit" value='delete'><i class="fa fa-trash-o "></i></button>
+                    </td>
+                    </form>
+                  </tr>
+                  @endforeach
+                </tbody>
+                {{ $list->links() }}
+              @elseif(\Session::get('tipe')=='Medical Utilities')
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Tipe</th>
+                    <th><i class=" fa fa-edit"></i>Edit</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach($list as $data)
+                  <tr>
+                    <form action="/warehouse_view_detail" method="get">
+                    @csrf
+                    <input type='hidden' name='tipe' value="Medical Utilities">
+                    <input type='hidden' name='id' value='{{$data->util_id}}'>
+                    <td>{{$data->util_name}}</td>
+                    <td>{{$data->util_qty}}</td>
+                    <td>{{$data->util_type}}</td>
+                    <td>
+                      <button class="btn btn-primary btn-xs" name="submit"value='edit'><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs" name="submit" value='delete'><i class="fa fa-trash-o "></i></button>
+                    </td>
+                    </form>
+                  </tr>
+                  @endforeach
+                </tbody>
+                {{ $list->links() }}
+              @endif
               </table>
             </div>
             <!-- /content-panel -->

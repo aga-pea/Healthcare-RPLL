@@ -33,6 +33,11 @@ Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
 Route::get('/warehouse_input', 'AddInventoryController@index');
 Route::get('/warehouse_input_detail','AddInventoryController@detail');
 Route::get('/warehouse_input_detail_proses','AddInventoryController@store');
+Route::get('/warehouse_view', 'ViewInventoryController@index');
+Route::get('/warehouse_view_list','ViewInventoryController@list');
+Route::get('/warehouse_view_detail','ViewInventoryController@detail');
+Route::get('/warehouse_view_detail_update', 'ViewInventoryController@update');
+Route::get('/logout_warehouse', 'LoginWarehouseController@logout');
 
 Route::get('/receiptionist_login', function () { return view('Receiptionist/login'); });
 Route::get('/receiptionist_main', function () { return view('Receiptionist/index'); });

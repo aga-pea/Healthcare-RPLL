@@ -234,7 +234,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="/logout_warehouse">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -250,7 +250,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a  class="active" href="index.html">
+            <a  class="active" href="/warehouse_main">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -285,15 +285,10 @@
             </ul> -->
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="/warehouse_view">
               <i class="fa fa-th"></i>
-              <span>Update Item</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
+              <span>View Inventory</span>
+            </a>
           </li>
           <!-- <li class="sub-menu">
             <a href="javascript:;">

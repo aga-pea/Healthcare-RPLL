@@ -279,7 +279,7 @@
             </ul>
           </li> -->
           <li class="sub-menu">
-            <a class="active" href="/warehouse_input">
+            <a href="/warehouse_input">
               <i class="fa fa-tasks"></i>
               <span>Input New Item</span>
               </a>
@@ -291,7 +291,7 @@
             </ul> -->
           </li>
           <li class="sub-menu">
-            <a href="/warehouse_view">
+            <a class="active" href="/warehouse_view">
               <i class="fa fa-th"></i>
               <span>View Inventory</span>
             </a>
@@ -319,121 +319,23 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Input New Item</h3>
+        <h3><i class="fa fa-angle-right"></i>View/Input/Update Inventory</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
               
-              <form class="form-horizontal style-form" action="/warehouse_input_detail_proses" method="get">
-                @if(\Session::get('tipe')=='Medicine')
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Medicine</h4>
-                  <input type='hidden' name='tipe' value="Medicine">
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="medicine_name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Level</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="medicine_level">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Price</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="medicine_price">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Type</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" type="text" name="medicine_type">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Quantity</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" type="text" name="medicine_qty">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Vendor</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="medicine_vendor">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3">Expiration Date</label>
-                    <div class="col-md-3 col-xs-11">
-                      <div data-date-viewmode="years" data-date-format="yyyy-mm-dd" data-date="01-01-2014" class="input-append date dpYears">
-                        <input type="text" readonly="" value="2020-04-07" size="16" class="form-control" name="medicine_exp_date">
-                        <span class="input-group-btn add-on">
-                          <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
-                          </span>
-                      </div>
-                      <span class="help-block">Select date</span>
-                    </div>
-                  </div>
-                @elseif(\Session::get('tipe')=='Electronics')
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Electronics</h4>
-                  <input type='hidden' name='tipe' value="Electronics">
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="electronic_name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Quantity</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="electronic_qty">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Type</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" type="text" name="electronic_type">
-                    </div>
-                  </div>
-                @elseif(\Session::get('tipe')=='Medical Utilities')
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Medical Utilities</h4>
-                <input type='hidden' name='tipe' value="Medical Utilities">
-                <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="util_name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Quantity</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="util_qty">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Type</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" type="text" name="util_type">
-                    </div>
-                  </div>         
-                @endif
-                <button type="submit" class="btn btn-theme">Submit</button>
+              <form class="form-horizontal style-form" action="/warehouse_view_list" method="get">
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
+                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih tipe inventory yang ingin dilihat</h4>
+                  <select class="form-control" name="tipe">
+                      <option values="Medicine">Medicine</option>
+                      <option values="Electronics">Electronics</option>
+                      <option values="Medical Utilities">Medical Utilities</option>
+                  </select>
+                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
               </form>
-              <br>
-              @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-              @endif
               </div>
-              
             </div>
             <!-- col-lg-12-->
           </div>

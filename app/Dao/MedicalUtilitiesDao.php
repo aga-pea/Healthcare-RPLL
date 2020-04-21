@@ -13,5 +13,27 @@
                 'util_type' => $util_type
             ]); 
         }
+
+        public static function getAllUtil(){
+            $util = Medical_Utilities::paginate(10);
+            return $util;
+        }
+
+        public static function deleteUtil($id)
+        {
+            $util = Medical_Utilities::where('util_id',$id)->first();
+            $util->delete();
+        }
+
+        public static function getUtil($id)
+        {
+            $util = Medical_Utilities::where('util_id',$id)->first();
+            return $util;
+        }
+
+        public static function updateUtil($id,$name, $qty, $type)
+        {
+            $util = Medical_Utilities::where('util_id',$id)->update(['util_name' => $name, 'util_qty' =>$qty, 'util_type' =>$type]);
+        }
     }
 ?>

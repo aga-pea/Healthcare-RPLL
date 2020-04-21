@@ -44,6 +44,8 @@ class LoginWarehouseController extends Controller
         $request->session()->forget('username');
         $request->session()->forget('name');
         $request->session()->forget('nonmed_id');
+        $request->session()->forget('id');
+        $request->session()->forget('tipe');
         return redirect('/');
     }
 }
