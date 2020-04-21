@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@include('subs.meta-head')
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>TOKlinik</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -43,7 +45,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -232,7 +234,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/">Logout</a></li>
+          <li><a class="logout" href="login.html">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -248,39 +250,12 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a  class="active" href="index.html">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Extra Pages</span>
@@ -296,23 +271,23 @@
               <li><a href="404.html">404 Error</a></li>
               <li><a href="500.html">500 Error</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="/warehouse_input">
               <i class="fa fa-tasks"></i>
-              <span>Forms</span>
+              <span>Input New Item</span>
               </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Form Components</a></li>
+            <!-- <ul class="sub">
+              <li class="active"><a href="form_component.html">Form Components</a></li>
               <li><a href="advanced_form_components.html">Advanced Components</a></li>
               <li><a href="form_validation.html">Form Validation</a></li>
               <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>
-              <span>Data Tables</span>
+              <span>Update Item</span>
               </a>
             <ul class="sub">
               <li><a href="basic_table.html">Basic Table</a></li>
@@ -320,14 +295,7 @@
               <li><a href="advanced_table.html">Advanced Table</a></li>
             </ul>
           </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class=" fa fa-bar-chart-o"></i>
               <span>Charts</span>
@@ -338,23 +306,7 @@
               <li><a href="flot_chart.html">Flot Charts</a></li>
               <li><a href="xchart.html">xChart</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
-          </li>
+          </li> -->
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -534,7 +486,7 @@
               <div class="col-md-4 mb">
                 <div class="twitter-panel pn">
                   <i class="fa fa-twitter fa-4x"></i>
-                  <p>Dashio is here! Take a look and enjoy this new Bootstrap Dashboard theme.</p>
+                  <p>TOKlinik is here! Take a look and enjoy this new Bootstrap Dashboard theme.</p>
                   <p class="user">@Alvrz_is</p>
                 </div>
               </div>
@@ -791,7 +743,7 @@
     <footer class="site-footer">
       <div class="text-center">
         <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+          &copy; Copyrights <strong>TOKlinik</strong>. All Rights Reserved
         </p>
         <div class="credits">
           <!--
@@ -828,7 +780,7 @@
     $(document).ready(function() {
       var unique_id = $.gritter.add({
         // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
+        title: 'Welcome to TOKlinik!',
         // (string | mandatory) the text inside the notification
         text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
         // (string | optional) the image to display on the left

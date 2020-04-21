@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@include('subs.meta-head')
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>TOKlinik - Input New Item</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -32,6 +34,13 @@
 </head>
 
 <body>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -42,7 +51,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -247,39 +256,12 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="\warehouse_main">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-              <li><a href="font_awesome.html">Font Awesome</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="todo_list.html">Todo List</a></li>
-              <li><a href="dropzone.html">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.html">Inline Editor</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Extra Pages</span>
@@ -295,24 +277,23 @@
               <li><a href="404.html">404 Error</a></li>
               <li><a href="500.html">500 Error</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a class="active" href="form_component.html">
               <i class="fa fa-tasks"></i>
-              <span>Forms</span>
+              <span>Input New Item</span>
               </a>
-            <ul class="sub">
+            <!-- <ul class="sub">
               <li class="active"><a href="form_component.html">Form Components</a></li>
               <li><a href="advanced_form_components.html">Advanced Components</a></li>
               <li><a href="form_validation.html">Form Validation</a></li>
               <li><a href="contactform.html">Contact Form</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>
-              <span>Data Tables</span>
+              <span>Update Item</span>
               </a>
             <ul class="sub">
               <li><a href="basic_table.html">Basic Table</a></li>
@@ -320,14 +301,7 @@
               <li><a href="advanced_table.html">Advanced Table</a></li>
             </ul>
           </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              <span class="label label-theme pull-right mail-info">2</span>
-              </a>
-          </li>
-          <li class="sub-menu">
+          <!-- <li class="sub-menu">
             <a href="javascript:;">
               <i class=" fa fa-bar-chart-o"></i>
               <span>Charts</span>
@@ -338,23 +312,7 @@
               <li><a href="flot_chart.html">Flot Charts</a></li>
               <li><a href="xchart.html">xChart</a></li>
             </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-comments-o"></i>
-              <span>Chat Room</span>
-              </a>
-            <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="google_maps.html">
-              <i class="fa fa-map-marker"></i>
-              <span>Google Maps </span>
-              </a>
-          </li>
+          </li> -->
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -366,210 +324,27 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Form Components</h3>
+        <h3><i class="fa fa-angle-right"></i>Input New Item</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
-              <form class="form-horizontal style-form" method="get">
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Default</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Help text</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control">
-                    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Rounder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control round-form">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Input focus</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Placeholder</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="placeholder">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" placeholder="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 col-sm-2 control-label">Static control</label>
-                  <div class="col-lg-10">
-                    <p class="form-control-static">email@example.com</p>
-                  </div>
-                </div>
+              
+              <form class="form-horizontal style-form" action="/warehouse_input_detail" method="get">
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
+                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih inventory yang ingin ditambah</h4>
+                  <select class="form-control" name="tipe">
+                      <option values="Medicine">Medicine</option>
+                      <option values="Electronics">Electronics</option>
+                      <option values="Medical Utilities">Medical Utilities</option>
+                  </select>
+                <button type="submit" class="btn btn-theme">Submit</button>
               </form>
-            </div>
-          </div>
-          <!-- col-lg-12-->
-        </div>
-        <!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Inline Form</h4>
-              <form class="form-inline" role="form">
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputPassword2">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-theme">Sign in</button>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Input Messages</h4>
-              <form class="form-horizontal tasi-form" method="get">
-                <div class="form-group has-success">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Input with success</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputSuccess">
-                  </div>
-                </div>
-                <div class="form-group has-warning">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputWarning">Input with warning</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputWarning">
-                  </div>
-                </div>
-                <div class="form-group has-error">
-                  <label class="col-sm-2 control-label col-lg-2" for="inputError">Input with error</label>
-                  <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputError">
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Checkboxes, Radios & Selects</h4>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  Option one is this and that&mdash;be sure to include why it's great
-                  </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                  Option one is this and that&mdash;be sure to include why it's great
-                  </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Option two can be something else and selecting it will deselect option one
-                  </label>
-              </div>
-              <hr>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-                </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-                </label>
-              <hr>
-              <select class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              <br>
-              <select multiple class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-          <!-- CUSTOM TOGGLES -->
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <h4 class="mb"><i class="fa fa-angle-right"></i> Custom Toggles</h4>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked="" data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" data-toggle="switch" />
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" />
-                  </div>
-                </div>
-                <div class="col-sm-6 text-center">
-                  <div class="switch switch-square" data-on-label="<i class=' fa fa-check'></i>" data-off-label="<i class='fa fa-times'></i>">
-                    <input type="checkbox" checked="" />
-                  </div>
-                </div>
-              </div>
-              <div class="row mt">
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" disabled data-toggle="switch" />
-                </div>
-                <div class="col-sm-6 text-center">
-                  <input type="checkbox" checked disabled data-toggle="switch" />
-                </div>
               </div>
             </div>
+            <!-- col-lg-12-->
           </div>
         </div>
-        <!-- /row -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -612,10 +387,15 @@
   <!--custom tagsinput-->
   <script src="lib/jquery.tagsinput.js"></script>
   <!--custom checkbox & radio-->
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
   <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
   <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="lib/advanced-form-components.js"></script>
   <script src="lib/form-component.js"></script>
 
 </body>

@@ -6,9 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Medicine extends Model
+class Electronics extends Model
 {
-    protected $table="medicine";
+    protected $table="electronics";
     public $timestamps = false;
     use Notifiable;
 
@@ -18,8 +18,7 @@ class Medicine extends Model
      * @var array
      */
     protected $fillable = [
-        'medicine_exp_date', 'medicine_level', 'medicine_name',
-        'medicine_price', 'medicine_qty', 'medicine_type', 'medicine_vendor'
+        'electronic_name','electronic_qty', 'electronic_type' 
     ];
 
     /**

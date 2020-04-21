@@ -30,6 +30,9 @@ Route::get('/doctor_medical_record', function () { return view('Doctor/advanced_
 
 Route::get('/warehouse_login', function () { return view('Warehouse/login'); });
 Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
+Route::get('/warehouse_input', 'AddInventoryController@index');
+Route::get('/warehouse_input_detail','AddInventoryController@detail');
+Route::get('/warehouse_input_detail_proses','AddInventoryController@store');
 
 Route::get('/receiptionist_login', function () { return view('Receiptionist/login'); });
 Route::get('/receiptionist_main', function () { return view('Receiptionist/index'); });

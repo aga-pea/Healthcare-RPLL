@@ -11,7 +11,7 @@
                 'appt_date' => $appoint_date,
                 'appt_time' => $appoint_time,
                 'patient_id' => $patient_id,
-                'medstaff_id' => $doctor_id,
+                'medstaff_id' => $doctor_id
             ]); 
         }
     }
