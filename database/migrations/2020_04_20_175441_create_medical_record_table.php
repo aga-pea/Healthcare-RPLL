@@ -15,6 +15,7 @@ class CreateMedicalRecordTable extends Migration
     {
         Schema::create('medical_record', function (Blueprint $table) {
             $table->increments('record_id');
+            $table->string('anamnesia',500);
             $table->integer('patient_id')->unsigned();
             $table->integer('medstaff_id')->unsigned();
             $table->integer('disease_id')->unsigned();
