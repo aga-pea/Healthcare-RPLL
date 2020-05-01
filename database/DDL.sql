@@ -83,7 +83,7 @@ CREATE TABLE medical_staff(
 	medstaff_uname VARCHAR(50),
 	medstaff_pwd VARCHAR(20),
 	anamnesia VARCHAR(300),
-	#fk
+	-- fk
 	department_id int,
 	PRIMARY KEY(medstaff_id),
 	FOREIGN KEY(department_id) REFERENCES department(department_id)
@@ -93,7 +93,7 @@ CREATE TABLE vehicles(
 	vehicle_id int,
 	vehicle_type VARCHAR(50),
 	vehicle_availability boolean,
-	#fk
+	-- fk
 	nonmed_id int,
 	PRIMARY KEY(vehicle_id),
 	FOREIGN KEY(nonmed_id) REFERENCES nonmedical_staff(nonmed_id)
@@ -104,7 +104,7 @@ CREATE TABLE appointment(
 	appt_date date,
 	appt_time time,
 	appt_status boolean,
-	#fk
+	-- fk
 	patient_id VARCHAR(10),
 	medstaff_id int,
 	PRIMARY KEY(appt_id),
@@ -116,7 +116,7 @@ CREATE TABLE patient_room(
 	room_no int,
 	room_capacity int,
 	room_availability boolean,
-	#fk
+	-- fk
 	patient_id VARCHAR(10),
 	electronic_id int,
 	medstaff_id int,
@@ -130,7 +130,7 @@ CREATE TABLE patient_room(
 
 CREATE TABLE medical_record(
 	record_id int,
-	#fk
+	-- fk
 	patient_id VARCHAR(10),
 	medstaff_id int,
 	disease_id int,
@@ -150,7 +150,7 @@ CREATE TABLE invoice(
 	invoice_amount int,
 	invoice_date date,
 	invoice_method VARCHAR(50),
-	#fk
+	-- fk
 	patient_id VARCHAR(10),
 	record_id int,
 	PRIMARY KEY(invoice_id),
@@ -159,10 +159,10 @@ CREATE TABLE invoice(
 );
 
 CREATE TABLE schedule(
-	schedule_id int NOT NULL AUTO_INCREMENT,
+	schedule_id int,
 	schedule_date date,
 	schedule_time time,
-	#fk
+	-- fk
 	medstaff_id int,
 	PRIMARY KEY(schedule_id),
 	FOREIGN KEY(medstaff_id) REFERENCES medical_staff(medstaff_id)

@@ -11,5 +11,11 @@
             $reqSchedule->createSchedule($schedule_date, $schedule_time, $id);
         }
 
+        public static function updateSchedule($id, $date, $time)
+        {
+            $updateSchedule = new ScheduleDao();
+            $updateSchedule->updateSchedule($id,$date, $time);
+        }
+
     }
 ?>
