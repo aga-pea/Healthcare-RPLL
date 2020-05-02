@@ -44,5 +44,18 @@
             $patient_uname = $patient->patient_id;
             return $patient_uname;
         }
+
+        public static function addPatient($name,$address,$age,$dob,$gender,$uname,$pwd)
+        {
+            $addpatient = new PatientDao();
+            $patient=$addpatient->createPatient($name,$address,$age,$dob,$gender,$uname,$pwd);
+        }
+
+        public static function getListPatient()
+        {
+            $patient = new PatientDao();
+            $patient_all = $patient->getPatientAll();
+            return $patient_all;
+        }
     }
 ?>

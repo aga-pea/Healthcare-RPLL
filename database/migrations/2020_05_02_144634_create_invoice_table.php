@@ -19,9 +19,9 @@ class CreateInvoiceTable extends Migration
             $table->date('invoice_date');
             $table->string('invoice_method',50);
             $table->integer('patient_id')->unsigned();
-            $table->integer('record_id')->unsigned();
+            $table->integer('cost_id')->unsigned();
             $table->foreign('patient_id')->references('patient_id')->on('patient');
-            $table->foreign('record_id')->references('record_id')->on('medical_record');
+            $table->foreign('cost_id')->references('cost_id')->on('visit_cost');
         });
     }
 

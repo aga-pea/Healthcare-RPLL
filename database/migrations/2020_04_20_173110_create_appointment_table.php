@@ -17,6 +17,7 @@ class CreateAppointmentTable extends Migration
             $table->increments('appt_id');
             $table->date('appt_date');
             $table->timestamp('appt_time');
+            $table->string('appt_status');
             $table->integer('patient_id')->unsigned();
             $table->integer('medstaff_id')->unsigned();
             $table->foreign('patient_id')->references('patient_id')->on('patient');

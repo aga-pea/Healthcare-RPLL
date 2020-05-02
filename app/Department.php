@@ -7,9 +7,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Appointment extends Model
+class Department extends Model
 {
-    protected $table="appointment";
+    protected $table="department";
     public $timestamps = false;
     use Notifiable;
 
@@ -19,7 +19,7 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'appt_id', 'appt_date', 'appt_time','appt_status','patient_id','medstaff_id'
+        'department_name'
     ];
 
     /**
@@ -28,7 +28,6 @@ class Appointment extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
     ];
 
     /**

@@ -17,7 +17,7 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'schedule_date', 'schedule_time', 'medstaff_id'
+        'schedule_date', 'schedule_time', 'medstaff_id', 'department_id'
     ];
 
     /**
