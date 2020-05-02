@@ -31,5 +31,11 @@
             $schedule = $searchSchedule->getScheduleById($schedule_id);
             return $schedule;
         }
+
+        public static function updateSchedule($id, $date, $time)
+        {
+            $updateSchedule = new ScheduleDao();
+            $updateSchedule->updateSchedule($id,$date, $time);
+        }
     }
 ?>
