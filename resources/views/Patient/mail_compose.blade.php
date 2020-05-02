@@ -267,13 +267,13 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <form action="/patient_appointment_add" class="form-horizontal style-form">
-                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
+                <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                 <div class="form-group">
                   <label class="control-label col-md-3">Nama Dokter</label>
                   <div class="col-md-3 col-xs-11">
                     <select class="form-control" name="doctor_id">
                       @foreach($doctor_NameId as $data)
-                        <option value={{$data->medstaff_id}}>{{$data->medstaff_name}}</option>
+                      <option value={{$data->medstaff_id}}>{{$data->medstaff_name}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -281,20 +281,21 @@
                 <div class="form-group">
                   <label class="control-label col-md-3">Tanggal Pertemuan</label>
                   <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium default-date-picker" name="appoint_date" size="16" type="text" value="">
-                    <span class="help-block">Click kolom diatas untuk memunculkan tanggal</span>
+                    <select class="form-control" name="doctor_id">
+                      @foreach($doctor_NameId as $data)
+                      <option value={{$data->medstaff_id}}>{{$data->medstaff_name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-3">Jam Pertemuan</label>
-                  <div class="col-md-4">
-                    <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24" style="width:80px;" name="appoint_time">
-                      <span>
-                        <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
-                      </span>
-                    </div>
-                    <span>Click tombol merah dikanan kolom untuk menampilkan jam</span>
+                  <div class="col-md-3 col-xs-11">
+                    <select class="form-control" name="doctor_id">
+                      @foreach($doctor_NameId as $data)
+                      <option value={{$data->medstaff_id}}>{{$data->medstaff_name}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-theme" name="submitAppointment">Submit Request</button>
@@ -303,6 +304,37 @@
             <!-- /form-panel -->
           </div>
           <!-- /col-lg-12 -->
+        </div>
+
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i> Appointments </h4>
+                <hr>
+                <thead>
+                  <tr>
+                    <th><i class="fa fa-stethoscope"></i> Dokter</th>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i> Tanggal Pertemuan</th>
+                    <th><i class="fa fa-clock-o"></i> Jam Pertemuan</th>
+                    <th><i class=" fa fa-edit"></i> Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="basic_table.html#">Company Ltd</a>
+                    </td>
+                    <td class="hidden-phone">Lorem Ipsum dolor</td>
+                    <td>12000.00$ </td>
+                    <td><span class="label label-info label-mini">Accepted</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
         </div>
         <!-- /row -->
       </section>

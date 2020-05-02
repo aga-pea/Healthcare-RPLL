@@ -13,21 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+------------------------------------------------------------------
+Index Routes
+------------------------------------------------------------------
+*/
 Route::get('/', function () { return view('lock_screen'); });
 
+/*
+------------------------------------------------------------------
+Patient Routes & Controller
+------------------------------------------------------------------
+*/
 Route::get('/patient_login', function () { return view('Patient/login'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
-
 Route::get('/patient_medical_record', 'ReadMedicalDataController@readMedicalData');
-
 Route::get('/patient_appointment', 'RequestAppointmentController@index');
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
 
+/*
+------------------------------------------------------------------
+Doctor Routes & Controller
+------------------------------------------------------------------
+*/
 Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/doctor_schedule', function () { return view('Doctor/calendar'); });
 Route::get('/doctor_medical_record', function () { return view('Doctor/advanced_table'); });
 
+/*
+------------------------------------------------------------------
+Warehouse Routes & Controller
+------------------------------------------------------------------
+*/
 Route::get('/warehouse_login', function () { return view('Warehouse/login'); });
 Route::get('/warehouse_main', function () { return view('Warehouse/index'); });
 Route::get('/warehouse_input', 'AddInventoryController@index');
@@ -39,12 +57,28 @@ Route::get('/warehouse_view_detail','ViewInventoryController@detail');
 Route::get('/warehouse_view_detail_update', 'ViewInventoryController@update');
 Route::get('/logout_warehouse', 'LoginWarehouseController@logout');
 
+/*
+------------------------------------------------------------------
+Receiptionist Routes & Controller
+------------------------------------------------------------------
+*/
 Route::get('/receiptionist_login', function () { return view('Receiptionist/login'); });
 Route::get('/receiptionist_main', function () { return view('Receiptionist/index'); });
 
+/*
+------------------------------------------------------------------
+Cashier Routes & Controller
+------------------------------------------------------------------
+*/
 Route::get('/cashier_login', function () { return view('Cashier/login'); });
 Route::get('/cashier_main', function () { return view('Cashier/index'); });
 
+
+/*
+------------------------------------------------------------------
+Logout Routes & Controller
+------------------------------------------------------------------
+*/
 Route::post('/login_patient/proses', 'LoginPatientController@proses');
 Route::get('/logout_patient', 'LoginPatientController@logout');
 
@@ -59,6 +93,3 @@ Route::get('/logout_warehouse', 'LoginWarehouseController@logout');
 
 Route::post('/login_cashier/proses', 'LoginCashierController@proses');
 Route::get('/logout_cashier', 'LoginCashierController@logout');
-// Testing Routes
-// Route::get('/inbox', function () { return view('inbox'); });
-// Route::get('/mail_compose', function () { return view('mail_compose'); });
