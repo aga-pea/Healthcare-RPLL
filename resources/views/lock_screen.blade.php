@@ -35,7 +35,11 @@
         <span class="role-icon">
           <h2><a data-toggle="modal" href="{{url('/warehouse_login')}}"><i class="fa fa-archive"></i></a></h2>
           <p>Warehouse Login</p>
-        </span>        
+        </span>
+        <span class="role-icon">
+          <h2><a data-toggle="modal" href="{{url('/cashier_login')}}"><i class="fa fa-money"></i></a></h2>
+          <p>Cashier Login</p>
+        </span>                
       </div>
       <!-- Modal -->
     </div>
