@@ -23,4 +23,14 @@ class ScheduleController extends Controller
         return redirect("/doctor_schedule");
     }
 
+    public function updateSchedule(Request $request){
+        $id = $_GET['schedule_id'];
+        $date = $_GET['schedule_date'];
+        $time = $_GET['schedule_time'];
+
+        $schedule = new ScheduleUseCase();
+        $schedule->updateSchedule($id, $date, $time);
+        return view("Doctor/doctor_schedule");
+    }
+
 }
