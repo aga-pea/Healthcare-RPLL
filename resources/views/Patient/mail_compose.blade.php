@@ -240,7 +240,7 @@
           <li>
             <a href="{{url('/patient_appointment')}}">
               <i class="fa fa-envelope"></i>
-              <span>Request Appointment </span>
+              <span>Appointment</span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
             </a>
           </li>
