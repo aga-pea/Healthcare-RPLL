@@ -5,13 +5,14 @@
 
     class AppointmentDao
     {
-        public static function createAppointment($appoint_date, $appoint_time, $patient_id, $doctor_id)
+        public static function createAppointment($appoint_date, $appoint_time, $patient_id, $doctor_id, $status)
         {
             Appointment::create([
                 'appt_date' => $appoint_date,
                 'appt_time' => $appoint_time,
                 'patient_id' => $patient_id,
-                'medstaff_id' => $doctor_id
+                'medstaff_id' => $doctor_id,
+                'appt_status' => $status
             ]); 
         }
     }

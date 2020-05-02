@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@include('subs.meta-head')
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -242,15 +244,15 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="invoice.html">
+            <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
-              <span>Invoice</span>  
+              <span>Patient Registration</span>  
               </a>
             </li>
           <li>
-            <a href="inbox.html">
+            <a href="receiptionist_patient_appointment">
               <i class="fa fa-envelope"></i>
-              <span>Appointment</span>
+              <span>Appointment Handle</span>
               <span class="label label-theme pull-right mail-info"></span>
               </a>
           </li>

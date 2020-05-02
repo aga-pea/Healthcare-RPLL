@@ -17,7 +17,7 @@ class LoginReceptionistController extends Controller
             $name = $nonmed_staff->getWithName($username);
             $id = $nonmed_staff->getWithId($username);
             $job = $nonmed_staff->getWithJob($username);
-            if($job=="Receptionist")
+            if($job=="Receiptionist")
             {
                 if($nonmed_staff->getWithPassword($username)==$password)
                 {
@@ -46,6 +46,7 @@ class LoginReceptionistController extends Controller
         $request->session()->forget('username');
         $request->session()->forget('name');
         $request->session()->forget('nonmed_id');
+        $request->session()->forget('id_patient');
         return redirect('/');
     }
 }

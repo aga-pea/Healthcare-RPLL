@@ -13,5 +13,23 @@
                 'medstaff_id' => $medstaff_id
             ]);
         }
+
+        public static function getScheduleByDate($schedule_date)
+        {
+            $shcedule = Schedule::where('schedule_date',$schedule_date)->get();
+            return $shcedule;
+        }
+
+        public static function getScheduleByDateAndDept($schedule_date,$dept)
+        {
+            $schedule = Schedule::where('schedule_date',$schedule_date)->where('department_id',$dept)->get();
+            return $schedule;
+        }
+
+        public static function getScheduleById($schedule_id)
+        {
+            $schedule = Schedule::Where('schedule_id',$schedule_id)->first();
+            return $schedule;
+        }
     }
 ?>
