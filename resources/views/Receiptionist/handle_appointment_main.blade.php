@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik - Patient Registration</title>
+  <title>TOKlinik</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -19,8 +19,6 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -41,6 +39,13 @@
       alert(msg);
     }
   </script>
+  <style type="text/css">
+		.pagination li{
+			float: left;
+			list-style-type: none;
+			margin:5px;
+		}
+	</style>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -51,7 +56,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -256,13 +261,13 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/receiptionist_patient_register">
+            <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>
             </li>
           <li>
-            <a href="receiptionist_patient_appointment">
+            <a class="active" href="receiptionist_patient_appointment">
               <i class="fa fa-envelope"></i>
               <span>Appointment Handle</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -279,22 +284,42 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Input Patient</h3>
+        <h3><i class="fa fa-angle-right"></i>Pilih Appointment yang ingin diatur</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
               
-              <form class="form-horizontal style-form" action='/receiptionist_patient_register_detail' method="get">
-                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih tipe input yang ingin dilakukan</h4>
-                  <select class="form-control" name="tipe">
-                      <option value="Patient">Input new Patient</option>
-                      <option value="Appointment">Input new Appointment</option>
-                  </select>
-                <button type="submit" name="submit" class="btn btn-theme" value='input'>submit</button>
-              </form>
+            <table class="table table-striped table-advance table-hover">
+                <thead>
+                  <tr>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Medical Staff</th>
+                    <th>Total patient in schedule</th>
+                    <th>Pick This</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($appointment as $data)
+                  <tr>
+                    <form action="/receiptionist_patient_appontment_change_status" method="get">
+                    @csrf
+                    <input type='hidden' name='id' value='{{$data["appt_id"]}}'>
+                    <td>{{$data["appt_date"]}}</td>
+                    <td>{{$data["appt_time"]}}</td>
+                    <td>{{$data["medStaff_name"]}}</td>
+                    <td>{{$data["total_patient"]}}</td>
+                    <td><button class="btn btn-success btn-xs" name="submit"value='Check'><i class="fa fa-check"></i></button></td>
+                    </form>
+                  </tr>
+                  @endforeach
+                    
+                </tbody>
+                </table>
+              <br>
               </div>
+              
             </div>
             <!-- col-lg-12-->
           </div>
@@ -302,6 +327,7 @@
       </section>
       <!-- /wrapper -->
     </section>
+    
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -319,7 +345,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="form_component.html#" class="go-top">
+        <a href="inbox.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -335,22 +361,6 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <!--custom switch-->
-  <script src="lib/bootstrap-switch.js"></script>
-  <!--custom tagsinput-->
-  <script src="lib/jquery.tagsinput.js"></script>
-  <!--custom checkbox & radio-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-  <script src="lib/advanced-form-components.js"></script>
-  <script src="lib/form-component.js"></script>
 
 </body>
 

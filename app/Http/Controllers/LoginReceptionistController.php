@@ -47,6 +47,7 @@ class LoginReceptionistController extends Controller
         $request->session()->forget('name');
         $request->session()->forget('nonmed_id');
         $request->session()->forget('id_patient');
+        $request->session()->forget('tipe');
         return redirect('/');
     }
 }

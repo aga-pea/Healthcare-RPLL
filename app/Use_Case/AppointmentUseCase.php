@@ -11,5 +11,11 @@
             $reqAppointment->createAppointment($appoint_date, $appoint_time, $patient_id, $doctor_id, $status);
         }
 
+        public static function searchListPatientByStatus($status)
+        {
+            $appointment = new AppointmentDao();
+            $listAppointment = $appointment->getListPatientByStatus($status);
+            return $listAppointment;
+        }
     }
 ?>

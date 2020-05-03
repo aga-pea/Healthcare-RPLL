@@ -58,5 +58,11 @@
             $medstaff_name = $medstaff->medstaff_name;
             return $medstaff_name;
         }
+
+        public static function getMedStaffWithId($id){
+            $cekmedstaff =  new MedicalStaffDao();
+            $medstaff = $cekmedstaff->getMedStaffWithId($id);
+            return $medstaff;
+        }
     }
 ?>

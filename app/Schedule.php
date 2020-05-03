@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
+    public $timestamps = false;
     protected $table="schedule";
     use Notifiable;
 
@@ -17,7 +18,7 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'schedule_date', 'schedule_time', 'medstaff_id', 'department_id'
+        'schedule_date', 'schedule_time', 'medstaff_id', 'department_id','total_patient'
     ];
 
     /**

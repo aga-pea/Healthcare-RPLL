@@ -11,12 +11,14 @@
             return $schedule;
         }
         
-        public static function createSchedule($schedule_date, $schedule_time, $medstaff_id)
+        public static function createSchedule($schedule_date, $schedule_time, $medstaff_id,$total_patient,$department_id)
         {
             Schedule::create([
                 'schedule_date' => $schedule_date,
                 'schedule_time' => $schedule_time,
-                'medstaff_id' => $medstaff_id
+                'medstaff_id' => $medstaff_id,
+                'total_patient' => $total_patient,
+                'department_id' => $department_id
             ]);
         }
 
@@ -41,6 +43,24 @@
         public static function updateSchedule($id, $date, $time)
         {
             $schedule = Schedule::where('schedule_id', $id)->update(['schedule_date' => $date, 'schedule_time' => $time]);
-        }   
+        }
+
+        public static function getScheduleByDateAndMedStaff($tgl,$med_staff)
+        {
+            $schedule = Schedule::where('schedule_date',$tgl)->where('medstaff_id',$med_staff)->get();
+            return $schedule;
+        }
+
+        public static function updateTotalPatientById($id,$total_patient)
+        {
+            $schedule = Schedule::where('schedule_id', $id)->update(['total_patient' => $total_patient]);
+        }
+
+        public static function getScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time)
+        {
+            $matchThese = ['medstaff_id' => $medstaff_id, 'schedule_date' => $appt_date, 'schedule_time' => $appt_time];
+            $schedule = Schedule::where($matchThese)->first();
+            return $schedule;
+        }
     }
 ?>

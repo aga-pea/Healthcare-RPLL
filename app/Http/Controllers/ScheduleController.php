@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Use_Case\ScheduleUseCase;
+use App\Use_Case\MedicalStaffUseCase;
 
 class ScheduleController extends Controller
 {
@@ -15,11 +16,15 @@ class ScheduleController extends Controller
         $schedule_date = $request->input('schedule_date');
         $schedule_time = $request->input('schedule_time');
         $id= session()->get('doctor_id');
-
+        $total_patient=0;
         $newDate = date("Y-m-d", strtotime($schedule_date));
+        
+        $medstaff = new MedicalStaffUseCase;
+        $medstaffData = $medstaff->getMedStaffWithId($id);
+        $department_id = $medstaffData->department_id;
 
         $appointment = new ScheduleUseCase();
-        $appointment->requestSchedule($newDate, $schedule_time, $id);
+        $appointment->requestSchedule($newDate, $schedule_time, $id,$total_patient,$department_id);
         return redirect("/doctor_schedule");
     }
 

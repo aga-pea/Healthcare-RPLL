@@ -17,6 +17,7 @@ class CreateScheduleTable extends Migration
             $table->increments('schedule_id');
             $table->date('schedule_date');
             $table->timestamp('schedule_time');
+            $table->integer('total_patient');
             $table->integer('medstaff_id')->unsigned();
             $table->integer('department_id')->unsigned();
             $table->foreign('medstaff_id')->references('medstaff_id')->on('medical_staff');

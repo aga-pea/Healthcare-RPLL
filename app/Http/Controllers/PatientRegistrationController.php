@@ -12,16 +12,17 @@ use App\Use_Case\AppointmentUseCase;
 class PatientRegistrationController extends Controller
 {
     public function detail(Request $request){
-        if($request->submit == "submit")
+        $tipe=$_GET["tipe"];
+        if($request->submit == "input")
         {
-            $tipe = $_GET['tipe'];
-            session()->put('tipe',$tipe);
             if($tipe=="Patient")
             {
                 return view('Receiptionist/input_new_patient');
             }
-            else
+            else if($tipe=="Appointment")
             {
+                $tipe = $_GET['tipe'];
+                session()->put('tipe',$tipe);
                 $patient = new PatientUseCase;
                 $patientAll = $patient->getListPatient();
                 return view('Receiptionist/input_new_appointment',["patientAll" => $patientAll]);
@@ -38,7 +39,20 @@ class PatientRegistrationController extends Controller
     public function appointment_pick(Request $request){
         $id = $_GET["id"];
         session()->put('id_patient',$id);
-        $request->session()->forget('tipe');  
+        $tgl_format=date('Y-m-d');
+        $tgl=date('d-m-Y');
+        $schedule = new ScheduleUseCase;
+        $scheduleAll = $schedule->searchScheduleByDate($tgl_format);
+        $department =[];
+        $dept= new DepartmentUseCase;
+        for($i=0;$i<count($scheduleAll);$i++)
+        {
+            $id=$scheduleAll[$i]["department_id"];
+            $dept_name=$dept->getNameWithId($id);
+            $department[$dept_name]=$id;
+        }
+        $request->session()->forget('tipe');
+        return view("Receiptionist/input_new_patient_appointment",['tgl' => $tgl, 'department' => $department, 'tgl_format' => $tgl_format]);
     }
 
     public function proses_patient(Request $request){
@@ -112,19 +126,32 @@ class PatientRegistrationController extends Controller
 
     public function patient_appointment_proses(Request $request)
     {
-        $patient_id = $request->session()->get('id_patient');
-        $med_staff= $_GET['med_staff'];
-        $time_schedule = $_GET['time_schedule'];
-        $tgl = $_GET['tgl'];
-        $appt_status="Accepted";
-
-        $schedule = new ScheduleUseCase;
-        $scheduleData = $schedule->searchScheduleById($time_schedule);
-        $appt = new AppointmentUseCase();
-        $appt->requestAppointment($tgl, $scheduleData->schedule_time, $patient_id, $med_staff, $appt_status);
-
-        $request->session()->forget('id_patient');
-        $request->session()->forget('tipe');  
-        return redirect("/receiptionist_main");
+        if(isset($_GET["find"])){
+            $tgl=$_GET['tgl'];
+            $med_staff=$_GET['med_staff'];
+            $value_medstaff=[];
+            $value_medstaff["id_medstaff"]=$med_staff;
+            $schedule = new ScheduleUseCase;
+            $scheduleAll = $schedule->searchScheduleByDateAndMedStaff($tgl,$med_staff);
+            return view("Receiptionist/input_new_patient_appointment_full",['schedule' => $scheduleAll, 'med_staff' => $value_medstaff, 'tgl_format' => $tgl]);
+        }
+        else if(isset($_GET["submit"])){
+            $patient_id = $request->session()->get('id_patient');
+            $med_staff= $_GET['med_staff'];
+            $time_schedule = $_GET['time_schedule'];
+            $tgl = $_GET['tgl'];
+            $appt_status="Accepted";
+            
+            $schedule = new ScheduleUseCase;
+            $scheduleData = $schedule->searchScheduleById($time_schedule);
+            $id = $scheduleData->schedule_id;
+            $totalSchedule = $scheduleData->total_patient;
+            $scheduleUpdatePatient = $schedule->addTotalPatientByScheduleId($id,$totalSchedule+1);
+            $appt = new AppointmentUseCase();
+            $appt->requestAppointment($tgl, $scheduleData->schedule_time, $patient_id, $med_staff, $appt_status);
+            $request->session()->forget('id_patient');
+            $request->session()->forget('tipe');  
+            return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Ditambahkan');
+        }
     }
 }

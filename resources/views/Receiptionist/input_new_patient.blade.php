@@ -240,7 +240,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_warehouse">Logout</a></li>
+          <li><a class="logout" href="/logout_receiptionist">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -256,7 +256,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="/receiptionist_patient_register">
+            <a class="active" href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>

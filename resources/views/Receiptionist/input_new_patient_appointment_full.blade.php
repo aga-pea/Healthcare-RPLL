@@ -239,7 +239,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_warehouse">Logout</a></li>
+          <li><a class="logout" href="/logout_receiptionist">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -255,7 +255,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="/receiptionist_patient_register">
+            <a class="active" href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>
@@ -284,22 +284,30 @@
           <div class="col-lg-12">
             <div class="form-panel">    
             
-            <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih medical staff yang diinginkan</h4>
-                    <select class="form-control" name="med_staff">
-                        @foreach($med_staff as $key => $value)
-                            <option value={{$value}}>{{$key}}</option>
-                        @endforeach
-                    </select>
+            <?php if (isset($_GET['find'])){?>
+              <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
+                    <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
+                    <input type = "hidden" name = "med_staff" value = {{$med_staff['id_medstaff']}}>
                     <label class="control-label col-md-3">Time</label>
                     <select class="form-control" name="time_schedule">
                         @foreach($schedule as $data)
                             <option value={{$data->schedule_id}}>{{$data->schedule_time}}</option>
                         @endforeach
                     </select>
-                <button type="submit" class="btn btn-theme">Submit</button>
+                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
+              </form>
+            <?php } else{?>
+                <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
+                  <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
+                  <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih medical staff yang diinginkan</h4>
+                  <select class="form-control" name="med_staff">
+                        @foreach($med_staff as $key => $value)
+                            <option value={{$value}}>{{$key}}</option>
+                        @endforeach
+                  </select>
+                  <button type="submit" class="btn btn-theme" name="find" value="find">Find Schedule</button>
             </form>
+            <?php } ?>
             <br>
               @if (count($errors) > 0)
                         <div class="alert alert-danger">

@@ -5,10 +5,10 @@
 
     class ScheduleUseCase
     {
-        public static function requestSchedule($schedule_date, $schedule_time, $id)
+        public static function requestSchedule($schedule_date, $schedule_time, $id,$total_patient,$department_id)
         {
             $reqSchedule = new ScheduleDao();
-            $reqSchedule->createSchedule($schedule_date, $schedule_time, $id);
+            $reqSchedule->createSchedule($schedule_date, $schedule_time, $id,$total_patient,$department_id);
         }
 
         public static function searchScheduleByDate($schedule_date)
@@ -36,6 +36,26 @@
         {
             $updateSchedule = new ScheduleDao();
             $updateSchedule->updateSchedule($id,$date, $time);
+        }
+
+        public static function searchScheduleByDateAndMedStaff($tgl,$med_staff)
+        {
+            $searchSchedule = new ScheduleDao();
+            $schedule = $searchSchedule->getScheduleByDateAndMedStaff($tgl,$med_staff);
+            return $schedule;
+        }
+
+        public static function addTotalPatientByScheduleId($id,$total_patient)
+        {
+            $addSchedule = new ScheduleDao();
+            $schedule = $addSchedule->updateTotalPatientById($id,$total_patient);
+        }
+
+        public static function searchScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time)
+        {
+            $schedule = new ScheduleDao();
+            $data= $schedule->getScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time);
+            return $data;
         }
     }
 ?>

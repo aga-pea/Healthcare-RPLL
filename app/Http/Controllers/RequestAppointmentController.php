@@ -24,7 +24,7 @@ class RequestAppointmentController extends Controller
         $patient_id = $request->session()->get('patient_id');
 
         $newDate = date("Y-m-d", strtotime($appoint_date));
-        $status = "In Review";
+        $status = "Active";
         $appointment = new AppointmentUseCase();
         $appointment->requestAppointment($newDate, $appoint_time, $patient_id, $doctor_id, $status);
         return redirect("/patient_main");

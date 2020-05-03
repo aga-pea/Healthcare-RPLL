@@ -65,14 +65,14 @@ Receiptionist Routes & Controller
 Route::get('/receiptionist_login', function () { return view('Receiptionist/login'); });
 Route::get('/receiptionist_main', function () { return view('Receiptionist/index'); });
 Route::get('/receiptionist_patient_register', function(){ return view('Receiptionist/patient_registration_main'); });
-Route::get('/receiptionist_patient_appointment', function() { return view('Receiptionist/inbox'); });
 Route::get('/receiptionist_patient_register_detail', 'PatientRegistrationController@detail');
 Route::get('/receiptionist_patient_register_proses','PatientRegistrationController@proses_patient');
 Route::get('/receiptionist_patient_register_appointment','PatientRegistrationController@patient_appointment');
 Route::get('/receiptionist_new_patient_appointment_proses', 'PatientRegistrationController@patient_appointment_detail');
 Route::get('/receiptionist_new_patient_appointment_create', 'PatientRegistrationController@patient_appointment_proses');
 Route::get('/receiptionist_new_appointment','PatientRegistrationController@appointment_pick');
-
+Route::get('/receiptionist_patient_appointment', 'HandleAppointmentController@display_appointment');
+Route::get('/receiptionist_patient_appontment_change_status', 'HandleAppointmentController@change_status');
 /*
 ------------------------------------------------------------------
 Cashier Routes & Controller

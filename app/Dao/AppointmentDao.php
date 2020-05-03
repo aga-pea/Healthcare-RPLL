@@ -15,5 +15,11 @@
                 'appt_status' => $status
             ]); 
         }
+
+        public static function getListPatientByStatus($status)
+        {
+            $appointment = Appointment::where('appt_status',$status)->paginate(10);
+            return $appointment;
+        }
     }
 ?>
