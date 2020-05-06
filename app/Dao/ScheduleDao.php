@@ -71,7 +71,7 @@
 
         public static function getScheduleByDept($id_dept)
         {
-            $schedule = Schedule::where('department_id',$id_dept);
+            $schedule = Schedule::where('department_id',$id_dept)->get();
             return $schedule;
         }
     }

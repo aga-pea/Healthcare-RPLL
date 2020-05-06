@@ -68,7 +68,7 @@
         public static function searchScheduleByDept($id_dept)
         {
             $schedule = new ScheduleDao();
-            $scheduleData = $schedule->getScheduleByDept($id_dept)->get();
+            $scheduleData = $schedule->getScheduleByDept($id_dept);
             return $scheduleData;
         }
     }

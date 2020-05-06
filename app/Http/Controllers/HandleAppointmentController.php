@@ -22,7 +22,7 @@ class HandleAppointmentController extends Controller
             $array["medStaff_name"]=$med_staff_name;
             $schedule = new ScheduleUseCase;
             $schedule_data = $schedule->searchScheduleByMedStaffDateTime($data->medstaff_id,$array["appt_date"],$array["appt_time"]);
-            $array["total_patient"]=$schedule_data->schedule_id;
+            $array["total_patient"]=$schedule_data->total_patient;
             // $array["total_patient"]=$schedule_data->schedule_id;
             array_push($list_data,$array);
         }

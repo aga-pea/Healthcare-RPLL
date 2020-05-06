@@ -20,7 +20,6 @@ class ViewScheduleController extends Controller
             $dept_name=$dept->getNameWithId($id);
             $department[$dept_name]=$id;
         }
-        $request->session()->forget('tipe');
         return view("Receiptionist/view_department_schedule",['department' => $department]);
     }
 

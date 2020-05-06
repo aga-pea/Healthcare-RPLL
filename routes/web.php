@@ -29,6 +29,7 @@ Route::get('/patient_login', function () { return view('Patient/login'); });
 Route::get('/patient_main', function () { return view('Patient/index'); });
 Route::get('/patient_medical_record', 'ReadMedicalDataController@readMedicalData');
 Route::get('/patient_appointment', 'RequestAppointmentController@index');
+Route::get('/patient_appointment_pick', 'RequestAppointmentController@pickAppointment');
 Route::get('/patient_appointment_add', 'RequestAppointmentController@reqAppointment');
 
 /*
@@ -38,7 +39,7 @@ Doctor Routes & Controller
 */
 Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
-Route::get('/doctor_schedule', function () { return view('Doctor/calendar'); });
+Route::get('/doctor_schedule', function () { return view('Doctor/advanced_table'); });
 Route::get('/doctor_medical_record', function () { return view('Doctor/advanced_table'); });
 
 /*

@@ -32,5 +32,11 @@
             $appointment = Appointment::where('appt_id',$appoint_id)->first();
             return $appointment;
         }
+
+        public static function getAppointByPatient($patient_id)
+        {
+            $appointment = Appointment::where('patient_id',$patient_id)->get();
+            return $appointment;
+        }
     }
 ?>

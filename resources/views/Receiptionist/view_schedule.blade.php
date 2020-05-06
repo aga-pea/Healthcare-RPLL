@@ -309,13 +309,11 @@
                 <tbody>
                   @foreach($schedule as $data)
                   <tr>
-                    <form action="/receiptionist_patient_appointment_change_status" method="get">
                     @csrf
                     <td>{{$data["schedule_date"]}}</td>
                     <td>{{$data["schedule_time"]}}</td>
                     <td>{{$data["med_staff"]}}</td>
                     <td>{{$data["total_patient"]}}</td>
-                    </form>
                   </tr>
                   @endforeach
                     
@@ -323,7 +321,6 @@
                 </table>
               <br>
               </div>
-              
             </div>
             <!-- col-lg-12-->
           </div>
