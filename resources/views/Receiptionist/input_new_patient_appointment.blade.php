@@ -268,6 +268,13 @@
               <span class="label label-theme pull-right mail-info"></span>
               </a>
           </li>
+          <li>
+            <a href="view_schedule">
+              <i class="fa fa-th"></i>
+              <span>View Schedule</span>
+              <span class="label label-theme pull-right mail-info"></span>
+              </a>
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>

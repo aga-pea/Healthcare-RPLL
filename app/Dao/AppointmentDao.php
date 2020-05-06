@@ -21,5 +21,16 @@
             $appointment = Appointment::where('appt_status',$status)->paginate(10);
             return $appointment;
         }
+
+        public static function updateStatusById($appoint_id,$status)
+        {
+            $appointment = Appointment::where('appt_id',$appoint_id)->update(["appt_status" => $status]);
+        }
+
+        public static function getAppointById($appoint_id)
+        {
+            $appointment = Appointment::where('appt_id',$appoint_id)->first();
+            return $appointment;
+        }
     }
 ?>

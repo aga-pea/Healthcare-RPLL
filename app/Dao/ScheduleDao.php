@@ -62,5 +62,17 @@
             $schedule = Schedule::where($matchThese)->first();
             return $schedule;
         }
+
+        public static function getAllSchedule()
+        {
+            $schedule = Schedule::get();
+            return $schedule;
+        }
+
+        public static function getScheduleByDept($id_dept)
+        {
+            $schedule = Schedule::where('department_id',$id_dept);
+            return $schedule;
+        }
     }
 ?>

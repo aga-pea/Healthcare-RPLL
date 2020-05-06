@@ -15,8 +15,8 @@ class ScheduleController extends Controller
     public function createSchedule(Request $request){
         $schedule_date = $request->input('schedule_date');
         $schedule_time = $request->input('schedule_time');
+        $total_patient = $request->input('total_patient');
         $id= session()->get('doctor_id');
-        $total_patient=0;
         $newDate = date("Y-m-d", strtotime($schedule_date));
         
         $medstaff = new MedicalStaffUseCase;

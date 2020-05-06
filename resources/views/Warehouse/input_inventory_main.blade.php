@@ -333,7 +333,7 @@
                       <option values="Electronics">Electronics</option>
                       <option values="Medical Utilities">Medical Utilities</option>
                   </select>
-                <button type="submit" class="btn btn-theme" value='Submit'></button>
+                <button type="submit" class="btn btn-theme" value='Submit'>Submit</button>
               </form>
               </div>
             </div>

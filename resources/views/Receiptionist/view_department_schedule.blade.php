@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik - Input New Item</title>
+  <title>TOKlinik - Patient Registration</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -34,10 +34,11 @@
 </head>
 
 <body>
-  <script type="text/javascript">
-    function load_main_content()
-    {
-        $('#main_content_div').load('/main_content/');
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
     }
   </script>
   <section id="container">
@@ -255,7 +256,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/receiptionist_patient_register">
+            <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>
@@ -268,7 +269,7 @@
               </a>
           </li>
           <li>
-            <a href="view_schedule">
+            <a class="active" href="view_schedule">
               <i class="fa fa-th"></i>
               <span>View Schedule</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -285,48 +286,23 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Input New Patient Appointment</h3>
+        <h3><i class="fa fa-angle-right"></i>Department yang tersedia</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
-            <div class="form-panel">    
-            
-            <?php if (isset($_GET['find'])){?>
-              <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                    <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                    <input type = "hidden" name = "med_staff" value = {{$med_staff['id_medstaff']}}>
-                    <label class="control-label col-md-3">Time</label>
-                    <select class="form-control" name="time_schedule">
-                        @foreach($schedule as $data)
-                            <option value={{$data->schedule_id}}>{{$data->schedule_time}}</option>
-                        @endforeach
-                    </select>
-                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
-              </form>
-            <?php } else{?>
-                <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                  <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                  <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih medical staff yang diinginkan</h4>
-                  <select class="form-control" name="med_staff">
-                        @foreach($med_staff as $key => $value)
-                            <option value={{$value}}>{{$key}}</option>
-                        @endforeach
-                  </select>
-                  <button type="submit" class="btn btn-theme" name="find" value="find">Find Schedule</button>
-            </form>
-            <?php } ?>
-            <br>
-              @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-              @endif
-              </div>
+            <div class="form-panel">
               
+              <form class="form-horizontal style-form" action='/view_full_schedule' method="get">
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
+                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih tipe department yang diinginkan</h4>
+                  <select class="form-control" name="dept">
+                      @foreach($department as $key => $value)
+                        <option value={{$value}}>{{$key}}</option>
+                      @endforeach
+                  </select>
+                <button type="submit" class="btn btn-theme" value='Submit'>Submit</button>
+              </form>
+              </div>
             </div>
             <!-- col-lg-12-->
           </div>

@@ -17,5 +17,18 @@
             $listAppointment = $appointment->getListPatientByStatus($status);
             return $listAppointment;
         }
+
+        public static function updateAppointment($appoint_id, $status)
+        {
+            $appointment = new AppointmentDao();
+            $appointment->updateStatusById($appoint_id,$status);
+        }
+
+        public static function getAppointmentById($appoint_id)
+        {
+            $appointment = new AppointmentDao();
+            $appointmentData= $appointment->getAppointById($appoint_id);
+            return $appointmentData;
+        }
     }
 ?>

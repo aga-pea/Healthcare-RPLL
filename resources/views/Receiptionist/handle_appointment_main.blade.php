@@ -273,6 +273,13 @@
               <span class="label label-theme pull-right mail-info"></span>
               </a>
           </li>
+          <li>
+            <a href="view_schedule">
+              <i class="fa fa-th"></i>
+              <span>View Schedule</span>
+              <span class="label label-theme pull-right mail-info"></span>
+              </a>
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -296,14 +303,14 @@
                     <th>Appointment Date</th>
                     <th>Appointment Time</th>
                     <th>Medical Staff</th>
-                    <th>Total patient in schedule</th>
+                    <th>Total patient remaining</th>
                     <th>Pick This</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($appointment as $data)
                   <tr>
-                    <form action="/receiptionist_patient_appontment_change_status" method="get">
+                    <form action="/receiptionist_patient_appointment_change_status" method="get">
                     @csrf
                     <input type='hidden' name='id' value='{{$data["appt_id"]}}'>
                     <td>{{$data["appt_date"]}}</td>

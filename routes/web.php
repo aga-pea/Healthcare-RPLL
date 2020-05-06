@@ -72,7 +72,10 @@ Route::get('/receiptionist_new_patient_appointment_proses', 'PatientRegistration
 Route::get('/receiptionist_new_patient_appointment_create', 'PatientRegistrationController@patient_appointment_proses');
 Route::get('/receiptionist_new_appointment','PatientRegistrationController@appointment_pick');
 Route::get('/receiptionist_patient_appointment', 'HandleAppointmentController@display_appointment');
-Route::get('/receiptionist_patient_appontment_change_status', 'HandleAppointmentController@change_status');
+Route::get('/receiptionist_patient_appointment_change_status', 'HandleAppointmentController@change_status');
+Route::get('/receiptionist_patient_appointment_change_status_proses', 'HandleAppointmentController@change_status_proses');
+Route::get('/view_schedule','ViewScheduleController@index');
+Route::get('/view_full_schedule', 'ViewScheduleController@proses');
 /*
 ------------------------------------------------------------------
 Cashier Routes & Controller

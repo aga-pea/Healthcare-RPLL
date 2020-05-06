@@ -34,11 +34,21 @@
 </head>
 
 <body>
-  <script type="text/javascript">
-    function load_main_content()
-    {
-        $('#main_content_div').load('/main_content/');
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
     }
+  </script>
+  <script type="text/javascript">
+    function showDiv(select){
+      if(select.value=="Reject"){
+        document.getElementById('hidden_div').style.display = "block";
+      } else{
+        document.getElementById('hidden_div').style.display = "none";
+      }
+    } 
   </script>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
@@ -255,13 +265,13 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/receiptionist_patient_register">
+            <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>
             </li>
           <li>
-            <a href="receiptionist_patient_appointment">
+            <a class="active" href="receiptionist_patient_appointment">
               <i class="fa fa-envelope"></i>
               <span>Appointment Handle</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -289,32 +299,22 @@
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
-            <div class="form-panel">    
-            
-            <?php if (isset($_GET['find'])){?>
-              <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                    <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                    <input type = "hidden" name = "med_staff" value = {{$med_staff['id_medstaff']}}>
-                    <label class="control-label col-md-3">Time</label>
-                    <select class="form-control" name="time_schedule">
-                        @foreach($schedule as $data)
-                            <option value={{$data->schedule_id}}>{{$data->schedule_time}}</option>
-                        @endforeach
+            <div class="form-panel">
+
+              <form class="form-horizontal style-form" action="/receiptionist_patient_appointment_change_status_proses" method="get">
+                    <input type = "hidden" name = "id" value = {{$id}}>
+                    <select class="form-control" name="choice" onchange="showDiv(this)">
+                            <option value="0">Pick Choice</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Rejected">Rejected</option>
                     </select>
+                    <div id="hidden_div" style="display:none;">
+                    <textarea name="reason" cols="60" row="15" placeholder="Input Reason"></textarea>
+                    </div>
+                    <br>
                 <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
               </form>
-            <?php } else{?>
-                <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                  <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                  <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih medical staff yang diinginkan</h4>
-                  <select class="form-control" name="med_staff">
-                        @foreach($med_staff as $key => $value)
-                            <option value={{$value}}>{{$key}}</option>
-                        @endforeach
-                  </select>
-                  <button type="submit" class="btn btn-theme" name="find" value="find">Find Schedule</button>
-            </form>
-            <?php } ?>
+
             <br>
               @if (count($errors) > 0)
                         <div class="alert alert-danger">

@@ -32,9 +32,42 @@ class HandleAppointmentController extends Controller
     public function change_status(Request $request)
     {
         $id = $_GET["id"];
-        print($id);
+        return view('Receiptionist/handle_appointment_set',['id' => $id]);
+    }
 
-        return view('Receiptionist/',[]);
+    public function change_status_proses(Request $request)
+    {
+        $id = $_GET["id"];
+        $choice = $_GET["choice"];
+        if($choice=="Rejected")
+        {
+            $reason = $_GET["reason"];
+            $pilihan =$choice." ,".$reason;
+            $appointment = new AppointmentUseCase;
+            $appointment->updateAppointment($id,$pilihan);
+            return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Diupdate');
+        }
+        else if($choice=="Accepted")
+        {
+            $appointment = new AppointmentUseCase;
+            $appointData = $appointment->getAppointmentById($id);
+            $date=$appointData->appt_date;
+            $time=$appointData->appt_time;
+            $medstaff=$appointData->medstaff_id;
+            $schedule = new ScheduleUseCase;
+            $scheduleData= $schedule->searchScheduleByMedStaffDateTime($medstaff,$date,$time);
+            if($scheduleData->total_patient>0){
+                $appointment->updateAppointment($id,$choice);
+                $schedule->addTotalPatientByScheduleId($scheduleData->schedule_id,$scheduleData->total_patient-1);
+                return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Diupdate');
+            }else{
+                redirect()->back()->with('alert','Patient sudah penuh');
+            }
+        }
+        else
+        {
+            return redirect()->back()->with('alert','Anda belum memasukkan pilihan');
+        }
     }
 
 }

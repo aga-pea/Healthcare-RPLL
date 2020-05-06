@@ -57,5 +57,19 @@
             $data= $schedule->getScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time);
             return $data;
         }
+
+        public static function searchAllSchedule()
+        {
+            $schedule = new ScheduleDao();
+            $scheduleData = $schedule->getAllSchedule();
+            return $scheduleData;
+        }
+
+        public static function searchScheduleByDept($id_dept)
+        {
+            $schedule = new ScheduleDao();
+            $scheduleData = $schedule->getScheduleByDept($id_dept)->get();
+            return $scheduleData;
+        }
     }
 ?>

@@ -146,12 +146,19 @@ class PatientRegistrationController extends Controller
             $scheduleData = $schedule->searchScheduleById($time_schedule);
             $id = $scheduleData->schedule_id;
             $totalSchedule = $scheduleData->total_patient;
-            $scheduleUpdatePatient = $schedule->addTotalPatientByScheduleId($id,$totalSchedule+1);
-            $appt = new AppointmentUseCase();
-            $appt->requestAppointment($tgl, $scheduleData->schedule_time, $patient_id, $med_staff, $appt_status);
-            $request->session()->forget('id_patient');
-            $request->session()->forget('tipe');  
-            return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Ditambahkan');
+
+            if($totalSchedule>0)
+            {
+                $scheduleUpdatePatient = $schedule->addTotalPatientByScheduleId($id,$totalSchedule-1);
+                $appt = new AppointmentUseCase();
+                $appt->requestAppointment($tgl, $scheduleData->schedule_time, $patient_id, $med_staff, $appt_status);
+                $request->session()->forget('id_patient');
+                $request->session()->forget('tipe');  
+                return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Ditambahkan');
+            }
+            else{
+                return redirect()->back()->with('alert','Pasien sudah penuh');
+            }
         }
     }
 }

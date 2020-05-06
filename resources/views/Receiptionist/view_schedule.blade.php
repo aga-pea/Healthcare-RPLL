@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik - Input New Item</title>
+  <title>TOKlinik</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -19,8 +19,6 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -34,12 +32,20 @@
 </head>
 
 <body>
-  <script type="text/javascript">
-    function load_main_content()
-    {
-        $('#main_content_div').load('/main_content/');
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
     }
   </script>
+  <style type="text/css">
+		.pagination li{
+			float: left;
+			list-style-type: none;
+			margin:5px;
+		}
+	</style>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -50,7 +56,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -255,7 +261,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/receiptionist_patient_register">
+            <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>
               <span>Patient Registration</span>  
               </a>
@@ -268,7 +274,7 @@
               </a>
           </li>
           <li>
-            <a href="view_schedule">
+            <a class="active" href="view_schedule">
               <i class="fa fa-th"></i>
               <span>View Schedule</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -285,46 +291,37 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Input New Patient Appointment</h3>
+        <h3><i class="fa fa-angle-right"></i>Schedule yang tersedia</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
-            <div class="form-panel">    
-            
-            <?php if (isset($_GET['find'])){?>
-              <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                    <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                    <input type = "hidden" name = "med_staff" value = {{$med_staff['id_medstaff']}}>
-                    <label class="control-label col-md-3">Time</label>
-                    <select class="form-control" name="time_schedule">
-                        @foreach($schedule as $data)
-                            <option value={{$data->schedule_id}}>{{$data->schedule_time}}</option>
-                        @endforeach
-                    </select>
-                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
-              </form>
-            <?php } else{?>
-                <form class="form-horizontal style-form" action="/receiptionist_new_patient_appointment_create" method="get">
-                  <input type = "hidden" name = "tgl" value = {{$tgl_format}}>
-                  <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih medical staff yang diinginkan</h4>
-                  <select class="form-control" name="med_staff">
-                        @foreach($med_staff as $key => $value)
-                            <option value={{$value}}>{{$key}}</option>
-                        @endforeach
-                  </select>
-                  <button type="submit" class="btn btn-theme" name="find" value="find">Find Schedule</button>
-            </form>
-            <?php } ?>
-            <br>
-              @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-              @endif
+            <div class="form-panel">
+              
+            <table class="table table-striped table-advance table-hover">
+                <thead>
+                  <tr>
+                    <th>Schedule Date</th>
+                    <th>Schedule Time</th>
+                    <th>Medical Staff</th>
+                    <th>Total patient remaining</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($schedule as $data)
+                  <tr>
+                    <form action="/receiptionist_patient_appointment_change_status" method="get">
+                    @csrf
+                    <td>{{$data["schedule_date"]}}</td>
+                    <td>{{$data["schedule_time"]}}</td>
+                    <td>{{$data["med_staff"]}}</td>
+                    <td>{{$data["total_patient"]}}</td>
+                    </form>
+                  </tr>
+                  @endforeach
+                    
+                </tbody>
+                </table>
+              <br>
               </div>
               
             </div>
@@ -334,6 +331,7 @@
       </section>
       <!-- /wrapper -->
     </section>
+    
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -351,7 +349,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="form_component.html#" class="go-top">
+        <a href="inbox.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -367,22 +365,6 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <!--custom switch-->
-  <script src="lib/bootstrap-switch.js"></script>
-  <!--custom tagsinput-->
-  <script src="lib/jquery.tagsinput.js"></script>
-  <!--custom checkbox & radio-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-  <script src="lib/advanced-form-components.js"></script>
-  <script src="lib/form-component.js"></script>
 
 </body>
 
