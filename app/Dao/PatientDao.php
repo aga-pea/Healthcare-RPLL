@@ -4,12 +4,6 @@
 
     class PatientDao
     {
-        public static function getPatient($username)
-        {
-            $patient = Patient::where('patient_uname', $username)->first();
-            return $patient;
-        }
-
         public static function createPatient($name,$address,$age,$dob,$gender,$uname,$pwd)
         {
             Patient::create([
@@ -26,6 +20,12 @@
         public static function getPatientAll()
         {
             $patient = Patient::paginate(10);
+            return $patient;
+        }
+
+        public static function getPatient($username)
+        {
+            $patient = Patient::where('patient_uname', $username)->first();
             return $patient;
         }
     }
