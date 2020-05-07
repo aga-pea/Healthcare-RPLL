@@ -13,15 +13,15 @@ class InvoiceController extends Controller
 
         $doctor_id = $request->input('doctor_id');
         
-        Appointment::create([
-            'invoice_amount' => $invoice_amount
-            'invoice_date' => $invoice_date
-            'invoice_method' => $invoice_method
-            'patient_id' => $request->session()->get('patient_id')
+        // Appointment::create([
+        //     'invoice_amount' => $invoice_amount
+        //     'invoice_date' => $invoice_date
+        //     'invoice_method' => $invoice_method
+        //     'patient_id' => $request->session()->get('patient_id')
 
-            // TO DO : Input record_id ke database
-            // 'record_id' =>
-        ]); 
+        //     // TO DO : Input record_id ke database
+        //     // 'record_id' =>
+        // ]); 
      
     }
 
