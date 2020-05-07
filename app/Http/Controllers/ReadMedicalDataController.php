@@ -8,6 +8,8 @@ use App\Use_Case\MedicineUseCase;
 use App\Use_Case\MedicalStaffUseCase;
 use App\Use_Case\DiseaseUseCase;
 use App\Use_Case\HospitalUseCase;
+use App\Use_Case\VisitUseCase;
+use App\Use_Case\VisitCostUseCase;
 
 class ReadMedicalDataController extends Controller
 {
@@ -36,22 +38,31 @@ class ReadMedicalDataController extends Controller
             $dataMedical=[];
             $id_medical = $data->medical_id;
             
-            $id_doctor = $data->medstaff_id;
-            $id_medicine = $data->medicine_id;
             $id_disease = $data->disease_id;
             $id_hospital = $data->hospital_id;
 
+            #ambil medicine + nama dokter
+            $visit = new VisitUseCase();
+            $visitData = $visit->searchVisitById($data->visit_id);
+            
+            #ambil nama dokter
+            $id_cost = $visitData->cost_id;
+            $cost = new VisitCostUseCase();
+            $costData = $cost->searchCostById($visitData->cost_id);
             $doctor = new MedicalStaffUseCase;
-            $doctor_name = $doctor->getNameWithId($id_doctor);
+            $doctor_name = $doctor->getNameWithId($costData->medstaff_id);
+
+            #ambil nama medicine
             $medicine = new MedicineUseCase;
-            $medicine_name = $medicine->getNameWithId($id_medicine);
+            $medicine_name = $medicine->getNameWithId($visitData->medicine_id);
+            
             $disease = new DiseaseUseCase;
             $disease_name = $disease->getNameWithId($id_disease);
             $hospital = new HospitalUseCase;
             $hospital_name = $hospital->getNameWithid($id_hospital);
 
             $dataMedical["doctor"] = $doctor_name;
-            $dataMedical["medicine"] = $medicine_name;
+            $dataMedical["medicine"] = $medicine_name. ", jumlah obat = ".$visitData->qty_medicine;
             $dataMedical["disease"] = $disease_name;
             $dataMedical["hospital"] = $hospital_name;
             array_push($recordData,$dataMedical);
