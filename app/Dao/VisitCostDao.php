@@ -20,7 +20,7 @@
             return $cost;
         }
 
-        public static function getVisitCost($id)
+        public static function getVisitCostById($id)
         {
             $cost = Visit_Cost::where('cost_id', $id)->first();
             return $cost;

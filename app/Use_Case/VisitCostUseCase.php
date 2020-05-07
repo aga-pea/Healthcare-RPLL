@@ -18,4 +18,12 @@ class VisitCostUseCase
         $cost_all = $getCost->getVisitCostAll();
         return $cost_all;
     }
+
+    public static function searchCostById($cost_id)
+    {
+        $getCost = new VisitCostDao();
+        $costData = $getCost->getVisitCostById($cost_id);
+        return $costData;
+    }
+
 }
