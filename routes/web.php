@@ -39,9 +39,14 @@ Doctor Routes & Controller
 */
 Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
-Route::get('/doctor_schedule', function () { return view('Doctor/advanced_form_components'); });
+Route::get('/doctor_schedule', 'ScheduleController@index');
+Route::get('/doctor_schedule_proses', 'ScheduleController@createSchedule');
 Route::get('/doctor_medical_record', function () { return view('Doctor/advanced_table'); });
-
+Route::get('/doctor_schedule_update', 'ScheduleController@view_schedule');
+Route::get('/doctor_schedule_update_detail', 'ScheduleController@view_schedule_detail');
+Route::get('/doctor_schedule_update_proses', 'ScheduleController@updateSchedule');
+Route::get('/doctor_input_visit_details', 'InputVisitDetailController@index');
+Route::get('/doctor_input_visit_details_proses', 'VisitCostController@createVisitCost');
 /*
 ------------------------------------------------------------------
 Warehouse Routes & Controller

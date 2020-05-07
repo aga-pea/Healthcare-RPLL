@@ -38,5 +38,17 @@
             $appointment = Appointment::where('patient_id',$patient_id)->get();
             return $appointment;
         }
+
+        public static function getAppointmentByMedStaffTimeDay($medstaff_id,$time,$day)
+        {
+            $matchThese = ['medstaff_id' => $medstaff_id, 'appt_day' => $day, 'appt_time' => $time];
+            $appointment = Appointment::where($matchThese)->get();
+            return $appointment;
+        }
+
+        public static function updateAppointmentTimeDayById($appoint_id,$time,$day)
+        {
+            $appointment = Appointment::where('appt_id',$appoint_id)->update(["appt_day" => $day, "appt_time" => $time]);
+        }
     }
 ?>

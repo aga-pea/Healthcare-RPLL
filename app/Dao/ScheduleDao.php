@@ -11,13 +11,14 @@
             return $schedule;
         }
         
-        public static function createSchedule($schedule_date, $schedule_time, $medstaff_id,$total_patient,$department_id)
+        public static function createSchedule($schedule_day, $schedule_time, $medstaff_id,$total_patient,$total_patient_left,$department_id)
         {
             Schedule::create([
-                'schedule_day' => $schedule_date,
+                'schedule_day' => $schedule_day,
                 'schedule_time' => $schedule_time,
                 'medstaff_id' => $medstaff_id,
                 'total_patient' => $total_patient,
+                'total_patient_left' => $total_patient_left,
                 'department_id' => $department_id
             ]);
         }
@@ -40,9 +41,9 @@
             return $schedule;
         }
 
-        public static function updateSchedule($id, $date, $time,$total_patient)
+        public static function updateSchedule($id, $date, $time,$total_patient,$total_patient_left)
         {
-            $schedule = Schedule::where('schedule_id', $id)->update(['schedule_day' => $date, 'schedule_time' => $time, 'total_patient' => $total_patient]);
+            $schedule = Schedule::where('schedule_id', $id)->update(['schedule_day' => $date, 'schedule_time' => $time, 'total_patient' => $total_patient, 'total_patient_left' => $total_patient_left]);
         }
 
         public static function getScheduleByDateAndMedStaff($tgl,$med_staff)
@@ -51,9 +52,9 @@
             return $schedule;
         }
 
-        public static function updateTotalPatientById($id,$total_patient)
+        public static function updateTotalPatientLeftById($id,$total_patient_left)
         {
-            $schedule = Schedule::where('schedule_id', $id)->update(['total_patient' => $total_patient]);
+            $schedule = Schedule::where('schedule_id', $id)->update(['total_patient_left' => $total_patient_left]);
         }
 
         public static function getScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time)
@@ -72,6 +73,12 @@
         public static function getScheduleByDept($id_dept)
         {
             $schedule = Schedule::where('department_id',$id_dept)->get();
+            return $schedule;
+        }
+
+        public static function getScheduleByMedstaff($id_medstaff)
+        {
+            $schedule = Schedule::where('medstaff_id',$id_medstaff)->get();
             return $schedule;
         }
     }

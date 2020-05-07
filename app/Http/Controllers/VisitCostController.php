@@ -10,17 +10,26 @@ class VisitCostController extends Controller
 {
     public function createVisitCost(Request $request)
     {
+        $this->validate($request,[
+            'treatment' => 'required',
+            'price' => 'required|numeric'
+        ]);
         $treatment = $request->input('treatment');
         $price = $request->input('price');
         $medstaff_id = session()->get('doctor_id');
-
-        $getMedstaff = new MedicalStaffUseCase;
-        $medstaffData = $getMedstaff->getMedStaffWithId($medstaff_id);
-        $department_id = $medstaffData->department_id;
-
+        
         $addCost = new VisitCostUseCase();
-        $addCost->addVisitCost($treatment, $price, $medstaff_id);
+        $costData = $addCost->searchCostByMedStaffTreatmentPrice($medstaff_id,$treatment,$price);
 
-        return redirect("/doctor_schedule");
+        if($costData==null)
+        {
+            $addCost->addVisitCost($treatment, $price, $medstaff_id);
+            return redirect()->back()->with("alert","Visit Cost Berhasil Ditambah !");
+        }
+        else
+        {
+            return redirect()->back()->with("alert","Visit Cost Sudah Pernah Ditambahkan !");
+        }
+        
     }
 }

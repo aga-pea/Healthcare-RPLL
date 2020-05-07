@@ -36,10 +36,11 @@ class ViewScheduleController extends Controller
             $med_staff= new MedicalStaffUseCase;
             $med_staff_name = $med_staff->getNameWithId($data->medstaff_id);
             $array["med_staff"]=$med_staff_name;
-            $array["total_patient"]=$data->total_patient;
+            $array["total_patient_left"]=$data->total_patient_left;
             array_push($list_data,$array);
         }
         
         return view('Receiptionist/view_schedule',["schedule" => $list_data]);
     }
+    
 }

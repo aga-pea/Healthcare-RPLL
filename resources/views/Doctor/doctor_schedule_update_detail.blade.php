@@ -3,6 +3,36 @@
 
 @include('subs.meta-head')
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>TOKlinik - Update Item</title>
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
 <body>
   <script>
     var msg = '{{Session::get('alert')}}';
@@ -21,7 +51,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="profile.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -210,7 +240,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_patient">Logout</a></li>
+          <li><a class="logout" href="/logout_doctor">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -223,31 +253,39 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">{{Session::get('name')}}</h5>
-          <li>
-            <a href="{{url('/patient_main')}}">
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Sam Soffes</h5>
+         
+          <li class="sub-menu">
+            <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/patients_medical_record')}}">
+              <i class="fa fa-book"></i>
+              <span>Patients Medical Record</span>
               </a>
           </li>
           <li>
-            <a href="{{url('/patient_appointment')}}">
-              <i class="fa fa-envelope"></i>
-              <span>Appointment</span>
-              <!-- <span class="label label-theme pull-right mail-info">2</span> -->
+            <a href="{{url('/doctor_schedule')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Schedule</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="{{url('/patient_medical_record')}}">
-              <i class="fa fa-th"></i>
-              <span>Medical Records</span>
+          <li>
+            <a class="active" href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
               </a>
           </li>
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
+              </a>
+          </li>
         <!-- sidebar menu end-->
       </div>
     </aside>
@@ -257,193 +295,122 @@
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper site-min-height">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i>Update Schedule</h3>
+        <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
-            <div class="row content-panel">
-              <div class="col-md-4 profile-text mt mb centered">
-                <!-- <div class="right-divider hidden-sm hidden-xs"> -->
-                  <!-- <h4>1922</h4>
-                  <h6>FOLLOWERS</h6>
-                  <h4>290</h4>
-                  <h6>FOLLOWING</h6>
-                  <h4>$ 13,980</h4>
-                  <h6>MONTHLY EARNINGS</h6> -->
-                <!-- </div> -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 profile-text">
-                <h3>{{Session::get('name')}}</h3>
-                <h6>Main Administrator</h6>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 centered">
-                <div class="profile-pic">
-                  <p><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle"></p>
-                  <!-- <p>
-                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
-                    <button class="btn btn-theme02">Add</button>
-                  </p> -->
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
-          </div>
-          <!-- /col-lg-12 -->
-          <div class="col-lg-12 mt">
-            <div class="row content-panel">
-              <div class="panel-heading">
-                <ul class="nav nav-tabs nav-justified">
-                  <!-- <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
-                  </li> -->
-                  <li class="active">
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
-                  </li>
-                  <li>
-                    <a data-toggle="tab" href="#edit">Edit Profile</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /panel-heading -->
-              <div class="panel-body">
-                <div class="tab-content">
-                  <!-- /tab-pane -->
-                  <div id="contact" class="tab-pane active">
-                    <div class="row">
-                      <div class="col-md-6 detailed">
-                        <h4>Contacts</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Phone: +33 4898-4303<br/> Cell: 48 4389-4393<br/>
-                          </p>
-                          <br>
-                          <p>
-                            Email: hello@dashiotheme.com<br/> Skype: UseDashio<br/> Website: http://Alvarez.is
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
-                      <div class="col-md-6 detailed">
-                        <h4>Location</h4>
-                        <div class="col-md-8 col-md-offset-2 mt">
-                          <p>
-                            Postal Address<br/> PO BOX 12988, Sutter Ave<br/> Brownsville, New York.
-                          </p>
-                          <br>
-                          <p>
-                            Headquarters<br/> 844 Sutter Ave,<br/> 9003, New York.
-                          </p>
-                        </div>
-                      </div>
-                      <!-- /col-md-6 -->
+            <div class="form-panel">
+              
+              <form class="form-horizontal style-form" action="/doctor_schedule_update_proses" method="get">
+                <h4 class="mb"><i class="fa fa-angle-right"></i>Schedule</h4>
+                  <input type='hidden' name='schedule_id' value="{{$detail->schedule_id}}">
+                  <div class="form-group">
+                  <label class="control-label col-md-3">Day</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                      @if($detail->schedule_day=="Monday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday" selected>Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Tuesday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday" selected>Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Wednesday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday" selected>Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Thursday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday" selected>Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Friday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday" selected>Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Saturday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday" selected>Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      @elseif($detail->schedule_day=="Sunday")
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday" selected>Sunday</option>
+                      </select>
+                      @endif
                     </div>
-                    <!-- /row -->
                   </div>
-                  <!-- /tab-pane -->
-                  <div id="edit" class="tab-pane">
-                    <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">Personal Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label"> Avatar</label>
-                            <div class="col-lg-6">
-                              <input type="file" id="exampleInputFile" class="file-pos">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Company</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Lives In</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Country</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Description</label>
-                            <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
-                        <h4 class="mb">Contact Information</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 1</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr1" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Address 2</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr2" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Phone</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="phone" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Cell</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="cell" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="email" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">Skype</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="skype" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">Save</button>
-                              <button class="btn btn-theme04" type="button">Cancel</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- /col-lg-8 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
                 </div>
-                <!-- /tab-content -->
+                <div class="form-group">
+                  <label class="control-label col-md-3">Time</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                      <input type="text" class="form-control timepicker-24" value={{$detail->schedule_time}} name="schedule_time">
+                      <span class="input-group-btn">
+                        <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
+                        </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Total Patient Serve</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                    <input type="text" value={{$detail->total_patient}} name="total_patient"> 
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-theme">Update</button>
+              </form>
+              <br>
               </div>
-              <!-- /panel-body -->
+              
             </div>
-            <!-- /col-lg-12 -->
+            <!-- col-lg-12-->
           </div>
-          <!-- /row -->
         </div>
-        <!-- /container -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -464,7 +431,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="profile.html#" class="go-top">
+        <a href="form_component.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -472,34 +439,31 @@
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  @include('subs.meta-foot')
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="lib/jquery.scrollTo.min.js"></script>
+  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
   <!--common script for all pages-->
-  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <!-- MAP SCRIPT - ALL CONFIGURATION IS PLACED HERE - VIEW OUR DOCUMENTATION FOR FURTHER INFORMATION -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-  <script>
-    $('.contact-map').click(function() {
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <!--custom switch-->
+  <script src="lib/bootstrap-switch.js"></script>
+  <!--custom tagsinput-->
+  <script src="lib/jquery.tagsinput.js"></script>
+  <!--custom checkbox & radio-->
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="lib/advanced-form-components.js"></script>
+  <script src="lib/form-component.js"></script>
 
-      //google map in tab click initialize
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
-        var mapOptions = {
-          zoom: 11,
-          scrollwheel: false,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Dashio Admin Theme!'
-        });
-      }
-      google.maps.event.addDomListener(window, 'click', initialize);
-    });
-  </script>
 </body>
 
 </html>

@@ -278,7 +278,7 @@
                     </select>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-theme" name="submitAppointment">Find Schedule</button>
+                <button type="submit" class="btn btn-theme" name="FindSchedule">Find Schedule</button>
               </form>
             </div>
             <!-- /form-panel -->

@@ -15,7 +15,7 @@ class CreateVisitCostTable extends Migration
     {
         Schema::create('visit_cost', function (Blueprint $table) {
             $table->increments('cost_id');
-            $table->string('treatment',50);
+            $table->string('treatment',200);
             $table->integer('price');
             $table->integer('medstaff_id')->unsigned();
             $table->foreign('medstaff_id')->references('medstaff_id')->on('medical_staff');

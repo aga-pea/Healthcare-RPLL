@@ -5,10 +5,10 @@
 
     class ScheduleUseCase
     {
-        public static function requestSchedule($schedule_date, $schedule_time, $id,$total_patient,$department_id)
+        public static function requestSchedule($schedule_day, $schedule_time, $medstaff_id,$total_patient,$total_patient_left,$department_id)
         {
             $reqSchedule = new ScheduleDao();
-            $reqSchedule->createSchedule($schedule_date, $schedule_time, $id,$total_patient,$department_id);
+            $reqSchedule->createSchedule($schedule_day, $schedule_time, $medstaff_id,$total_patient,$total_patient_left, $department_id);
         }
 
         public static function searchScheduleByDate($schedule_date)
@@ -32,10 +32,10 @@
             return $schedule;
         }
 
-        public static function updateSchedule($id, $date, $time, $total_patient)
+        public static function updateSchedule($id, $date, $time, $total_patient,$total_patient_left)
         {
             $updateSchedule = new ScheduleDao();
-            $updateSchedule->updateSchedule($id,$date, $time,$total_patient);
+            $updateSchedule->updateSchedule($id,$date, $time,$total_patient,$total_patient_left);
         }
 
         public static function searchScheduleByDateAndMedStaff($tgl,$med_staff)
@@ -45,16 +45,16 @@
             return $schedule;
         }
 
-        public static function addTotalPatientByScheduleId($id,$total_patient)
+        public static function addTotalPatientLeftByScheduleId($id,$total_patient_left)
         {
             $addSchedule = new ScheduleDao();
-            $schedule = $addSchedule->updateTotalPatientById($id,$total_patient);
+            $schedule = $addSchedule->updateTotalPatientLeftById($id,$total_patient_left);
         }
 
-        public static function searchScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time)
+        public static function searchScheduleByMedStaffDateTime($medstaff_id,$schedule_day,$schedule_time)
         {
             $schedule = new ScheduleDao();
-            $data= $schedule->getScheduleByMedStaffDateTime($medstaff_id,$appt_date,$appt_time);
+            $data= $schedule->getScheduleByMedStaffDateTime($medstaff_id,$schedule_day,$schedule_time);
             return $data;
         }
 
@@ -69,6 +69,13 @@
         {
             $schedule = new ScheduleDao();
             $scheduleData = $schedule->getScheduleByDept($id_dept);
+            return $scheduleData;
+        }
+
+        public static function searchScheduleByMedstaff($id_medstaff)
+        {
+            $schedule = new ScheduleDao();
+            $scheduleData = $schedule->getScheduleByMedstaff($id_medstaff);
             return $scheduleData;
         }
     }

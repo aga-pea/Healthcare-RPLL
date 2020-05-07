@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik</title>
+  <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -22,7 +22,7 @@
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
-
+  
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -56,7 +56,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
+      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -190,7 +190,8 @@
                   </a>
               </li>
               <li>
-                <a href="index.html#">See all messages</a>
+                <a href="index.html#">See all messages
+                  </a>
               </li>
             </ul>
           </li>
@@ -208,29 +209,25 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span> Server Overloaded.
                   <span class="small italic">4 mins.</span>
                   </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
+                  <span class="label label-warning"><i class="fa fa-bell"></i></span> Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
                   </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span> Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
                   </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
+                  <span class="label label-success"><i class="fa fa-plus"></i></span> New User Registered.
                   <span class="small italic">3 hrs.</span>
                   </a>
               </li>
@@ -245,7 +242,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_patient">Logout</a></li>
+          <li><a class="logout" href="/logout_doctor">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -258,29 +255,39 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Paul Smith</h5>
-                    <li class="sub-menu">
-            <a href="/receiptionist_patient_register">
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Sam Soffes</h5>
+         
+          <li class="sub-menu">
+            <a href="{{url('/doctor_main')}}">
+              <i class="fa fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/patients_medical_record')}}">
               <i class="fa fa-book"></i>
-              <span>Patient Registration</span>  
-              </a>
-            </li>
-          <li>
-            <a href="receiptionist_patient_appointment">
-              <i class="fa fa-envelope"></i>
-              <span>Appointment Handle</span>
-              <span class="label label-theme pull-right mail-info"></span>
+              <span>Patients Medical Record</span>
               </a>
           </li>
           <li>
-            <a class="active" href="view_schedule">
-              <i class="fa fa-th"></i>
-              <span>View Schedule</span>
-              <span class="label label-theme pull-right mail-info"></span>
+            <a href="{{url('/doctor_schedule')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Schedule</span>
               </a>
           </li>
-        </ul>
+          <li>
+            <a class="active" href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
+              </a>
+          </li>
         <!-- sidebar menu end-->
       </div>
     </aside>
@@ -291,53 +298,49 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Schedule yang tersedia</h3>
-        <!-- BASIC FORM ELELEMNTS -->
+        <?php $value = session('tipe');?>
+        <h3><i class="fa fa-angle-right"></i>Schedule List</h3>
+        
+        <!-- row -->
         <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              
-            <table class="table table-striped table-advance table-hover">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
                 <thead>
                   <tr>
-                    <th>Schedule Day</th>
-                    <th>Schedule Time</th>
-                    <th>Medical Staff</th>
-                    <th>Total patient remaining</th>
-                    <th>Pick This</th>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Day</th>
+                    <th><i class="fa fa-clock-o"></i>Time</th>
+                    <th><i class=" fa fa-edit"></i>Total Patient Register</th>
+                    <th>Total Patient</th>
+                    <th>Update</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($schedule as $data)
                   <tr>
-                    <form action="/patient_appointment_add" method="get">
-                    @if($data["total_patient_left"]>0)
+                    <form action="/doctor_schedule_update_detail" method="get">
                     @csrf
-                    <td>{{$data["schedule_date"]}}</td>
-                    <input type = "hidden" name = "appoint_date" value = '{{$data["schedule_date"]}}'/>
-                    <td>{{$data["schedule_time"]}}</td>
-                    <input type = "hidden" name = "appoint_time" value = '{{$data["schedule_time"]}}'/>
-                    <td>{{$data["med_staff"]}}</td>
-                    <input type = "hidden" name = "medstaff" value = '{{$data["med_staff_id"]}}' />
-                    <td>{{$data["total_patient_left"]}}</td>
-                    <td><button class="btn btn-success btn-xs" name="submit"value='Check'><i class="fa fa-check"></i></button></td>
-                    @endif
+                    <input type='hidden' name='id' value='{{$data->schedule_id}}'>
+                    <td>{{$data->schedule_day}}</td>
+                    <td class="hidden-phone">{{$data->schedule_time}}</td>
+                    <td>{{$data->total_patient-$data->total_patient_left}}</td>
+                    <td>{{$data->total_patient}}</td>
+                    <td>
+                      <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                    </td>
                     </form>
                   </tr>
                   @endforeach
-                    
                 </tbody>
-                </table>
-              <br>
-              </div>
+              </table>
             </div>
-            <!-- col-lg-12-->
+            <!-- /content-panel -->
           </div>
+          <!-- /col-md-12 -->
         </div>
+        <!-- /row -->
       </section>
-      <!-- /wrapper -->
     </section>
-    
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -355,7 +358,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="inbox.html#" class="go-top">
+        <a href="basic_table.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -371,7 +374,7 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-
+  
 </body>
 
 </html>

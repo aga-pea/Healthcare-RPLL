@@ -19,6 +19,7 @@ class Schedule extends Model
      */
     protected $fillable = [
         'schedule_day', 'schedule_time', 'medstaff_id', 'department_id','total_patient'
+        ,'total_patient_left'
     ];
 
     /**

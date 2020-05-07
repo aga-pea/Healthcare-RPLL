@@ -26,7 +26,6 @@ class InvoiceController extends Controller
     }
 
     public function UpdateInvoice(Request $request){
-      
     }
 
 }

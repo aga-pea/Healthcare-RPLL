@@ -234,7 +234,19 @@
           <li>
             <a href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
-              <span>Schedule</span>
+              <span>Add Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
               </a>
           </li>
         <!-- sidebar menu end-->

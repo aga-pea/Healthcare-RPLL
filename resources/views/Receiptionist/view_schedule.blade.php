@@ -313,7 +313,7 @@
                     <td>{{$data["schedule_date"]}}</td>
                     <td>{{$data["schedule_time"]}}</td>
                     <td>{{$data["med_staff"]}}</td>
-                    <td>{{$data["total_patient"]}}</td>
+                    <td>{{$data["total_patient_left"]}}</td>
                   </tr>
                   @endforeach
                     

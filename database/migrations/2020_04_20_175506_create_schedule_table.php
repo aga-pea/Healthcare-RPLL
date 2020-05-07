@@ -17,6 +17,7 @@ class CreateScheduleTable extends Migration
             $table->increments('schedule_id');
             $table->string('schedule_day');
             $table->string('schedule_time');
+            $table->integer('total_patient_left');
             $table->integer('total_patient');
             $table->integer('medstaff_id')->unsigned();
             $table->integer('department_id')->unsigned();

@@ -230,11 +230,11 @@ class PatientRegistrationController extends Controller
             $schedule = new ScheduleUseCase;
             $scheduleData = $schedule->searchScheduleById($time_schedule);
             $id = $scheduleData->schedule_id;
-            $totalSchedule = $scheduleData->total_patient;
+            $totalSchedule = $scheduleData->total_patient_left;
 
             if($totalSchedule>0)
             {
-                $scheduleUpdatePatient = $schedule->addTotalPatientByScheduleId($id,$totalSchedule-1);
+                $scheduleUpdatePatient = $schedule->addTotalPatientLeftByScheduleId($id,$totalSchedule-1);
                 $appt = new AppointmentUseCase();
                 $appt->requestAppointment($tgl, $scheduleData->schedule_time, $patient_id, $med_staff, $appt_status);
                 $request->session()->forget('id_patient');

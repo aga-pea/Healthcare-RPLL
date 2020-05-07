@@ -4,12 +4,19 @@
 @include('subs.meta-head')
 
 <head>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik</title>
+  <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -19,6 +26,11 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-fileupload/bootstrap-fileupload.css" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-timepicker/compiled/timepicker.css" />
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datetimepicker/datertimepicker.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -32,21 +44,7 @@
 </head>
 
 <body>
-  <script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-  </script>
-  <style type="text/css">
-		.pagination li{
-			float: left;
-			list-style-type: none;
-			margin:5px;
-		}
-	</style>
-  <section id="container">
+<section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -143,7 +141,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-zac.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -155,7 +153,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-divya.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -167,7 +165,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-danro.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -179,7 +177,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-sherman.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -245,7 +243,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_patient">Logout</a></li>
+          <li><a class="logout" href="/logout_doctor">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -258,29 +256,39 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Paul Smith</h5>
-                    <li class="sub-menu">
-            <a href="/receiptionist_patient_register">
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Sam Soffes</h5>
+         
+          <li class="sub-menu">
+            <a href="{{url('/doctor_main')}}">
+              <i class="fa fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/patients_medical_record')}}">
               <i class="fa fa-book"></i>
-              <span>Patient Registration</span>  
-              </a>
-            </li>
-          <li>
-            <a href="receiptionist_patient_appointment">
-              <i class="fa fa-envelope"></i>
-              <span>Appointment Handle</span>
-              <span class="label label-theme pull-right mail-info"></span>
+              <span>Patients Medical Record</span>
               </a>
           </li>
           <li>
-            <a class="active" href="view_schedule">
-              <i class="fa fa-th"></i>
-              <span>View Schedule</span>
-              <span class="label label-theme pull-right mail-info"></span>
+            <a class="active" href="{{url('/doctor_schedule')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Schedule</span>
               </a>
           </li>
-        </ul>
+          <li>
+            <a href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
+              </a>
+          </li>
         <!-- sidebar menu end-->
       </div>
     </aside>
@@ -291,53 +299,100 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Schedule yang tersedia</h3>
-        <!-- BASIC FORM ELELEMNTS -->
+        
+        <!-- row -->
+        <!--  TIME PICKERS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              
-            <table class="table table-striped table-advance table-hover">
+            <h4><i class="fa fa-angle-right"></i>Add Schedule</h4>
+              <form class="form-horizontal  style-form" action="/doctor_schedule_proses">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Day</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                      <select class="form-control" name="schedule_day">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Time</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                      <input type="text" class="form-control timepicker-24" name="schedule_time">
+                      <span class="input-group-btn">
+                        <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
+                        </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Total Patient</label>
+                  <div class="col-md-4">
+                    <div class="input-group bootstrap-timepicker">
+                    <input type="text" name="total_patient"> 
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-theme" name="SubmitSchedule">Submit Schedule</button>
+              </form>
+              @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+              </div>
+              @endif
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+        <!-- row -->
+
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i>Schedule List</h4>
+                <hr>
                 <thead>
                   <tr>
-                    <th>Schedule Day</th>
-                    <th>Schedule Time</th>
-                    <th>Medical Staff</th>
-                    <th>Total patient remaining</th>
-                    <th>Pick This</th>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Day</th>
+                    <th><i class="fa fa-clock-o"></i>Time</th>
+                    <th><i class=" fa fa-edit"></i>Total Patient Registered</th>
+                    <th>Total Patient Served</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($schedule as $data)
-                  <tr>
-                    <form action="/patient_appointment_add" method="get">
-                    @if($data["total_patient_left"]>0)
-                    @csrf
-                    <td>{{$data["schedule_date"]}}</td>
-                    <input type = "hidden" name = "appoint_date" value = '{{$data["schedule_date"]}}'/>
-                    <td>{{$data["schedule_time"]}}</td>
-                    <input type = "hidden" name = "appoint_time" value = '{{$data["schedule_time"]}}'/>
-                    <td>{{$data["med_staff"]}}</td>
-                    <input type = "hidden" name = "medstaff" value = '{{$data["med_staff_id"]}}' />
-                    <td>{{$data["total_patient_left"]}}</td>
-                    <td><button class="btn btn-success btn-xs" name="submit"value='Check'><i class="fa fa-check"></i></button></td>
-                    @endif
-                    </form>
-                  </tr>
-                  @endforeach
-                    
+                    @foreach($schedule as $data)
+                    <tr>
+                      <td>{{$data->schedule_day}}</td>
+                      <td>{{$data->schedule_time}}</td>
+                      <td>{{$data->total_patient-$data->total_patient_left}}</td>
+                      <td>{{$data->total_patient}}</td>
+                    </tr>
+                    @endforeach
                 </tbody>
-                </table>
-              <br>
-              </div>
+              </table>
             </div>
-            <!-- col-lg-12-->
+            <!-- /content-panel -->
           </div>
+          <!-- /col-md-12 -->
         </div>
       </section>
       <!-- /wrapper -->
     </section>
-    
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -355,7 +410,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="inbox.html#" class="go-top">
+        <a href="advanced_form_components.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
@@ -371,6 +426,15 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="lib/advanced-form-components.js"></script>
 
 </body>
 

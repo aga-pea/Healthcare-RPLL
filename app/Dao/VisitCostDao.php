@@ -25,5 +25,18 @@
             $cost = Visit_Cost::where('cost_id', $id)->first();
             return $cost;
         }
+
+        public static function getCostByMedStaff($medstaff_id)
+        {
+            $cost = Visit_Cost::where('medstaff_id', $medstaff_id)->get();
+            return $cost;
+        }
+
+        public static function getCostByMedStaffTreatmentPrice($medstaff_id,$treatment,$price)
+        {
+            $matchThese = ['medstaff_id' => $medstaff_id, 'treatment' => $treatment, 'price' => $price];
+            $cost = Visit_Cost::where($matchThese)->first();
+            return $cost;
+        }
     }
 ?>

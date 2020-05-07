@@ -74,7 +74,7 @@ class RequestAppointmentController extends Controller
             $med_staff_name = $med_staff->getNameWithId($data->medstaff_id);
             $array["med_staff"]=$med_staff_name;
             $array["med_staff_id"]=$data->medstaff_id;
-            $array["total_patient"]=$data->total_patient;
+            $array["total_patient_left"]=$data->total_patient_left;
             array_push($list_data,$array);
         }
 

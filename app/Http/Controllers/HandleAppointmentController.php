@@ -22,8 +22,7 @@ class HandleAppointmentController extends Controller
             $array["medStaff_name"]=$med_staff_name;
             $schedule = new ScheduleUseCase;
             $schedule_data = $schedule->searchScheduleByMedStaffDateTime($data->medstaff_id,$array["appt_date"],$array["appt_time"]);
-            $array["total_patient"]=$schedule_data->total_patient;
-            // $array["total_patient"]=$schedule_data->schedule_id;
+            $array["total_patient_left"]=$schedule_data->total_patient_left;
             array_push($list_data,$array);
         }
         return view('Receiptionist/handle_appointment_main',["appointment" => $list_data]);
@@ -56,9 +55,9 @@ class HandleAppointmentController extends Controller
             $medstaff=$appointData->medstaff_id;
             $schedule = new ScheduleUseCase;
             $scheduleData= $schedule->searchScheduleByMedStaffDateTime($medstaff,$date,$time);
-            if($scheduleData->total_patient>0){
+            if($scheduleData->total_patient_left>0){
                 $appointment->updateAppointment($id,$choice);
-                $schedule->addTotalPatientByScheduleId($scheduleData->schedule_id,$scheduleData->total_patient-1);
+                $schedule->addTotalPatientLeftByScheduleId($scheduleData->schedule_id,$scheduleData->total_patient_left-1);
                 return redirect("/receiptionist_main")->with('alert', 'Appointment Berhasil Diupdate');
             }else{
                 redirect()->back()->with('alert','Patient sudah penuh');

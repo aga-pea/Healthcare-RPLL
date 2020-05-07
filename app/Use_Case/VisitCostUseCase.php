@@ -26,4 +26,17 @@ class VisitCostUseCase
         return $costData;
     }
 
-}
+    public static function searchCostByMedStaff($medstaff_id)
+    {
+        $getCost = new VisitCostDao();
+        $costData = $getCost->getCostByMedStaff($medstaff_id);
+        return $costData;
+    }
+
+    public static function searchCostByMedStaffTreatmentPrice($medstaff_id,$treatment,$price)
+    {
+        $cost = new VisitCostDao();
+        $costData = $cost->getCostByMedStaffTreatmentPrice($medstaff_id,$treatment,$price);
+        return $costData;
+    }
+}   

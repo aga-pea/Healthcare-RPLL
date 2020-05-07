@@ -37,5 +37,18 @@
             $appointmentData = $appointment->getAppointByPatient($patient_id);
             return $appointmentData;
         }
+
+        public static function getAppointmentByMedStaffTimeDay($medstaff_id,$time,$day)
+        {
+            $appointment = new AppointmentDao();
+            $appointmentData = $appointment->getAppointmentByMedStaffTimeDay($medstaff_id,$time,$day);
+            return $appointmentData;
+        }
+
+        public static function updateAppointmentTimeDayById($id,$time,$day)
+        {
+            $appointment = new AppointmentDao();
+            $appointmentData = $appointment->updateAppointmentTimeDayById($id,$time,$day);
+        }
     }
 ?>

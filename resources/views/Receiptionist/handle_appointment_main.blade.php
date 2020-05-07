@@ -316,7 +316,7 @@
                     <td>{{$data["appt_date"]}}</td>
                     <td>{{$data["appt_time"]}}</td>
                     <td>{{$data["medStaff_name"]}}</td>
-                    <td>{{$data["total_patient"]}}</td>
+                    <td>{{$data["total_patient_left"]}}</td>
                     <td><button class="btn btn-success btn-xs" name="submit"value='Check'><i class="fa fa-check"></i></button></td>
                     </form>
                   </tr>
