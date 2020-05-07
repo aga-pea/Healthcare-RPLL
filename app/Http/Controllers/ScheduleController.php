@@ -13,28 +13,28 @@ class ScheduleController extends Controller
     }
 
     public function createSchedule(Request $request){
-        $schedule_date = $request->input('schedule_date');
+        $schedule_date = $request->input('schedule_day');
         $schedule_time = $request->input('schedule_time');
         $total_patient = $request->input('total_patient');
         $id= session()->get('doctor_id');
-        $newDate = date("Y-m-d", strtotime($schedule_date));
         
         $medstaff = new MedicalStaffUseCase;
         $medstaffData = $medstaff->getMedStaffWithId($id);
         $department_id = $medstaffData->department_id;
 
         $appointment = new ScheduleUseCase();
-        $appointment->requestSchedule($newDate, $schedule_time, $id,$total_patient,$department_id);
+        $appointment->requestSchedule($schedule_date, $schedule_time, $id,$total_patient,$department_id);
         return redirect("/doctor_schedule");
     }
 
     public function updateSchedule(Request $request){
         $id = $_GET['schedule_id'];
-        $date = $_GET['schedule_date'];
+        $date = $_GET['schedule_day'];
         $time = $_GET['schedule_time'];
+        $total_patient = $_GET['total_patient'];
 
         $schedule = new ScheduleUseCase();
-        $schedule->updateSchedule($id, $date, $time);
+        $schedule->updateSchedule($id, $date, $time,$total_patient);
         return view("Doctor/doctor_schedule");
     }
 

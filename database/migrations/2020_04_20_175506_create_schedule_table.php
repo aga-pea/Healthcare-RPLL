@@ -15,8 +15,8 @@ class CreateScheduleTable extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->increments('schedule_id');
-            $table->date('schedule_date');
-            $table->timestamp('schedule_time');
+            $table->string('schedule_day');
+            $table->string('schedule_time');
             $table->integer('total_patient');
             $table->integer('medstaff_id')->unsigned();
             $table->integer('department_id')->unsigned();

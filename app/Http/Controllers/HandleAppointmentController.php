@@ -15,7 +15,7 @@ class HandleAppointmentController extends Controller
         foreach($appointmentAll as $data){
             $array=[];
             $array["appt_id"]=$data->appt_id;
-            $array["appt_date"]=$data->appt_date;
+            $array["appt_date"]=$data->appt_day;
             $array["appt_time"]=$data->appt_time;
             $med_staff= new MedicalStaffUseCase;
             $med_staff_name = $med_staff->getNameWithId($data->medstaff_id);
@@ -51,7 +51,7 @@ class HandleAppointmentController extends Controller
         {
             $appointment = new AppointmentUseCase;
             $appointData = $appointment->getAppointmentById($id);
-            $date=$appointData->appt_date;
+            $date=$appointData->appt_day;
             $time=$appointData->appt_time;
             $medstaff=$appointData->medstaff_id;
             $schedule = new ScheduleUseCase;

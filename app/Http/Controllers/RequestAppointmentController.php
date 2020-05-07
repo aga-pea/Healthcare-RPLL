@@ -24,7 +24,7 @@ class RequestAppointmentController extends Controller
             $medstaff_name = $doctor->getNameWithId($data->medstaff_id);
             $array["medstaff_name"]=$medstaff_name;
             $array["appt_time"]=$data->appt_time;
-            $array["appt_date"]=$data->appt_date;
+            $array["appt_date"]=$data->appt_day;
             $status = $data->appt_status;
             if($status=="Accepted")
             {
@@ -68,7 +68,7 @@ class RequestAppointmentController extends Controller
         foreach($scheduleData as $data)
         {
             $array =[];
-            $array["schedule_date"]=$data->schedule_date;
+            $array["schedule_date"]=$data->schedule_day;
             $array["schedule_time"]=$data->schedule_time;
             $med_staff= new MedicalStaffUseCase;
             $med_staff_name = $med_staff->getNameWithId($data->medstaff_id);
@@ -90,11 +90,9 @@ class RequestAppointmentController extends Controller
         
 
         $patient_id = $request->session()->get('patient_id');
-
-        $newDate = date("Y-m-d", strtotime($appoint_date));
         $status = "Active";
         $appointment = new AppointmentUseCase();
-        $appointment->requestAppointment($newDate, $appoint_time, $patient_id, $medstaff, $status);
+        $appointment->requestAppointment($appoint_date, $appoint_time, $patient_id, $medstaff, $status);
         return redirect("/patient_main")->with("alert","Appointment Berhasil dikirim");
     }
 

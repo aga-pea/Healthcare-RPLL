@@ -300,7 +300,7 @@
             <table class="table table-striped table-advance table-hover">
                 <thead>
                   <tr>
-                    <th>Appointment Date</th>
+                    <th>Appointment Day</th>
                     <th>Appointment Time</th>
                     <th>Medical Staff</th>
                     <th>Total patient remaining</th>

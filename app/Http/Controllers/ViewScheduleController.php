@@ -31,7 +31,7 @@ class ViewScheduleController extends Controller
         foreach($scheduleData as $data)
         {
             $array =[];
-            $array["schedule_date"]=$data->schedule_date;
+            $array["schedule_date"]=$data->schedule_day;
             $array["schedule_time"]=$data->schedule_time;
             $med_staff= new MedicalStaffUseCase;
             $med_staff_name = $med_staff->getNameWithId($data->medstaff_id);

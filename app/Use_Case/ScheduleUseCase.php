@@ -32,10 +32,10 @@
             return $schedule;
         }
 
-        public static function updateSchedule($id, $date, $time)
+        public static function updateSchedule($id, $date, $time, $total_patient)
         {
             $updateSchedule = new ScheduleDao();
-            $updateSchedule->updateSchedule($id,$date, $time);
+            $updateSchedule->updateSchedule($id,$date, $time,$total_patient);
         }
 
         public static function searchScheduleByDateAndMedStaff($tgl,$med_staff)

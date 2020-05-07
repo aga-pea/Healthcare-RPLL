@@ -43,7 +43,7 @@
   </script>
   <script type="text/javascript">
     function showDiv(select){
-      if(select.value=="Reject"){
+      if(select.value=="Rejected"){
         document.getElementById('hidden_div').style.display = "block";
       } else{
         document.getElementById('hidden_div').style.display = "none";

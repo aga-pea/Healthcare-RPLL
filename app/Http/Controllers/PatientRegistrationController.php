@@ -39,10 +39,39 @@ class PatientRegistrationController extends Controller
     public function appointment_pick(Request $request){
         $id = $_GET["id"];
         session()->put('id_patient',$id);
-        $tgl_format=date('Y-m-d');
+        $tgl_format=date('N');
         $tgl=date('d-m-Y');
+        
+        if($tgl_format==1)
+        {
+            $day ="Monday";
+        }
+        else if($tgl_format==2)
+        {
+            $day = "Tuesday";
+        }
+        else if($tgl_format==3)
+        {
+            $day = "Wednesday";
+        }
+        else if($tgl_format==4)
+        {
+            $day = "Thursday";
+        }
+        else if($tgl_format==5)
+        {
+            $day = "Friday";
+        }
+        else if($tgl_format==6)
+        {
+            $day = "Saturday";
+        }
+        else if($tgl_format==7)
+        {
+            $day = "Sunday";
+        }
         $schedule = new ScheduleUseCase;
-        $scheduleAll = $schedule->searchScheduleByDate($tgl_format);
+        $scheduleAll = $schedule->searchScheduleByDate($day);
         $department =[];
         $dept= new DepartmentUseCase;
         for($i=0;$i<count($scheduleAll);$i++)
@@ -52,7 +81,7 @@ class PatientRegistrationController extends Controller
             $department[$dept_name]=$id;
         }
         $request->session()->forget('tipe');
-        return view("Receiptionist/input_new_patient_appointment",['tgl' => $tgl, 'department' => $department, 'tgl_format' => $tgl_format]);
+        return view("Receiptionist/input_new_patient_appointment",['tgl' => $tgl, 'department' => $department, 'tgl_format' => $day]);
     }
 
     public function proses_patient(Request $request){
@@ -89,10 +118,38 @@ class PatientRegistrationController extends Controller
     }
 
     public function patient_appointment(Request $request){
-        $tgl_format=date('Y-m-d');
+        $tgl_format=date('N');
         $tgl=date('d-m-Y');
+        if($tgl_format==1)
+        {
+            $day ="Monday";
+        }
+        else if($tgl_format==2)
+        {
+            $day = "Tuesday";
+        }
+        else if($tgl_format==3)
+        {
+            $day = "Wednesday";
+        }
+        else if($tgl_format==4)
+        {
+            $day = "Thursday";
+        }
+        else if($tgl_format==5)
+        {
+            $day = "Friday";
+        }
+        else if($tgl_format==6)
+        {
+            $day = "Saturday";
+        }
+        else if($tgl_format==7)
+        {
+            $day = "Sunday";
+        }
         $schedule = new ScheduleUseCase;
-        $scheduleAll = $schedule->searchScheduleByDate($tgl_format);
+        $scheduleAll = $schedule->searchScheduleByDate($day);
         $department =[];
         $dept= new DepartmentUseCase;
         for($i=0;$i<count($scheduleAll);$i++)
@@ -101,17 +158,45 @@ class PatientRegistrationController extends Controller
             $dept_name=$dept->getNameWithId($id);
             $department[$dept_name]=$id;
         }
-        return view("Receiptionist/input_new_patient_appointment",['tgl' => $tgl, 'department' => $department, 'tgl_format' => $tgl_format]);
+        return view("Receiptionist/input_new_patient_appointment",['tgl' => $tgl, 'department' => $department, 'tgl_format' => $day]);
     }
 
     public function patient_appointment_detail(Request $request)
     {
         $tgl = $_GET['tgl'];
         $dept= $_GET['dept'];
-        $tgl_format=date('Y-m-d');
+        $tgl_format=date('N');
         $tgl=date('d-m-Y');
+        if($tgl_format==1)
+        {
+            $day ="Monday";
+        }
+        else if($tgl_format==2)
+        {
+            $day = "Tuesday";
+        }
+        else if($tgl_format==3)
+        {
+            $day = "Wednesday";
+        }
+        else if($tgl_format==4)
+        {
+            $day = "Thursday";
+        }
+        else if($tgl_format==5)
+        {
+            $day = "Friday";
+        }
+        else if($tgl_format==6)
+        {
+            $day = "Saturday";
+        }
+        else if($tgl_format==7)
+        {
+            $day = "Sunday";
+        }
         $schedule = new ScheduleUseCase;
-        $scheduleAll = $schedule->searchScheduleByDateAndDept($tgl_format,$dept);
+        $scheduleAll = $schedule->searchScheduleByDateAndDept($day,$dept);
         $med_staff = new MedicalStaffUseCase;
         $medStaff=[];
         for($i=0;$i<count($scheduleAll);$i++)
@@ -121,7 +206,7 @@ class PatientRegistrationController extends Controller
             $medStaff[$med_staff_name]=$id;
         }
         
-        return view("Receiptionist/input_new_patient_appointment_full",['schedule' => $scheduleAll, 'med_staff' => $medStaff, 'tgl_format' => $tgl_format]);
+        return view("Receiptionist/input_new_patient_appointment_full",['schedule' => $scheduleAll, 'med_staff' => $medStaff, 'tgl_format' => $day]);
     }
 
     public function patient_appointment_proses(Request $request)

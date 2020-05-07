@@ -295,7 +295,7 @@
                 <thead>
                   <tr>
                     <th><i class="fa fa-stethoscope"></i> Dokter</th>
-                    <th class="hidden-phone"><i class="fa fa-calendar"></i> Tanggal Pertemuan</th>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Hari Pertemuan</th>
                     <th><i class="fa fa-clock-o"></i> Jam Pertemuan</th>
                     <th><i class=" fa fa-edit"></i> Status</th>
                     <th>Alasan</th>
