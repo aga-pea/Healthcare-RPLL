@@ -17,7 +17,7 @@ class Medical_Record extends Model
      * @var array
      */
     protected $fillable = [
-        'record_id', 'patient_id', 'medstaff_id','disease_id','medicine_id', 'hospital_id'
+        'record_id', 'anamnesia','patient_id','disease_id','visit_id', 'hospital_id'
     ];
 
     /**
