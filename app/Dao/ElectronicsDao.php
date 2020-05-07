@@ -5,6 +5,18 @@
 
     class ElectronicsDao
     {
+        public static function getAllElectronic()
+        {
+            $electronic = Electronics::paginate(10);
+            return $electronic;
+        }
+
+        public static function getElectronic($id)
+        {
+            $electronic = Electronics::where('electronic_id',$id)->first();
+            return $electronic;
+        }
+
         public static function createElectronic($electronic_name, $electronic_qty, $electronic_type)
         {
             Electronics::create([
@@ -14,27 +26,15 @@
             ]); 
         }
 
-        public static function getAllElectronic()
+        public static function updateElectronic($id, $name, $qty, $type)
         {
-            $electronic = Electronics::paginate(10);
-            return $electronic;
+            $electronic = Electronics::where('electronic_id',$id)->update(['electronic_name'=>$name,'electronic_qty'=>$qty,'electronic_type'=>$type]);
         }
 
         public static function deleteElectronics($id)
         {
             $electronic = Electronics::where('electronic_id',$id)->first();
             $electronic->delete();
-        }
-
-        public static function getElectronic($id)
-        {
-            $electronic = Electronics::where('electronic_id',$id)->first();
-            return $electronic;
-        }
-
-        public static function updateElectronic($id, $name, $qty, $type)
-        {
-            $electronic = Electronics::where('electronic_id',$id)->update(['electronic_name'=>$name,'electronic_qty'=>$qty,'electronic_type'=>$type]);
         }
     }
 ?>
