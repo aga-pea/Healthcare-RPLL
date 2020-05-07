@@ -44,7 +44,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
               <span class="badge bg-theme">4</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -113,7 +113,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
               <span class="badge bg-theme">5</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -123,49 +123,49 @@
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
                   <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
+                    <span class="from">Zac Snider</span>
+                    <span class="time">Just now</span>
                   </span>
                   <span class="message">
-                  Hi mate, how is everything?
+                    Hi mate, how is everything?
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
                   <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
+                    <span class="from">Divya Manian</span>
+                    <span class="time">40 mins.</span>
                   </span>
                   <span class="message">
-                  Hi, I need your help with this.
+                    Hi, I need your help with this.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
+                    <span class="from">Dan Rogers</span>
+                    <span class="time">2 hrs.</span>
                   </span>
                   <span class="message">
-                  Love your new Dashboard.
+                    Love your new Dashboard.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
+                    <span class="from">Dj Sherman</span>
+                    <span class="time">4 hrs.</span>
                   </span>
                   <span class="message">
-                  Please, answer asap.
+                    Please, answer asap.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all messages</a>
@@ -178,7 +178,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended notification">
               <div class="notify-arrow notify-arrow-yellow"></div>
               <li>
@@ -189,28 +189,28 @@
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Server Overloaded.
                   <span class="small italic">4 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-warning"><i class="fa fa-bell"></i></span>
                   Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-success"><i class="fa fa-plus"></i></span>
                   New User Registered.
                   <span class="small italic">3 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all notifications</a>
@@ -238,7 +238,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-         
+
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
@@ -249,15 +249,15 @@
             <a href="{{url('/patients_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
-              </a>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
               <span>Schedule</span>
-              </a>
+            </a>
           </li>
-        <!-- sidebar menu end-->
+          <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
@@ -267,66 +267,61 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Calendar</h3>
-        <!-- page start-->
+        <h3><i class="fa fa-angle-right"></i> Doctor Schedule</h3>
         <div class="row mt">
-          <aside class="col-lg-3 mt">
-            <h4><i class="fa fa-angle-right"></i> Draggable Events</h4>
-            <div id="external-events">
-              <div class="external-event label label-theme">My Event 1</div>
-              <div class="external-event label label-success">My Event 2</div>
-              <div class="external-event label label-info">My Event 3</div>
-              <div class="external-event label label-warning">My Event 4</div>
-              <div class="external-event label label-danger">My Event 5</div>
-              <div class="external-event label label-default">My Event 6</div>
-              <div class="external-event label label-theme">My Event 7</div>
-              <div class="external-event label label-info">My Event 8</div>
-              <div class="external-event label label-success">My Event 9</div>
-              <p class="drop-after">
-                <input type="checkbox" id="drop-remove"> Remove After Drop
-              </p>
+          <!--  DATE PICKERS -->
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <form action="/patient_appointment_pick" class="form-horizontal style-form">
+                <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Hari</label>
+                  <div class="col-md-3 col-xs-11">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3">Jam</label>
+                  <div class="col-md-3 col-xs-11">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-theme" name="submitAppointment">Tambah Jadwal</button>
+              </form>
             </div>
-          </aside>
-          <aside class="col-lg-9 mt">
-            <section class="panel">
-              <div class="panel-body">
-                <div id="calendar" class="has-toolbar"></div>
-              </div>
-            </section>
-          </aside>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
         </div>
-        <!-- page end-->
+
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i> Appointments </h4>
+                <hr>
+                <thead>
+                  <tr>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i> Hari</th>
+                    <th><i class="fa fa-clock-o"></i> Jam</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
+        </div>
+        <!-- /row -->
       </section>
-      <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="calendar.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
-      </div>
-    </footer>
-    <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
-  <script src="{{asset('assets/lib/fullcalendar/fullcalendar.min.js')}}"></script>
   <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
   <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
   <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
@@ -334,7 +329,15 @@
   <!--common script for all pages-->
   <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
   <!--script for this page-->
-  <script src="{{asset('assets/lib/calendar-conf-events.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/date.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/moment.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
+  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
 
 </body>
 
