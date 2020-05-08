@@ -12,5 +12,11 @@
             return $med_record;
         }
 
+        public static function addMedicalRecord($id_patient, $id_disease, $id_hospital, $id_visit, $anamnesia)
+        {
+            $addRecord = new MedicalRecordDao();
+            $addRecord->createMedicalRecord($id_patient, $id_disease, $id_hospital, $id_visit, $anamnesia);
+        }
+
     }
 ?>
