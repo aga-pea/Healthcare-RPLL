@@ -22,6 +22,13 @@
             return $appointment;
         }
 
+        public static function getListPatientByAcceptedStatus($status, $doctor_id)
+        {
+            $matchThese = ['appt_status' => $status, 'medstaff_id' => $doctor_id];
+            $appointment = Appointment::where($matchThese)->get();
+            return $appointment;
+        }
+
         public static function updateStatusById($appoint_id,$status)
         {
             $appointment = Appointment::where('appt_id',$appoint_id)->update(["appt_status" => $status]);
