@@ -27,8 +27,8 @@ class AddInvoiceController extends Controller
             }
             
         }
-        print(var_dump($patient_id)."<br>");
-        print(var_dump($list_patient));
-        // return view('Cashier/invoice_main');
+        // print(var_dump($patient_id)."<br>");
+        // print(var_dump($list_patient));
+        return view('Cashier/invoice_main');
     }
 }
