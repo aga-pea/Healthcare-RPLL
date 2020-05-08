@@ -7,7 +7,7 @@ use App\Use_Case\MedicalDataUseCase;
 use App\Use_Case\AppointmentUseCase;
 use App\Use_Case\PatientUseCase;
 
-class AddMedicalRecordController extends Controller
+class AddMedicalDataController extends Controller
 {
 
     public function addMedicalRecord(Request $request)

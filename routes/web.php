@@ -47,7 +47,7 @@ Route::get('/doctor_schedule_update_detail', 'ScheduleController@view_schedule_d
 Route::get('/doctor_schedule_update_proses', 'ScheduleController@updateSchedule');
 Route::get('/doctor_input_visit_details', 'InputVisitDetailController@index');
 Route::get('/doctor_input_visit_details_proses', 'VisitCostController@createVisitCost');
-Route::get('/doctor_add_medical_record', 'AddMedicalRecordController@addMedicalRecord');
+Route::get('/doctor_add_medical_record', 'AddMedicalDataController@addMedicalRecord');
 
 /*
 ------------------------------------------------------------------
