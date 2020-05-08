@@ -236,9 +236,9 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-
+         
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
@@ -249,15 +249,27 @@
             <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
-            </a>
+              </a>
           </li>
           <li>
             <a href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
-              <span>Schedule</span>
-            </a>
+              <span>Add Schedule</span>
+              </a>
           </li>
-          <!-- sidebar menu end-->
+          <li>
+            <a class="active" href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
+              </a>
+          </li>
+        <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->

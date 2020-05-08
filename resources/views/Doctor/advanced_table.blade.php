@@ -238,28 +238,39 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="{{url('/doctor_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-          <li>
+         
+          <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
               <span>Profile</span>
+            </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/doctor_medical_record')}}">
+              <i class="fa fa-book"></i>
+              <span>Patients Medical Record</span>
               </a>
           </li>
           <li>
-            <a href="{{url('/doctor_medical_record')}}">
-              <i class="fa fa-envelope"></i>
-              <span>Patients Medical Record </span>
-              <!-- <span class="label label-theme pull-right mail-info">2</span> -->
-              </a>
-          </li>
-          <li class="sub-menu">
             <a href="{{url('/doctor_schedule')}}">
-              <i class="fa fa-th"></i>
-              <span>Schedule</span>
+              <i class="fa fa-table"></i>
+              <span>Add Schedule</span>
               </a>
           </li>
-        </ul>
+          <li>
+            <a class="active" href="{{url('/doctor_schedule_update')}}">
+              <i class="fa fa-table"></i>
+              <span>Update Schedule</span>
+              </a>
+          </li>
+          <li>
+            <a href="{{url('/doctor_input_visit_details')}}">
+              <i class="fa fa-table"></i>
+              <span>Add Visit Details</span>
+              </a>
+          </li>
         <!-- sidebar menu end-->
       </div>
     </aside>
