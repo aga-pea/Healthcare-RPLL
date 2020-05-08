@@ -231,7 +231,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_receiptionist">Logout</a></li>
+          <li><a class="logout" href="/logout_cashier">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -247,15 +247,15 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="invoice.html">
+            <a href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
-              <span>Invoice</span>  
+              <span>Add Invoice</span>  
               </a>
             </li>
           <li>
-            <a href="inbox.html">
+            <a href="/cashier_update_invoice">
               <i class="fa fa-envelope"></i>
-              <span>Appointment</span>
+              <span>Update Invoice</span>
               <span class="label label-theme pull-right mail-info"></span>
               </a>
           </li>

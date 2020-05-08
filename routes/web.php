@@ -89,7 +89,8 @@ Cashier Routes & Controller
 */
 Route::get('/cashier_login', function () { return view('Cashier/login'); });
 Route::get('/cashier_main', function () { return view('Cashier/index'); });
-
+Route::get('/cashier_add_invoice', 'AddInvoiceController@index');
+Route::get('/cashier_update_invoice', 'UpdateInvoiceController@index');
 
 /*
 ------------------------------------------------------------------
