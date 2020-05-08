@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('subs.meta-head')
-
 <head>
-  <script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -19,32 +10,26 @@
   <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-fileupload/bootstrap-fileupload.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-timepicker/compiled/timepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datetimepicker/datertimepicker.css" />
+  <link href="{{asset('assets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datepicker/css/datepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-timepicker/compiled/timepicker.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datetimepicker/datertimepicker.css')}}" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet">
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
 </head>
 
 <body>
-<section id="container">
+  <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -54,7 +39,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
+      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -64,7 +49,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
               <span class="badge bg-theme">4</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -133,7 +118,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
               <span class="badge bg-theme">5</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -141,51 +126,51 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-zac.jpg')}}"></span>
+                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
                   <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
+                    <span class="from">Zac Snider</span>
+                    <span class="time">Just now</span>
                   </span>
                   <span class="message">
-                  Hi mate, how is everything?
+                    Hi mate, how is everything?
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-divya.jpg')}}"></span>
+                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
                   <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
+                    <span class="from">Divya Manian</span>
+                    <span class="time">40 mins.</span>
                   </span>
                   <span class="message">
-                  Hi, I need your help with this.
+                    Hi, I need your help with this.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-danro.jpg')}}"></span>
+                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
+                    <span class="from">Dan Rogers</span>
+                    <span class="time">2 hrs.</span>
                   </span>
                   <span class="message">
-                  Love your new Dashboard.
+                    Love your new Dashboard.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="{{asset('assets/img/ui-sherman.jpg')}}"></span>
+                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
+                    <span class="from">Dj Sherman</span>
+                    <span class="time">4 hrs.</span>
                   </span>
                   <span class="message">
-                  Please, answer asap.
+                    Please, answer asap.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all messages</a>
@@ -198,7 +183,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended notification">
               <div class="notify-arrow notify-arrow-yellow"></div>
               <li>
@@ -209,28 +194,28 @@
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Server Overloaded.
                   <span class="small italic">4 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-warning"><i class="fa fa-bell"></i></span>
                   Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                   Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-success"><i class="fa fa-plus"></i></span>
                   New User Registered.
                   <span class="small italic">3 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all notifications</a>
@@ -243,7 +228,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_doctor">Logout</a></li>
+          <li><a class="logout" href="login.html">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -258,7 +243,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-         
+
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
@@ -269,27 +254,27 @@
             <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
-              </a>
+            </a>
           </li>
           <li>
             <a class="active" href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
               <span>Add Schedule</span>
-              </a>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_schedule_update')}}">
               <i class="fa fa-table"></i>
               <span>Update Schedule</span>
-              </a>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_input_visit_details')}}">
               <i class="fa fa-table"></i>
               <span>Add Visit Details</span>
-              </a>
+            </a>
           </li>
-        <!-- sidebar menu end-->
+          <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
@@ -299,14 +284,11 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        
-        <!-- row -->
-        <!--  TIME PICKERS -->
+        <h3><i class="fa fa-angle-right"></i> Schedules</h3>
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h4><i class="fa fa-angle-right"></i>Add Schedule</h4>
-              <form class="form-horizontal  style-form" action="/doctor_schedule_proses">
+              <form class="form-horizontal style-form" action="/doctor_schedule_proses">
                 <div class="form-group">
                   <label class="control-label col-md-3">Day</label>
                   <div class="col-md-4">
@@ -324,13 +306,13 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3">Time</label>
+                  <label class="control-label col-md-3">24hr Timepicker</label>
                   <div class="col-md-4">
                     <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24" name="schedule_time">
+                      <input type="text" class="form-control timepicker-24">
                       <span class="input-group-btn">
                         <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
-                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -338,7 +320,7 @@
                   <label class="control-label col-md-3">Total Patient</label>
                   <div class="col-md-4">
                     <div class="input-group bootstrap-timepicker">
-                    <input type="text" name="total_patient"> 
+                      <input type="text" name="total_patient">
                     </div>
                   </div>
                 </div>
@@ -346,11 +328,11 @@
               </form>
               @if (count($errors) > 0)
               <div class="alert alert-danger">
-                  <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                  </ul>
+                <ul>
+                  @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
               </div>
               @endif
             </div>
@@ -358,7 +340,6 @@
           </div>
           <!-- /col-lg-12 -->
         </div>
-        <!-- row -->
 
         <div class="row mt">
           <div class="col-md-12">
@@ -375,14 +356,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($schedule as $data)
-                    <tr>
-                      <td>{{$data->schedule_day}}</td>
-                      <td>{{$data->schedule_time}}</td>
-                      <td>{{$data->total_patient-$data->total_patient_left}}</td>
-                      <td>{{$data->total_patient}}</td>
-                    </tr>
-                    @endforeach
+                  @foreach($schedule as $data)
+                  <tr>
+                    <td>{{$data->schedule_day}}</td>
+                    <td>{{$data->schedule_time}}</td>
+                    <td>{{$data->total_patient-$data->total_patient_left}}</td>
+                    <td>{{$data->total_patient}}</td>
+                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -412,29 +393,29 @@
         </div>
         <a href="advanced_form_components.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
-          </a>
+        </a>
       </div>
     </footer>
     <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="lib/jquery.scrollTo.min.js"></script>
-  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
+  <script src="{{asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
   <!--common script for all pages-->
-  <script src="lib/common-scripts.js"></script>
+  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-  <script src="lib/advanced-form-components.js"></script>
+  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/date.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/moment.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
+  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
 
 </body>
 
