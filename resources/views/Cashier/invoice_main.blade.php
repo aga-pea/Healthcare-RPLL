@@ -285,13 +285,13 @@
           <div class="col-lg-12">
             <div class="form-panel">
               
-              <form class="form-horizontal style-form" action="/warehouse_view_list" method="get">
+              <form class="form-horizontal style-form" action="/cashier_add_invoice_proses" method="get">
                 <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih tipe inventory yang ingin dilihat</h4>
-                  <select class="form-control" name="tipe">
-                      <option values="Medicine">Medicine</option>
-                      <option values="Electronics">Electronics</option>
-                      <option values="Medical Utilities">Medical Utilities</option>
+                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih Patient yang belum membayar</h4>
+                  <select class="form-control" name="patient">
+                      @foreach($list_patient as $data)
+                        <option value={{$data["patient_id"]}}>{{$data["patient_name"]}}</option>
+                      @endforeach
                   </select>
                 <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
               </form>
@@ -299,6 +299,37 @@
             </div>
             <!-- col-lg-12-->
           </div>
+        </div>
+
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i>Paid Invoice List</h4>
+                <hr>
+                <thead>
+                  <tr>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Invoice Date</th>
+                    <th><i class="fa fa-clock-o"></i>Invoice Amount</th>
+                    <th>Invoice Method</th>
+                    <th>Patient Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach($invoice_list as $data)
+                    <tr>
+                      <td>{{$data["date"]}}</td>
+                      <td>{{$data["amount"]}}</td>
+                      <td>{{$data["method"]}}</td>
+                      <td>{{$data["patient_name"]}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+              </table>
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
         </div>
       </section>
       <!-- /wrapper -->

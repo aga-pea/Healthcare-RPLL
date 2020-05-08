@@ -14,12 +14,9 @@ class CreateVisitTable extends Migration
     public function up()
     {
         Schema::create('visit', function (Blueprint $table) {
-            $table->increments('visit_id');
-            $table->integer('qty_medicine');
-            $table->integer('medicine_id')->unsigned();
-            $table->integer('cost_id')->unsigned();
-            $table->foreign('medicine_id')->references('medicine_id')->on('medicine');
-            $table->foreign('cost_id')->references('cost_id')->on('visit_cost');
+            
+            
+            
         });
     }
 

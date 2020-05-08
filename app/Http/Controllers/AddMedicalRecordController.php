@@ -36,21 +36,21 @@ class AddMedicalRecordController extends Controller
         print(var_dump($list_patient));
 
         //Anamnesia required
-        $this->validate($request, [
-            'anamnesia' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'anamnesia' => 'required'
+        // ]);
 
-        //get
-        $id_patient = $_GET['patient_id'];
-        $id_disease = $_GET['disease_id'];
-        $id_hospital = $_GET['hospital_id'];
-        $id_visit = $_GET['visit_id'];
-        $anamnesia = $_GET['anamnesia'];
+        // //get
+        // $id_patient = $_GET['patient_id'];
+        // $id_disease = $_GET['disease_id'];
+        // $id_hospital = $_GET['hospital_id'];
+        // $id_visit = $_GET['visit_id'];
+        // $anamnesia = $_GET['anamnesia'];
 
         //create
-        $med_record = new MedicalDataUseCase();
-        $add_med_record = $med_record->addMedicalRecord($id_patient, $id_disease, $id_hospital, $id_visit, $anamnesia);
-        // return redirect('/doctor_main')->with('alert', 'Medical Record Berhasil Ditambahkan');
+        // $med_record = new MedicalDataUseCase();
+        // $add_med_record = $med_record->addMedicalRecord($id_patient, $id_disease, $id_hospital, $id_visit, $anamnesia);
+       
         
     }
 }
