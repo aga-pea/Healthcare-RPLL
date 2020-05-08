@@ -20,5 +20,11 @@
             $invoice = Invoice::where('invoice_status',$invoice_status)->get();
             return $invoice;
         }
+
+        public static function getInvoiceByPatientStatus($patient_id,$status)
+        {
+            $invoice = Invoice::where('invoice_status',$status)->where('patient_id',$patient_id)->get();
+            return $invoice;
+        }
     }
 ?>

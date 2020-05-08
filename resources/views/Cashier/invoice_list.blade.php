@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@include('subs.meta-head')
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +12,33 @@
   <title>Dashio - Bootstrap Admin Template</title>
 
   <!-- Favicons -->
-  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
-  <link href="{{asset('assets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datepicker/css/datepicker.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-timepicker/compiled/timepicker.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/lib/bootstrap-datetimepicker/datertimepicker.css')}}" />
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/css/style-responsive.css')}}" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
 
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
 </head>
 
 <body>
+  <style type="text/css">
+    .pagination li {
+      float: left;
+      list-style-type: none;
+      margin: 5px;
+    }
+  </style>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -173,7 +183,8 @@
                 </a>
               </li>
               <li>
-                <a href="index.html#">See all messages</a>
+                <a href="index.html#">See all messages
+                </a>
               </li>
             </ul>
           </li>
@@ -191,29 +202,25 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Server Overloaded.
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span> Server Overloaded.
                   <span class="small italic">4 mins.</span>
                 </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-warning"><i class="fa fa-bell"></i></span>
-                  Memory #2 Not Responding.
+                  <span class="label label-warning"><i class="fa fa-bell"></i></span> Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
                 </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                  Disk Space Reached 85%.
+                  <span class="label label-danger"><i class="fa fa-bolt"></i></span> Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
                 </a>
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="label label-success"><i class="fa fa-plus"></i></span>
-                  New User Registered.
+                  <span class="label label-success"><i class="fa fa-plus"></i></span> New User Registered.
                   <span class="small italic">3 hrs.</span>
                 </a>
               </li>
@@ -228,7 +235,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="/logout_doctor">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -241,167 +248,74 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
-
-          <li class="sub-menu">
-            <a href="{{url('/doctor_main')}}">
-              <i class="fa fa-user"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li class="sub-menu">
-            <a href="{{url('/doctor_medical_record')}}">
+          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Paul Smith</h5>
+                    <li class="sub-menu">
+            <a href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
-              <span>Patients Medical Record</span>
-            </a>
-          </li>
+              <span>Add Invoice</span>  
+              </a>
+            </li>
           <li>
-            <a class="active" href="{{url('/doctor_schedule')}}">
-              <i class="fa fa-table"></i>
-              <span>Add Schedule</span>
-            </a>
+            <a href="/cashier_update_invoice">
+              <i class="fa fa-envelope"></i>
+              <span>Update Invoice</span>
+              <span class="label label-theme pull-right mail-info"></span>
+              </a>
           </li>
-          <li>
-            <a href="{{url('/doctor_schedule_update')}}">
-              <i class="fa fa-table"></i>
-              <span>Update Schedule</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('/doctor_input_visit_details')}}">
-              <i class="fa fa-table"></i>
-              <span>Add Visit Details</span>
-            </a>
-          </li>
-          <!-- sidebar menu end-->
+        </ul>
+        <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-     <!--main content start-->
+    <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Update Schedule</h3>
-        <!-- BASIC FORM ELELEMNTS -->
+        <?php $value = session('tipe'); ?>
+        <h3><i class="fa fa-angle-right"></i>Invoice List</h3>
+
+        <!-- row -->
         <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              
-              <form class="form-horizontal style-form" action="/doctor_schedule_update_proses" method="get">
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Schedule</h4>
-                  <input type='hidden' name='schedule_id' value="{{$detail->schedule_id}}">
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Day</label>
-                  <div class="col-md-4">
-                    <div class="input-group bootstrap-timepicker">
-                      @if($detail->schedule_day=="Monday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday" selected>Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Tuesday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday" selected>Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Wednesday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday" selected>Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Thursday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday" selected>Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Friday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday" selected>Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Saturday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday" selected>Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
-                      @elseif($detail->schedule_day=="Sunday")
-                      <select class="form-control" name="schedule_day">
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday" selected>Sunday</option>
-                      </select>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Time</label>
-                  <div class="col-md-4">
-                    <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24" name="schedule_time">
-                      <span class="input-group-btn">
-                        <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
-                      </span>
-                    </div>
-                    <span class="help-block">{{$detail->schedule_time}} (Old)</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Total Patient Serve</label>
-                  <div class="col-md-4">
-                    <div class="input-group bootstrap-timepicker">
-                        <input class= "form-control" type="text" value={{$detail->total_patient}} name="total_patient"> 
-                    </div>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-theme">Update</button>
-              </form>
-              <br>
-              </div>
-              
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <thead>
+                  <tr>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Day</th>
+                    <th><i class="fa fa-clock-o"></i>Time</th>
+                    <th><i class=" fa fa-edit"></i>Total Patient Register</th>
+                    <th>Total Patient</th>
+                    <th>Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($schedule as $data)
+                  <tr>
+                    <form action="/doctor_schedule_update_detail" method="get">
+                      @csrf
+                      <input type='hidden' name='id' value='{{$data->schedule_id}}'>
+                      <td>{{$data->schedule_day}}</td>
+                      <td class="hidden-phone">{{$data->schedule_time}}</td>
+                      <td>{{$data->total_patient-$data->total_patient_left}}</td>
+                      <td>{{$data->total_patient}}</td>
+                      <td>
+                        <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                      </td>
+                    </form>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
-            <!-- col-lg-12-->
+            <!-- /content-panel -->
           </div>
+          <!-- /col-md-12 -->
         </div>
+        <!-- /row -->
       </section>
-      <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
@@ -420,7 +334,7 @@
           -->
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="advanced_form_components.html#" class="go-top">
+        <a href="basic_table.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
         </a>
       </div>
@@ -435,23 +349,14 @@
     }
   </script>
   <!-- js placed at the end of the document so the pages load faster -->
-  <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script class="include" type="text/javascript" src="{{asset('assets/lib/jquery.dcjqaccordion.2.7.js')}}"></script>
-  <script src="{{asset('assets/lib/jquery.scrollTo.min.js')}}"></script>
-  <script src="{{asset('assets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="lib/jquery.scrollTo.min.js"></script>
+  <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
   <!--common script for all pages-->
-  <script src="{{asset('assets/lib/common-scripts.js')}}"></script>
+  <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="{{asset('assets/lib/jquery-ui-1.9.2.custom.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/date.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-daterangepicker/moment.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
-  <script src="{{asset('assets/lib/advanced-form-components.js')}}"></script>
 
 </body>
 

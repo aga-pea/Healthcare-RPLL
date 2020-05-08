@@ -49,6 +49,8 @@ class AddInvoiceController extends Controller
     public function proses(Request $request)
     {
         $id = $_GET["patient"];
-        return view('Cashier/invoice');
+        $invoice = new InvoiceUseCase();
+        $invoiceAll = $invoice->searchInvoiceByPatientStatus($id,"Active");
+        return view('Cashier/invoice_list');
     }
 }

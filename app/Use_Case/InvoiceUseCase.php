@@ -18,4 +18,11 @@ class InvoiceUseCase
         $invoiceData = $invoice->getInvoiceByStatus($invoice_status);
         return $invoiceData;
     }
+
+    public static function searchInvoiceByPatientStatus($patient_id,$status)
+    {
+        $invoice = new InvoiceDao();
+        $invoiceData = $invoice->getInvoiceByPatientStatus($patient_id,$status);
+        return $invoiceData;
+    }
 }
