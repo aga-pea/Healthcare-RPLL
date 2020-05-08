@@ -387,10 +387,10 @@
                   <label class="control-label col-md-3">Time</label>
                   <div class="col-md-4">
                     <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24" value={{$detail->schedule_time}} name="schedule_time">
+                      <input type="text" class="form-control timepicker-24" name="schedule_time" value={{$detail->schedule_time}}>
                       <span class="input-group-btn">
                         <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
-                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -306,10 +306,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3">24hr Timepicker</label>
+                  <label class="control-label col-md-3">Time</label>
                   <div class="col-md-4">
                     <div class="input-group bootstrap-timepicker">
-                      <input type="text" class="form-control timepicker-24">
+                      <input type="text" class="form-control timepicker-24" name="schedule_time">
                       <span class="input-group-btn">
                         <button class="btn btn-theme04" type="button"><i class="fa fa-clock-o"></i></button>
                       </span>
@@ -398,6 +398,13 @@
     </footer>
     <!--footer end-->
   </section>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('assets/lib/bootstrap/js/bootstrap.min.js')}}"></script>
