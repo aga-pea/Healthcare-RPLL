@@ -28,5 +28,11 @@
             $patient = Patient::where('patient_uname', $username)->first();
             return $patient;
         }
+
+        public static function getPatientById($id)
+        {
+            $patient = Patient::where('patient_id',$id)->first();
+            return $patient;
+        }
     }
 ?>

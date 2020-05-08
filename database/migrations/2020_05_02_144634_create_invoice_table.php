@@ -18,6 +18,7 @@ class CreateInvoiceTable extends Migration
             $table->integer('invoice_amount');
             $table->date('invoice_date');
             $table->string('invoice_method',50);
+            $table->string('invoice_status',20);
             $table->integer('patient_id')->unsigned();
             $table->integer('visit_id')->unsigned();
             $table->foreign('patient_id')->references('patient_id')->on('patient');

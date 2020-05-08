@@ -54,4 +54,11 @@ class PatientUseCase
         $patient_all = $patient->getPatientAll();
         return $patient_all;
     }
+
+    public static function getPatientById($id)
+    {
+        $patient = new PatientDao();
+        $patientData = $patient->getPatientById($id);
+        return $patientData;
+    }
 }
