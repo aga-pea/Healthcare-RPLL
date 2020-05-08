@@ -247,7 +247,7 @@
               </a>
           </li>
           <li>
-            <a href="{{url('/patients_medical_record')}}">
+            <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-envelope"></i>
               <span>Patients Medical Record </span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->

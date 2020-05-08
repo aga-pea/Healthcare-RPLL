@@ -266,7 +266,7 @@
             </a>
           </li>
           <li class="sub-menu">
-            <a href="{{url('/patients_medical_record')}}">
+            <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
               </a>
