@@ -30,7 +30,7 @@
             $appointmentData= $appointment->getAppointById($appoint_id);
             return $appointmentData;
         }
-
+        
         public static function getAppointmentByPatient($patient_id)
         {
             $appointment = new AppointmentDao();

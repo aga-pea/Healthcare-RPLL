@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Use_Case\MedicalRecordUseCase;
+use App\Use_Case\AppointmentUseCase;
+use App\Use_Case\PatientUseCase;
 
 class AddMedicalDataController extends Controller
 {
@@ -13,15 +15,26 @@ class AddMedicalDataController extends Controller
         //Get patient_id yang appointment statusnya Accepted
         $doctor_id = $request->session()->get('doctor_id');
         $status = 'Accepted';
-        $appointmentList = $appointment->getListPatientByAcceptedStatus($status, $doctor_id);
+        $appointmentData = $appointment->getListPatientByAcceptedStatus($status, $doctor_id);
 
         $list_patient=[];
-        foreach($appointmentList as $data)
+        foreach($appointmentData as $data)
         {
-            $array = [];
-            $array["patient_id"]=$data->patient_id;
-            array_push($list_patient,$array);
+            $array=[];
+            $patient = new PatientUseCase();
+            $patientData = $appointment->getPatientById($data->patient_id);
+            if (in_array($patientData->patient_id, $patient_id, true) != true)
+            {
+                $array["patient_id"]=$patientData->patient_id;
+                $array["patient_name"]=$patientData->patient_name;
+                array_push($list_patient,$array);
+                array_push($patient_id, $array["patient_id"]);
+            }
+            
         }
+
+        print(var_dump($patient_id)."<br>");
+        print(var_dump($list_patient));
 
         //Anamnesia required
         $this->validate($request, [
