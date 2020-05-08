@@ -22,7 +22,7 @@
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
-  
+
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -32,20 +32,13 @@
 </head>
 
 <body>
-  <script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-  </script>
   <style type="text/css">
-		.pagination li{
-			float: left;
-			list-style-type: none;
-			margin:5px;
-		}
-	</style>
+    .pagination li {
+      float: left;
+      list-style-type: none;
+      margin: 5px;
+    }
+  </style>
   <section id="container">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
@@ -66,7 +59,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
               <span class="badge bg-theme">4</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -135,7 +128,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
               <span class="badge bg-theme">5</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
@@ -145,53 +138,53 @@
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
                   <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
+                    <span class="from">Zac Snider</span>
+                    <span class="time">Just now</span>
                   </span>
                   <span class="message">
-                  Hi mate, how is everything?
+                    Hi mate, how is everything?
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
                   <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
+                    <span class="from">Divya Manian</span>
+                    <span class="time">40 mins.</span>
                   </span>
                   <span class="message">
-                  Hi, I need your help with this.
+                    Hi, I need your help with this.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
+                    <span class="from">Dan Rogers</span>
+                    <span class="time">2 hrs.</span>
                   </span>
                   <span class="message">
-                  Love your new Dashboard.
+                    Love your new Dashboard.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
                   <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
+                    <span class="from">Dj Sherman</span>
+                    <span class="time">4 hrs.</span>
                   </span>
                   <span class="message">
-                  Please, answer asap.
+                    Please, answer asap.
                   </span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all messages
-                  </a>
+                </a>
               </li>
             </ul>
           </li>
@@ -201,7 +194,7 @@
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
               <span class="badge bg-warning">7</span>
-              </a>
+            </a>
             <ul class="dropdown-menu extended notification">
               <div class="notify-arrow notify-arrow-yellow"></div>
               <li>
@@ -211,25 +204,25 @@
                 <a href="index.html#">
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span> Server Overloaded.
                   <span class="small italic">4 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-warning"><i class="fa fa-bell"></i></span> Memory #2 Not Responding.
                   <span class="small italic">30 mins.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-danger"><i class="fa fa-bolt"></i></span> Disk Space Reached 85%.
                   <span class="small italic">2 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">
                   <span class="label label-success"><i class="fa fa-plus"></i></span> New User Registered.
                   <span class="small italic">3 hrs.</span>
-                  </a>
+                </a>
               </li>
               <li>
                 <a href="index.html#">See all notifications</a>
@@ -257,7 +250,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-         
+
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
               <i class="fa fa-user"></i>
@@ -268,27 +261,27 @@
             <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-book"></i>
               <span>Patients Medical Record</span>
-              </a>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_schedule')}}">
               <i class="fa fa-table"></i>
               <span>Add Schedule</span>
-              </a>
+            </a>
           </li>
           <li>
             <a class="active" href="{{url('/doctor_schedule_update')}}">
               <i class="fa fa-table"></i>
               <span>Update Schedule</span>
-              </a>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_input_visit_details')}}">
               <i class="fa fa-table"></i>
               <span>Add Visit Details</span>
-              </a>
+            </a>
           </li>
-        <!-- sidebar menu end-->
+          <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
@@ -298,9 +291,9 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <?php $value = session('tipe');?>
+        <?php $value = session('tipe'); ?>
         <h3><i class="fa fa-angle-right"></i>Schedule List</h3>
-        
+
         <!-- row -->
         <div class="row mt">
           <div class="col-md-12">
@@ -319,15 +312,15 @@
                   @foreach($schedule as $data)
                   <tr>
                     <form action="/doctor_schedule_update_detail" method="get">
-                    @csrf
-                    <input type='hidden' name='id' value='{{$data->schedule_id}}'>
-                    <td>{{$data->schedule_day}}</td>
-                    <td class="hidden-phone">{{$data->schedule_time}}</td>
-                    <td>{{$data->total_patient-$data->total_patient_left}}</td>
-                    <td>{{$data->total_patient}}</td>
-                    <td>
-                      <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
-                    </td>
+                      @csrf
+                      <input type='hidden' name='id' value='{{$data->schedule_id}}'>
+                      <td>{{$data->schedule_day}}</td>
+                      <td class="hidden-phone">{{$data->schedule_time}}</td>
+                      <td>{{$data->total_patient-$data->total_patient_left}}</td>
+                      <td>{{$data->total_patient}}</td>
+                      <td>
+                        <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                      </td>
                     </form>
                   </tr>
                   @endforeach
@@ -360,11 +353,18 @@
         </div>
         <a href="basic_table.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
-          </a>
+        </a>
       </div>
     </footer>
     <!--footer end-->
   </section>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -374,7 +374,7 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  
+
 </body>
 
 </html>

@@ -28,7 +28,6 @@ class AddInvoiceController extends Controller
                 array_push($patient_id, $array["patient_id"]);
             }
         }
-
         $invoice = new InvoiceUseCase();
         $invoiceAll = $invoice->searchInvoiceByStatus("Paid");
         $invoicelist=[];
