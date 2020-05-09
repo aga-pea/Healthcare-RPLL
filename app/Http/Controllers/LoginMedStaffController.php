@@ -39,6 +39,12 @@ class LoginMedStaffController extends Controller
         $request->session()->forget('username');
         $request->session()->forget('name');
         $request->session()->forget('doctor_id');
+        $request->session()->forget('medicine_list');
+        $request->session()->forget('patient_id');
+        $request->session()->forget('anamnesia');
+        $request->session()->forget('disease');
+        $request->session()->forget('hospital');
+        $request->session()->forget('cost');
         return redirect('/');
     }
 }

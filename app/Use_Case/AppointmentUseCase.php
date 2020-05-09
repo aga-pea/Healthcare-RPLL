@@ -19,10 +19,10 @@ class AppointmentUseCase
         return $listAppointment;
     }
 
-    public static function searchListPatientByAcceptedStatus($status, $doctor_id)
+    public static function searchListPatientByAcceptedStatusDay($status, $doctor_id, $day)
     {
         $appointment = new AppointmentDao();
-        $listAppointment = $appointment->getListPatientByAcceptedStatus($status, $doctor_id);
+        $listAppointment = $appointment->getListPatientByAcceptedStatusDay($status, $doctor_id,$day);
         return $listAppointment;
     }
 
@@ -57,5 +57,11 @@ class AppointmentUseCase
     {
         $appointment = new AppointmentDao();
         $appointmentData = $appointment->updateAppointmentTimeDayById($id, $time, $day);
+    }
+
+    public static function updateStatusByDayPatientMedStaff($day,$patient_id,$doctor_id,$status)
+    {
+        $appointment = new AppointmentDao();
+        $appointment->updateStatusByDayPatientMedStaff($day,$patient_id,$doctor_id,$status);
     }
 }

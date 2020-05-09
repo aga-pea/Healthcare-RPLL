@@ -6,10 +6,10 @@ use App\Dao\InvoiceDao;
 
 class InvoiceUseCase
 {
-    public static function addInvoice($invoice_date,$patient_id,$visit_id,$status)
+    public static function addInvoice($invoice_amount, $invoice_date,$invoice_method,$invoice_status,$patient_id,$record_id)
     {
         $invoice = new InvoiceDao();
-        $invoice->createInvoice($invoice_date, $patient_id, $visit_id, $status);
+        $invoice->createInvoice($invoice_amount, $invoice_date,$invoice_method,$invoice_status,$patient_id,$record_id);
     }
 
     public static function searchInvoiceByStatus($invoice_status)

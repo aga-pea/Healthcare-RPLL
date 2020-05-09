@@ -5,13 +5,15 @@
 
     class InvoiceDao
     {
-        public static function createInvoice($invoice_date, $patient_id, $visit_id, $status)
+        public static function createInvoice($invoice_amount, $invoice_date,$invoice_method,$invoice_status,$patient_id,$record_id)
         {
             Invoice::create([
+                'invoice_amount' => $invoice_amount,
                 'invoice_date' => $invoice_date,
+                'invoice_method' => $invoice_method,
+                'invoice_status' => $invoice_status,
                 'patient_id' => $patient_id,
-                'visit_id' => $visit_id,
-                'invoice_status' => $status
+                'record_id' => $record_id
             ]); 
         }
 

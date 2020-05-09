@@ -7,7 +7,7 @@
         public static function getWithName($id)
         {
             $cekDisease = new DiseaseDao();
-            $disease = $ceknonmedstaff->getDisease($id);
+            $disease = $cekDisease->getDiseaseWithId($id);
             $disease_name = $disease->disease_name;
             return $disease_name;
         }
@@ -15,7 +15,7 @@
         public static function getWithType($id)
         {
             $cekDisease = new DiseaseDao();
-            $disease = $ceknonmedstaff->getDisease($id);
+            $disease = $cekDisease->getDiseaseWithId($id);
             $disease_type = $disease->disease_type;
             return $disease_type;
         }
@@ -26,6 +26,13 @@
             $disease = $cekDisease->getDiseaseWithId($id);
             $disease_name = $disease->disease_name;
             return $disease_name;
+        }
+
+        public static function getAllDisease()
+        {
+            $cekDisease =  new DiseaseDao();
+            $disease = $cekDisease->getAllDisease();
+            return $disease;
         }
     }
 ?>

@@ -43,5 +43,16 @@
         {
             $medicine = Medicine::where('medicine_id',$id)->update(['medicine_exp_date'=>$exp_date,'medicine_level'=>$level,'medicine_name'=>$name,'medicine_price'=>$price,'medicine_qty'=>$qty,'medicine_type'=>$type,'medicine_vendor'=>$vendor]);
         }
+
+        public static function getAllMedicineData()
+        {
+            $medicine = Medicine::get();
+            return $medicine;
+        }
+
+        public static function updateMedicineQtyById($medicine_id, $selisih)
+        {
+            $medicine = Medicine::where('medicine_id',$medicine_id)->update(['medicine_qty'=>$selisih]);
+        }
     }
 ?>

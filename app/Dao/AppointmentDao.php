@@ -22,9 +22,9 @@
             return $appointment;
         }
 
-        public static function getListPatientByAcceptedStatus($status, $doctor_id)
+        public static function getListPatientByAcceptedStatusDay($status, $doctor_id, $day)
         {
-            $matchThese = ['appt_status' => $status, 'medstaff_id' => $doctor_id];
+            $matchThese = ['appt_status' => $status, 'medstaff_id' => $doctor_id, 'appt_day' => $day];
             $appointment = Appointment::where($matchThese)->get();
             return $appointment;
         }
@@ -56,6 +56,12 @@
         public static function updateAppointmentTimeDayById($appoint_id,$time,$day)
         {
             $appointment = Appointment::where('appt_id',$appoint_id)->update(["appt_day" => $day, "appt_time" => $time]);
+        }
+
+        public static function updateStatusByDayPatientMedStaff($day,$patient_id,$medstaff_id,$status)
+        {
+            $matchThese = ['medstaff_id' => $medstaff_id, 'appt_day' => $day, 'patient_id' => $patient_id];
+            $appointment = Appointment::where($matchThese)->update(["appt_status" => $status]);
         }
     }
 ?>

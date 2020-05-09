@@ -45,5 +45,18 @@
             $vendorMedicine = new MedicineDao();
             $vendorMedicine->updateMedicine($id,$exp_date,$level,$name, $price,$qty, $type,$vendor);
         }
+
+        public static function getAllMedicine()
+        {
+            $medicine = new MedicineDao();
+            $data = $medicine->getAllMedicineData();
+            return $data;
+        }
+
+        public static function updateMedicineQtyById($medicine_id, $selisih)
+        {
+            $medicine = new MedicineDao();
+            $data = $medicine->updateMedicineQtyById($medicine_id, $selisih);
+        }
     }
 ?>

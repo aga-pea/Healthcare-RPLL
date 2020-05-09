@@ -4,9 +4,9 @@
 
     class DiseaseDao
     {
-        public static function getAllDisease($id)
+        public static function getAllDisease()
         {
-            $record = Disease::where('disease_id', $id)->get();
+            $record = Disease::get();
             return $record;
         }
 

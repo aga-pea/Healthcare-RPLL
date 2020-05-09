@@ -7,15 +7,15 @@
         public static function getWithAddress($id)
         {
             $cekHospital = new HospitalDao();
-            $hospital = $cekhospital->getHospital($id);
+            $hospital = $cekHospital->getHospital($id);
             $hospital_address = $hospital->hospital_address;
-            return $hospital_name;
+            return $hospital_address;
         }
 
         public static function getWithType($id)
         {
             $cekHospital = new HospitalDao();
-            $hospital = $cekhospital->getHospital($id);
+            $hospital = $cekHospital->getHospital($id);
             $hospital_name = $hospital->hospital_name;
             return $hospital_name;
         }
@@ -26,6 +26,13 @@
             $hospital = $cekHospital->getHospitalWithId($id);
             $hospital_name = $hospital->hospital_name;
             return $hospital_name;
+        }
+
+        public static function getAllHospital()
+        {
+            $cekHospital =  new HospitalDao();
+            $hospital = $cekHospital->getAllHospital();
+            return $hospital;
         }
     }
 ?>

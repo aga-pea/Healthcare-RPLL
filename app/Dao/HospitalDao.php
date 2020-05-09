@@ -35,5 +35,11 @@
             $hospital->delete();
         }
 
+
+        public static function getAllHospital()
+        {
+            $hospital = Hospital::get();
+            return $hospital;
+        }
     }
 ?>

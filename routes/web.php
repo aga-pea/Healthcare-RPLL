@@ -41,12 +41,17 @@ Route::get('/doctor_login', function () { return view('Doctor/login'); });
 Route::get('/doctor_main', function () { return view('Doctor/index'); });
 Route::get('/doctor_schedule', 'ScheduleController@index');
 Route::get('/doctor_schedule_proses', 'ScheduleController@createSchedule');
-Route::get('/doctor_medical_record', 'AddMedicalRecordController@addMedicalRecord');
+Route::get('/doctor_medical_record', 'AddMedicalDataController@addMedicalRecord');
 Route::get('/doctor_schedule_update', 'ScheduleController@view_schedule');
 Route::get('/doctor_schedule_update_detail', 'ScheduleController@view_schedule_detail');
 Route::get('/doctor_schedule_update_proses', 'ScheduleController@updateSchedule');
 Route::get('/doctor_input_visit_details', 'InputVisitDetailController@index');
 Route::get('/doctor_input_visit_details_proses', 'VisitCostController@createVisitCost');
+Route::get('/doctor_medical_data_detail','AddMedicalDataController@detail_index');
+Route::get('/doctor_medical_data_detail_medicine','AddMedicalDataController@detail_medicine');
+Route::get('/doctor_medical_data_detail_medicine_list', 'AddMedicalDataController@detail_medicine_list');
+Route::get('/doctor_medical_data_detail_medicine_list_cancel', 'AddMedicalDataController@detail_medicine_list_cancel');
+Route::get('/doctor_medical_data_detail_medicine_list_proses','AddMedicalDataController@detail_proses');
 /*
 ------------------------------------------------------------------
 Warehouse Routes & Controller
