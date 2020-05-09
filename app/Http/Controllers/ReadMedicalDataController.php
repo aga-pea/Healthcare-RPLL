@@ -29,49 +29,66 @@ class ReadMedicalDataController extends Controller
         $patient_id = $request->session()->get('patient_id');
 
         $med_record = new MedicalDataUseCase();
+        $medicine = new MedicineUseCase();
 
-        $medicalrecord = $med_record->getAllData($patient_id);
+        $medicalrecord = $med_record->getAllDataByPatientId($patient_id);
         $recordData=[];
-
+        $temp =1;
+        $size = count($medicalrecord)-1;
+        $record_id_list=[];
         foreach($medicalrecord as $data)
         {   
+            $record_id = $data->record_id;
             $dataMedical=[];
-            $id_medical = $data->medical_id;
-            
-            $id_disease = $data->disease_id;
+
+            $anamnesia = $data->anamnesia;
+            $dataMedical["anamnesia"] = $anamnesia;
+
+            $id_cost = $data->cost_id;
+            $cost= new VisitCostUseCase;
+            $costData = $cost->searchCostById($id_cost);
+            $treatment_name = $costData->treatment;
+            $dataMedical["treatment"] = $treatment_name;
+
             $id_hospital = $data->hospital_id;
-
-            #ambil medicine + nama dokter
-            $visit = new VisitUseCase();
-            $visitData = $visit->searchVisitById($data->visit_id);
-            
-            #ambil nama dokter
-            $id_cost = $visitData->cost_id;
-            $cost = new VisitCostUseCase();
-            $costData = $cost->searchCostById($visitData->cost_id);
-            $doctor = new MedicalStaffUseCase;
-            $doctor_name = $doctor->getNameWithId($costData->medstaff_id);
-
-            #ambil nama medicine
-            $medicine = new MedicineUseCase;
-            $medicine_name = $medicine->getNameWithId($visitData->medicine_id);
-            
-            $disease = new DiseaseUseCase;
-            $disease_name = $disease->getNameWithId($id_disease);
             $hospital = new HospitalUseCase;
-            $hospital_name = $hospital->getNameWithid($id_hospital);
-
-            $dataMedical["doctor"] = $doctor_name;
-            $dataMedical["medicine"] = $medicine_name. ", jumlah obat = ".$visitData->qty_medicine;
-            $dataMedical["disease"] = $disease_name;
+            $hospital_name = $hospital->getNameWithId($id_hospital);
             $dataMedical["hospital"] = $hospital_name;
-            array_push($recordData,$dataMedical);
-        }        
-        // print(var_dump($recordData[0]));
-        // print("<br>");
-        // print($recordData[0]["hospital"]);
 
-        return view('Patient/advanced_table',['med_record'=>$medicalrecord, 'record_data'=>$recordData]);
+            $id_doctor = $costData->medstaff_id;
+            $medstaff = new MedicalStaffUseCase;
+            $medstaff_name = $medstaff->getNameWithId($id_doctor);
+            $dataMedical["medstaff"]=$medstaff_name;
+            $medicine_id = $data->medicine_id;
+
+            if (in_array($data->record_id, $record_id_list, true) == true) {
+                $array_medicine=[];
+                $medicineData=$medicine->getMedicineById($medicine_id);
+                $array_medicine["medicine_name"]=$medicineData->medicine_name;
+                $array_medicine["medicine_qty"]=$data->qty_medicine;
+                array_push($list_medicine,$array_medicine);
+            }else{
+                $medicineData=$medicine->getMedicineById($medicine_id);
+                $list_medicine=[];
+                $array_medicine=[];
+                $array_medicine["medicine_name"]=$medicineData->medicine_name;
+                $array_medicine["medicine_qty"]=$data->qty_medicine;
+                array_push($record_id_list,$data->record_id);
+                array_push($list_medicine,$array_medicine);
+            }
+            $dataMedical["medicine"] = $list_medicine;
+            if($temp<$size)
+            {
+                if($data->record_id!=$medicalrecord[$temp]->record_id)
+                {
+                    array_push($recordData, $dataMedical);
+                }
+            }else{
+                array_push($recordData, $dataMedical);
+            }
+            $temp+=1;
+        }
+        return view('Patient/advanced_table',['record_data'=>$recordData]);
     }
 
 }
