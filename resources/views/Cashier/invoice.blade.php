@@ -247,7 +247,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="/cashier_add_invoice">
+            <a class="active" href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
               <span>Add Invoice</span>  
               </a>
@@ -307,26 +307,55 @@
                     <br>
                     <div>
                       <div class="pull-left"> INVOICE NO : </div>
-                      <div class="pull-right"> 000283 </div>
+                      <div class="pull-right">{{$invoice_id}} </div>
                       <div class="clearfix"></div>
                     </div>
                     <div>
                       <!-- /col-md-3 -->
                       <div class="pull-left"> INVOICE DATE : </div>
-                      <div class="pull-right"> 15/03/14 </div>
+                      <div class="pull-right">{{$tgl}}</div>
                       <div class="clearfix"></div>
                     </div>
                     <!-- /row -->
                     <br>
                     <div class="well well-small green">
                       <div class="pull-left"> Total Due : </div>
-                      <div class="pull-right"> 8,000 USD </div>
+                      <div class="pull-right"> {{$total_price}} </div>
                       <div class="clearfix"></div>
                     </div>
                   </div>
                   <!-- /invoice-body -->
                 </div>
                 <!-- /col-lg-10 -->
+                <h4> Treatment</h4>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width:60px" class="text-center">QTY</th>
+                      <th class="text-left">DESCRIPTION</th>
+                      <th style="width:90px" class="text-right">TOTAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">1</td>
+                      <td>{{$list_treatment_cost["treatment"]}}</td>
+                      <td class="text-right">Rp.{{$list_treatment_cost["price"]}},00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right"><strong>Subtotal</strong></td>
+                      <td></td>
+                      <td class="text-right">Rp.{{$list_treatment_cost["price"]}},00</td>
+                    </tr>
+                    <!-- <tr>
+                      <td class="text-right no-border"><strong>Shipping</strong></td>
+                      <td class="text-right">$0.00</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+                <br>
+                <br>
+                <h4> Medicine</h4>
                 <table class="table">
                   <thead>
                     <tr>
@@ -337,24 +366,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="text-center">1</td>
-                      <td>Plastic Surgery</td>
-                      <td class="text-right">$429.00</td>
-                      <td class="text-right">$429.00</td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">4</td>
-                      <td>Medicine</td>
-                      <td class="text-right">$150.00</td>
-                      <td class="text-right">$600.00</td>
-                    </tr>
+                    @foreach($list_medicine_cost as $data)
+                      <tr>
+                        <td class="text-center">{{$data["medicine_qty"]}}</td>
+                        <td>{{$data["medicine_name"]}}</td>
+                        <td class="text-right">Rp.{{$data["medicine_price"]}},00</td>
+                        <td class="text-right">Rp.{{$data["medicine_total_price"]}},00</td>
+                      </tr>
+                    @endforeach
                     <tr>
                       <td colspan="2" rowspan="4">
                         <h4>Terms and Conditions</h4>
                         <p>Thank you for your business. We do expect payment within 21 days, so please process this invoice within that time. There will be a 1.5% interest charge per month on late invoices.</p>
                         <td class="text-right"><strong>Subtotal</strong></td>
-                        <td class="text-right">$1029.00</td>
+                        <td class="text-right">Rp.{{$total_medicine_price}},00</td>
                     </tr>
                     <!-- <tr>
                       <td class="text-right no-border"><strong>Shipping</strong></td>
@@ -368,12 +393,21 @@
                       <td class="text-right no-border">
                         <div class="well well-small green"><strong>Total</strong></div>
                       </td>
-                      <td class="text-right"><strong>$1029.00</strong></td>
+                      <td class="text-right"><strong>Rp.{{$total_price}},00</strong></td>
                     </tr>
                   </tbody>
                 </table>
-                <br>
-                <br>
+                <form action="/cashier_add_invoice_method" method="get">
+                  <input type = "hidden" name = "invoice_id" value ={{$invoice_id}}>
+                  <input type = "hidden" name = "invoice_amount" value = {{$total_price}}>
+                  <label class="control-label col-md-3">Payment Method</label>
+                  <select class="form-control" name="invoice_method">
+                      <option value="Debit">Debit</option>
+                      <option value="Credit">Credit</option>
+                      <option value="Cash">Cash</option>
+                  </select>
+                  <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
+                </form>
               </div>
               <!--/col-lg-12 mt -->
       </section>

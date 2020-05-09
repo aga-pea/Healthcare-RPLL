@@ -90,10 +90,13 @@ Cashier Routes & Controller
 Route::get('/cashier_login', function () { return view('Cashier/login'); });
 Route::get('/cashier_main', function () { return view('Cashier/index'); });
 Route::get('/cashier_add_invoice', 'AddInvoiceController@index');
-Route::get('/cashier_update_invoice', 'UpdateInvoiceController@index');
 Route::get('/cashier_add_invoice_proses', 'AddInvoiceController@proses');
-/*
-------------------------------------------------------------------
+Route::get('/cashier_add_invoice_detail', 'AddInvoiceController@detail');
+Route::get('/cashier_add_invoice_method', 'AddInvoiceController@proses_invoice');
+Route::get('/cashier_update_invoice', 'UpdateInvoiceController@index');
+Route::get('/cashier_update_invoice_detail', 'UpdateInvoiceController@detail');
+Route::get('/cashier_update_invoice_detail_proses', 'UpdateInvoiceController@proses');
+/*------------------------------------------------------------------
 Logout Routes & Controller
 ------------------------------------------------------------------
 */

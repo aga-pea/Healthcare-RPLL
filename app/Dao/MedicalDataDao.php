@@ -2,7 +2,7 @@
     namespace App\Dao;
     use App\Medical_Record;
 
-    class MedicalRecordDao
+    class MedicalDataDao
     {
         public static function getMedicalRecord($record_patient)
         {
@@ -19,6 +19,12 @@
                 'visit_id' => $id_visit,
                 'anamnesia' => $anamnesia
             ]); 
+        }
+
+        public static function getMedicalDataById($record_id)
+        {
+            $record = Medical_Record::where('record_id',$record_id)->get();
+            return $record;
         }
     }
 ?>

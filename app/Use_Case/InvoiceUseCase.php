@@ -25,4 +25,23 @@ class InvoiceUseCase
         $invoiceData = $invoice->getInvoiceByPatientStatus($patient_id,$status);
         return $invoiceData;
     }
+
+    public static function searchInvoiceById($invoice_id)
+    {
+        $invoice = new InvoiceDao();
+        $invoiceData = $invoice->getInvoiceById($invoice_id);
+        return $invoiceData;
+    }
+
+    public static function updateInvoiceById($invoice_id,$invoice_amount, $invoice_date, $invoice_method,$status)
+    {
+        $invoice = new InvoiceDao();
+        $invoice->updateInvoiceById($invoice_id,$invoice_amount, $invoice_date, $invoice_method,$status);
+    }
+
+    public static function updateInvoiceMethodById($invoice_id,$invoice_method)
+    {
+        $invoice = new InvoiceDao();
+        $invoice->updateInvoiceMethodById($invoice_id,$invoice_method);
+    }
 }

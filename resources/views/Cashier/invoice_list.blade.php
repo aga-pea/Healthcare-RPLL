@@ -235,7 +235,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="/logout_doctor">Logout</a></li>
+          <li><a class="logout" href="/logout_cashier">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -251,7 +251,7 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a href="/cashier_add_invoice">
+            <a class="active" href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
               <span>Add Invoice</span>  
               </a>
@@ -275,7 +275,7 @@
     <section id="main-content">
       <section class="wrapper">
         <?php $value = session('tipe'); ?>
-        <h3><i class="fa fa-angle-right"></i>Invoice List</h3>
+        <h3><i class="fa fa-angle-right"></i>Invoice List ({{$patient_name}})</h3>
 
         <!-- row -->
         <div class="row mt">
@@ -284,25 +284,21 @@
               <table class="table table-striped table-advance table-hover">
                 <thead>
                   <tr>
-                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Day</th>
-                    <th><i class="fa fa-clock-o"></i>Time</th>
-                    <th><i class=" fa fa-edit"></i>Total Patient Register</th>
-                    <th>Total Patient</th>
-                    <th>Update</th>
+                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Doctor</th>
+                    <th><i class="fa fa-clock-o"></i>Visit Date</th>
+                    <th>Pick This</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($schedule as $data)
+                  @foreach($record as $data)
                   <tr>
-                    <form action="/doctor_schedule_update_detail" method="get">
+                    <form action="/cashier_add_invoice_detail" method="get">
                       @csrf
-                      <input type='hidden' name='id' value='{{$data->schedule_id}}'>
-                      <td>{{$data->schedule_day}}</td>
-                      <td class="hidden-phone">{{$data->schedule_time}}</td>
-                      <td>{{$data->total_patient-$data->total_patient_left}}</td>
-                      <td>{{$data->total_patient}}</td>
+                      <input type='hidden' name='invoice_id' value='{{$data["invoice_id"]}}'>
+                      <td>{{$data["med_staff_name"]}}</td>
+                      <td>{{$data["record_date"]}}</td>
                       <td>
-                        <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-check"></i></button>
                       </td>
                     </form>
                   </tr>

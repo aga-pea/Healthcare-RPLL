@@ -249,13 +249,13 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/cashier_add_invoice">
+            <a href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
               <span>Add Invoice</span>  
               </a>
             </li>
           <li>
-            <a href="/cashier_update_invoice">
+            <a class="active" href="/cashier_update_invoice">
               <i class="fa fa-envelope"></i>
               <span>Update Invoice</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -272,27 +272,8 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Pick Patient</h3>
+        <h3><i class="fa fa-angle-right"></i>Pick Invoice</h3>
         <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              
-              <form class="form-horizontal style-form" action="/cashier_add_invoice_proses" method="get">
-                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih Patient yang belum membayar</h4>
-                  <select class="form-control" name="patient">
-                      @foreach($list_patient as $data)
-                        <option value={{$data["patient_id"]}}>{{$data["patient_name"]}}</option>
-                      @endforeach
-                  </select>
-                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
-              </form>
-              </div>
-            </div>
-            <!-- col-lg-12-->
-          </div>
-        </div>
 
         <div class="row mt">
           <div class="col-md-12">
@@ -306,6 +287,7 @@
                     <th><i class="fa fa-clock-o"></i>Invoice Amount</th>
                     <th>Invoice Method</th>
                     <th>Patient Name</th>
+                    <th>Update</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -315,6 +297,12 @@
                       <td>{{$data["amount"]}}</td>
                       <td>{{$data["method"]}}</td>
                       <td>{{$data["patient_name"]}}</td>
+                      <form action="/cashier_update_invoice_detail" method="get">
+                        <td>
+                        <input type='hidden' name='invoice_id' value={{$data["invoice_id"]}}>
+                        <button class="btn btn-primary btn-xs" name="submit" value='edit'><i class="fa fa-pencil"></i></button>
+                        </td>
+                      </form>
                     </tr>
                     @endforeach
                 </tbody>

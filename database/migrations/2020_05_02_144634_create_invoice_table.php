@@ -20,9 +20,12 @@ class CreateInvoiceTable extends Migration
             $table->string('invoice_method',50);
             $table->string('invoice_status',20);
             $table->integer('patient_id')->unsigned();
-            $table->integer('visit_id')->unsigned();
+            $table->integer('record_id')->unsigned();
             $table->foreign('patient_id')->references('patient_id')->on('patient');
-            $table->foreign('visit_id')->references('visit_id')->on('visit');
+        });
+
+        Schema::table('invoice', function (Blueprint $table) {
+            $table->foreign('record_id')->references('record_id')->on('medical_record')->onDelete('cascade');
         });
     }
 

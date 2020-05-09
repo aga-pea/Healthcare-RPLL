@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>TOKlinik - Input New Item</title>
+  <title>TOKlinik</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -19,8 +19,6 @@
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-datepicker/css/datepicker.css" />
-  <link rel="stylesheet" type="text/css" href="lib/bootstrap-daterangepicker/daterangepicker.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -44,7 +42,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>TOK<span>LINIK</span></b></a>
+      <a href="index.html" class="logo"><b>TOK<span>linik</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -249,13 +247,13 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Paul Smith</h5>
                     <li class="sub-menu">
-            <a class="active" href="/cashier_add_invoice">
+            <a href="/cashier_add_invoice">
               <i class="fa fa-book"></i>
               <span>Add Invoice</span>  
               </a>
             </li>
           <li>
-            <a href="/cashier_update_invoice">
+            <a class="active" href="/cashier_update_invoice">
               <i class="fa fa-envelope"></i>
               <span>Update Invoice</span>
               <span class="label label-theme pull-right mail-info"></span>
@@ -272,58 +270,159 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Pick Patient</h3>
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              
-              <form class="form-horizontal style-form" action="/cashier_add_invoice_proses" method="get">
-                <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
-                <h4 class="mb"><i class="fa fa-angle-right"></i>Pilih Patient yang belum membayar</h4>
-                  <select class="form-control" name="patient">
-                      @foreach($list_patient as $data)
-                        <option value={{$data["patient_id"]}}>{{$data["patient_name"]}}</option>
-                      @endforeach
-                  </select>
-                <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
-              </form>
-              </div>
-            </div>
-            <!-- col-lg-12-->
-          </div>
-        </div>
-
-        <div class="row mt">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <table class="table table-striped table-advance table-hover">
-                <h4><i class="fa fa-angle-right"></i>Paid Invoice List</h4>
-                <hr>
-                <thead>
-                  <tr>
-                    <th class="hidden-phone"><i class="fa fa-calendar"></i>Invoice Date</th>
-                    <th><i class="fa fa-clock-o"></i>Invoice Amount</th>
-                    <th>Invoice Method</th>
-                    <th>Patient Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    @foreach($invoice_list as $data)
+        <div class="col-lg-12 mt">
+          <div class="row content-panel">
+            <div class="col-lg-10 col-lg-offset-1">
+              <div class="invoice-body">
+                <div class="pull-left">
+                  <h1>TOKlinik</h1>
+                  <address>
+                <strong>Admin , Inc.</strong><br>
+                Jalan Dipatiukur 80<br>
+                Bandung, 40132<br>
+                <abbr title="Phone">P:</abbr> (022) 2506636.
+              </address>
+                </div>
+                <!-- /pull-left -->
+                <div class="pull-right">
+                  <h2>invoice</h2>
+                </div>
+                <!-- /pull-right -->
+                <div class="clearfix"></div>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h4>Paul Smith</h4>
+                    <address>
+                  <strong>Enterprise Corp.</strong><br>
+                  234 Great Ave, Suite 600<br>
+                  San Francisco, CA 94107<br>
+                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+                  </div>
+                  <!-- /col-md-9 -->
+                  <div class="col-md-3">
+                    <br>
+                    <div>
+                      <div class="pull-left"> INVOICE NO : </div>
+                      <div class="pull-right">{{$invoice_id}} </div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div>
+                      <!-- /col-md-3 -->
+                      <div class="pull-left"> INVOICE DATE : </div>
+                      <div class="pull-right">{{$tgl}}</div>
+                      <div class="clearfix"></div>
+                    </div>
+                    <!-- /row -->
+                    <br>
+                    <div class="well well-small green">
+                      <div class="pull-left"> Total Due : </div>
+                      <div class="pull-right"> 0 </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                  <!-- /invoice-body -->
+                </div>
+                <!-- /col-lg-10 -->
+                <h4> Treatment</h4>
+                <table class="table">
+                  <thead>
                     <tr>
-                      <td>{{$data["date"]}}</td>
-                      <td>{{$data["amount"]}}</td>
-                      <td>{{$data["method"]}}</td>
-                      <td>{{$data["patient_name"]}}</td>
+                      <th style="width:60px" class="text-center">QTY</th>
+                      <th class="text-left">DESCRIPTION</th>
+                      <th style="width:90px" class="text-right">TOTAL</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">1</td>
+                      <td>{{$list_treatment_cost["treatment"]}}</td>
+                      <td class="text-right">Rp.{{$list_treatment_cost["price"]}},00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right"><strong>Subtotal</strong></td>
+                      <td></td>
+                      <td class="text-right">Rp.{{$list_treatment_cost["price"]}},00</td>
+                    </tr>
+                    <!-- <tr>
+                      <td class="text-right no-border"><strong>Shipping</strong></td>
+                      <td class="text-right">$0.00</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+                <br>
+                <br>
+                <h4> Medicine</h4>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width:60px" class="text-center">QTY</th>
+                      <th class="text-left">DESCRIPTION</th>
+                      <th style="width:140px" class="text-right">UNIT PRICE</th>
+                      <th style="width:90px" class="text-right">TOTAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($list_medicine_cost as $data)
+                      <tr>
+                        <td class="text-center">{{$data["medicine_qty"]}}</td>
+                        <td>{{$data["medicine_name"]}}</td>
+                        <td class="text-right">Rp.{{$data["medicine_price"]}},00</td>
+                        <td class="text-right">Rp.{{$data["medicine_total_price"]}},00</td>
+                      </tr>
                     @endforeach
-                </tbody>
-              </table>
-            </div>
-            <!-- /content-panel -->
-          </div>
-          <!-- /col-md-12 -->
-        </div>
+                    <tr>
+                      <td colspan="2" rowspan="4">
+                        <h4>Terms and Conditions</h4>
+                        <p>Thank you for your business. We do expect payment within 21 days, so please process this invoice within that time. There will be a 1.5% interest charge per month on late invoices.</p>
+                        <td class="text-right"><strong>Subtotal</strong></td>
+                        <td class="text-right">Rp.{{$total_medicine_price}},00</td>
+                    </tr>
+                    <!-- <tr>
+                      <td class="text-right no-border"><strong>Shipping</strong></td>
+                      <td class="text-right">$0.00</td>
+                    </tr> -->
+                    <tr>
+                      <td class="text-right no-border"><strong>VAT Included in Total</strong></td>
+                      <td class="text-right">$0.00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right no-border">
+                        <div class="well well-small green"><strong>Total</strong></div>
+                      </td>
+                      <td class="text-right"><strong>Rp.{{$total_price}},00</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <form action="/cashier_update_invoice_detail_proses" method="get">
+                  <input type = "hidden" name = "invoice_id" value ={{$invoice_id}}>
+                  <label class="control-label col-md-3">Payment Method</label>
+                  @if($invoice_method=="Cash")
+                    <select class="form-control" name="invoice_method">
+                        <option value="Debit">Debit</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Cash" selected>Cash</option>
+                    </select>
+                  @elseif($invoice_method=="Debit")
+                    <select class="form-control" name="invoice_method">
+                        <option value="Debit" selected>Debit</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Cash">Cash</option>
+                    </select>
+                  @elseif($invoice_method=="Credit")
+                    <select class="form-control" name="invoice_method">
+                        <option value="Debit">Debit</option>
+                        <option value="Credit" selected>Credit</option>
+                        <option value="Cash">Cash</option>
+                    </select>
+                  @endif
+                  <button type="submit" class="btn btn-theme" name="submit" value="submit">Submit</button>
+                </form>
+              </div>
+              <!--/col-lg-12 mt -->
       </section>
       <!-- /wrapper -->
     </section>
@@ -332,32 +431,20 @@
     <!--footer start-->
     <footer class="site-footer">
       <div class="text-center">
-        <p>
+        <!-- <p>
           &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
         </p>
         <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
+          
           Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="form_component.html#" class="go-top">
+        </div> -->
+        <a href="invoice.html#" class="go-top">
           <i class="fa fa-angle-up"></i>
           </a>
       </div>
     </footer>
     <!--footer end-->
   </section>
-  <script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-  </script>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -367,22 +454,6 @@
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <!--custom switch-->
-  <script src="lib/bootstrap-switch.js"></script>
-  <!--custom tagsinput-->
-  <script src="lib/jquery.tagsinput.js"></script>
-  <!--custom checkbox & radio-->
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-  <script src="lib/advanced-form-components.js"></script>
-  <script src="lib/form-component.js"></script>
 
 </body>
 

@@ -14,7 +14,7 @@ class CreateMedicalRecordTable extends Migration
     public function up()
     {
         Schema::create('medical_record', function (Blueprint $table) {
-            $table->integer('record_id');
+            $table->integer('record_id')->unsigned();
             $table->string('anamnesia',500);
             $table->integer('patient_id')->unsigned();
             $table->integer('disease_id')->unsigned();
@@ -22,11 +22,13 @@ class CreateMedicalRecordTable extends Migration
             $table->integer('qty_medicine');
             $table->integer('medicine_id')->unsigned();
             $table->integer('cost_id')->unsigned();
+            $table->date('record_date');
             $table->foreign('patient_id')->references('patient_id')->on('patient');
             $table->foreign('disease_id')->references('disease_id')->on('disease');
             $table->foreign('hospital_id')->references('hospital_id')->on('referral_hospital');
             $table->foreign('medicine_id')->references('medicine_id')->on('medicine');
             $table->foreign('cost_id')->references('cost_id')->on('visit_cost');
+            $table->primary(['record_id','medicine_id']);
         });
     }
 
