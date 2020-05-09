@@ -85,7 +85,7 @@ class UpdateMedicalDataController extends Controller
         $med_record = new MedicalDataUseCase();
         $med_record->updateMedicalDataById($record_id, $id_disease, $id_hospital, $id_cost, $anamnesia);
 
-        return redirect('/doctor_medical_record')->with("alert","Medical Record Sukses Diupdate");
+        return redirect('/doctor_medical_data_list_patient')->with("alert","Medical Record Sukses Diupdate");
     }
     
 }

@@ -263,7 +263,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Paul Smith</h5>
+          <h5 class="centered">{{Session::get('name')}}</h5>
                     <li class="sub-menu">
             <a href="/receiptionist_patient_register">
               <i class="fa fa-book"></i>

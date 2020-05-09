@@ -230,7 +230,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h5 class="centered">{{Session::get('name')}}</h5>
           <li>
             <a href="{{url('/patient_main')}}">
               <i class="fa fa-user"></i>

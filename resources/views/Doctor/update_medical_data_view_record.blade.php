@@ -254,7 +254,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h5 class="centered">{{Session::get('name')}}</h5>
 
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">

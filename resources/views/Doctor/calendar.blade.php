@@ -237,7 +237,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Sam Soffes</h5>
+          <h5 class="centered">{{Session::get('name')}}</h5>
          
           <li class="sub-menu">
             <a href="{{url('/doctor_main')}}">
@@ -248,8 +248,14 @@
           <li class="sub-menu">
             <a href="{{url('/doctor_medical_record')}}">
               <i class="fa fa-book"></i>
-              <span>Patients Medical Record</span>
+              <span>Add Medical Record</span>
               </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/doctor_medical_data_list_patient')}}">
+              <i class="fa fa-book"></i>
+              <span>Update Medical Record</span>
+            </a>
           </li>
           <li>
             <a href="{{url('/doctor_schedule')}}">
