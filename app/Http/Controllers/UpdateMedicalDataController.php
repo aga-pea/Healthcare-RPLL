@@ -33,13 +33,7 @@ class UpdateMedicalDataController extends Controller
             }
         }
 
-        // return view('Doctor/update_medical_data_main',['list_patient_name' => $list_patient_nameid]);
-
-        //get pertama untuk get medical record patient yang mana
-        // $id_patient = $_GET['patient_id'];
-        // $med_record = new MedicalDataUseCase();
-        // $list_med_record = $med_record->getMedicalDataByPatient($id_patient);
-
+        return view('Doctor/update_medical_data_main',['list_patient_nameid' => $list_patient_nameid]);
     }
 
     public function getListMedicalRecord()
@@ -48,12 +42,17 @@ class UpdateMedicalDataController extends Controller
         $med_record = new MedicalDataUseCase();
         $med_record_data = $med_record->getAllDataByPatientId($patient_id);
         
-        // return view();
+        return view('Doctor/update_medical_data_list',['med_record_data' => $med_record_data]);
     }
 
     public function viewMedRecordDetail(Request $request)
     {
         $record_id = $_GET['record_id'];
+
+        $med_record = new MedicalDataUseCase();
+        $med_record_data = $med_record->getMedicalDataById($record_id);
+        // $anamnesia = $med_record_data->anamnesia;
+        print($record_id);
 
         $disease = new DiseaseUseCase();
         $disease_list = $disease->getAllDisease();
@@ -66,7 +65,8 @@ class UpdateMedicalDataController extends Controller
         $cost = new VisitCostUseCase();
         $cost_list = $cost->searchCostByMedStaff($medstaff_id);
 
-        // return view('Doctor/update_medical_data_detail', ['disease_list' => $disease_list, 'hospital_list' => $hospital_list, 'cost_list' => $cost_list]);
+        // return view('Doctor/update_medical_data_view_record', ['anamnesia' => $anamnesia, 'record_id' => $record_id, 'disease_list' => $disease_list, 
+                                                                // 'hospital_list' => $hospital_list, 'cost_list' => $cost_list]);
     }
 
 

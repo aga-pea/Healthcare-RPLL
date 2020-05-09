@@ -53,6 +53,8 @@ Route::get('/doctor_medical_data_detail_medicine_list', 'AddMedicalDataControlle
 Route::get('/doctor_medical_data_detail_medicine_list_cancel', 'AddMedicalDataController@detail_medicine_list_cancel');
 Route::get('/doctor_medical_data_detail_medicine_list_proses','AddMedicalDataController@detail_proses');
 Route::get('/doctor_medical_data_list_patient','UpdateMedicalDataController@getListpatient');
+Route::get('/doctor_medical_data_list_record','UpdateMedicalDataController@getListMedicalRecord');
+Route::get('/doctor_medical_data_detail_view_update','UpdateMedicalDataController@viewMedRecordDetail');
 /*
 ------------------------------------------------------------------
 Warehouse Routes & Controller
