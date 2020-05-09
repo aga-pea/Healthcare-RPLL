@@ -5,43 +5,88 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Use_Case\PatientUseCase;
 use App\Use_Case\MedicalDataUseCase;
+use App\Use_Case\VisitCostUseCase;
+use App\Use_Case\DiseaseUseCase;
+use App\Use_Case\HospitalUseCase;
 
 class UpdateMedicalDataController extends Controller
 {
-    public function index()
+    public function getListpatient()
     {
-        $patient = new PatientUseCase();
-        $list_patient = $patient->getListPatient();
+     
+        $med_record = new MedicalDataUseCase();
+        $list_med_record = $med_record->getAllData();
 
         $list_patient_nameid = [];
-        foreach ($list_patient as $data) {
+        $list_patient_id=[];
+        foreach ($list_med_record as $data) {
             $array = [];
-            $array["patient_id"] = $data->patient_id;
-            $array["patient_name"] = $data->patient_name;
-            array_push($list_patient_nameid, $array);
+
+            $patient = new PatientUseCase();
+            $patientData = $patient->getPatientById($data->patient_id);
+
+            if (in_array($patientData->patient_id, $list_patient_id, true) != true) {
+                $array["patient_id"] = $patientData->patient_id;
+                $array["patient_name"] = $patientData->patient_name;
+                array_push($list_patient_nameid, $array);
+                array_push($list_patient_id, $array["patient_id"]);
+            }
         }
 
+        // return view('Doctor/update_medical_data_main',['list_patient_name' => $list_patient_nameid]);
+
         //get pertama untuk get medical record patient yang mana
-        $id_patient = $_GET['patient_id'];
+        // $id_patient = $_GET['patient_id'];
+        // $med_record = new MedicalDataUseCase();
+        // $list_med_record = $med_record->getMedicalDataByPatient($id_patient);
+
+    }
+
+    public function getListMedicalRecord()
+    {
+        $patient_id = $_GET["patient"];
         $med_record = new MedicalDataUseCase();
-        $list_med_record = $med_record->getMedicalDataByPatient($id_patient);
-        //list_med_record untuk doctor memilih record_id yang diupdate pada view
+        $med_record_data = $med_record->getAllDataByPatientId($patient_id);
         
-        //..... the code
+        // return view();
+    }
 
-        // return view("Doctor/index",['medical_record' => $list_data]);
-        $id_record = $_GET['disease_id'];
+    public function viewMedRecordDetail(Request $request)
+    {
+        $record_id = $_GET['record_id'];
+
+        $disease = new DiseaseUseCase();
+        $disease_list = $disease->getAllDisease();
+
+        $hospital = new HospitalUseCase();
+        $hospital_list = $hospital->getAllHospital();
+
+        $medstaff_id = $request->session()->get('doctor_id');
+
+        $cost = new VisitCostUseCase();
+        $cost_list = $cost->searchCostByMedStaff($medstaff_id);
+
+        // return view('Doctor/update_medical_data_detail', ['disease_list' => $disease_list, 'hospital_list' => $hospital_list, 'cost_list' => $cost_list]);
+    }
 
 
-        //get kedua untuk value yang diupdate berdasarkan record_id yang telah dipilih
-        $id_disease = $_GET['disease_id'];
-        $id_hospital = $_GET['hospital_id'];
-        $id_visit = $_GET['visit_id'];
+
+    public function updateMedRecord(Request $request)
+    {
+        $this->validate($request, [
+            'anamnesia' => 'required'
+        ]);
+
         $anamnesia = $_GET['anamnesia'];
-        
-        $med_record->updateMedicalDataById($id_record, $id_disease, $id_hospital, $id_visit, $anamnesia);
-        
-        // return view('Doctor/index', ["patient_list" => $list_patient_nameid]);
+        $id_disease = $_GET['disease'];
+        $id_hospital = $_GET['hospital'];
+        $id_cost = $_GET['cost'];
+        $record_id = $_GET['record_id'];
+
+        $med_record = new MedicalDataUseCase();
+        $med_record->updateMedicalDataById($record_id, $id_disease, $id_hospital, $id_cost, $anamnesia);
+
+        return redirect('/doctor_medical_record')->with("alert","Medical Record Sukses Diupdate");
     }
     
 }

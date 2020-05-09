@@ -12,6 +12,13 @@ class MedicalDataDao
         return $record;
     }
 
+    public static function getAllMedicalRecord()
+    {
+        $record = Medical_Record::paginate(10);
+        return $record;
+
+    }
+
     public static function createMedicalRecord($record_id,$anamnesia, $id_patient, $id_disease, $id_hospital,$qty_medicine,$medicine_id, $id_cost, $record_date){
         Medical_Record::create([
             'record_id' => $record_id,
@@ -39,12 +46,12 @@ class MedicalDataDao
 
     }
 
-    public static function updateMedicalDataById($record_id, $id_disease, $id_hospital, $id_visit, $anamnesia)
+    public static function updateMedicalDataById($record_id, $id_disease, $id_hospital, $id_cost, $anamnesia)
     {
         $record = Medical_record::where('record_id', $record_id)->update(
             ['disease_id' => $id_disease],
             ['hospital_id' => $id_hospital],
-            ['visit_id' => $id_visit],
+            ['cost_id' => $id_cost],
             ['anamnesia' => $anamnesia]
         );
 

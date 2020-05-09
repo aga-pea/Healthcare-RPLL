@@ -5,11 +5,19 @@
     
     class MedicalDataUseCase
     {
-        public static function getAllData($patient_id)
+        public static function getAllDataByPatientId($patient_id)
         {
             $cek_record =  new MedicalDataDao();
             $med_record=$cek_record->getMedicalRecord($patient_id);
             return $med_record;
+        }
+
+        public static function getAllData()
+        {
+            $cek_record = new MedicalDataDao();
+            $med_record = $cek_record->getAllMedicalRecord();
+            return $med_record;
+
         }
 
         public static function addMedicalRecord($record_id,$anamnesia, $id_patient, $id_disease, $id_hospital,$qty_medicine,$medicine_id, $id_cost, $record_date)
@@ -32,10 +40,10 @@
             return $med_record;
         }
 
-        public static function updateMedicalDataById($record_id,$id_disease, $id_hospital, $id_visit, $anamnesia)
+        public static function updateMedicalDataById($record_id,$id_disease, $id_hospital, $id_cost, $anamnesia)
         {
             $med_record = new MedicalDataDao();
-            $med_record->updateMedicalDataById($record_id,$id_disease, $id_hospital, $id_visit, $anamnesia);
+            $med_record->updateMedicalDataById($record_id,$id_disease, $id_hospital, $id_cost, $anamnesia);
 
         }
 
