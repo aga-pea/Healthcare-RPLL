@@ -51,8 +51,7 @@ class UpdateMedicalDataController extends Controller
 
         $med_record = new MedicalDataUseCase();
         $med_record_data = $med_record->getMedicalDataById($record_id);
-        // $anamnesia = $med_record_data->anamnesia;
-        print($record_id);
+        $anamnesia = $med_record_data[0]->anamnesia;
 
         $disease = new DiseaseUseCase();
         $disease_list = $disease->getAllDisease();
@@ -65,8 +64,8 @@ class UpdateMedicalDataController extends Controller
         $cost = new VisitCostUseCase();
         $cost_list = $cost->searchCostByMedStaff($medstaff_id);
 
-        // return view('Doctor/update_medical_data_view_record', ['anamnesia' => $anamnesia, 'record_id' => $record_id, 'disease_list' => $disease_list, 
-                                                                // 'hospital_list' => $hospital_list, 'cost_list' => $cost_list]);
+        return view('Doctor/update_medical_data_view_record', ['anamnesia' => $anamnesia, 'record_id' => $record_id, 'disease_list' => $disease_list, 
+                                                                'hospital_list' => $hospital_list, 'cost_list' => $cost_list]);
     }
 
 

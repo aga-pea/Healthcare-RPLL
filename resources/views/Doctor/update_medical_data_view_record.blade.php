@@ -308,8 +308,9 @@
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              
-              <form class="form-horizontal style-form" action="/doctor_medical_data_detail_medicine" method="get">
+              <form class="form-horizontal style-form" action="/doctor_medical_data_detail_update_proses" method="get">
+                <input type='hidden' name='record_id' value='{{$record_id}}'>
+                
                 <h4 class="mb"><i class="fa fa-angle-right"></i>Medical Record</h4>
                   <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Anamnesia</label>

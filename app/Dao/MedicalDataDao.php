@@ -49,10 +49,10 @@ class MedicalDataDao
     public static function updateMedicalDataById($record_id, $id_disease, $id_hospital, $id_cost, $anamnesia)
     {
         $record = Medical_record::where('record_id', $record_id)->update(
-            ['disease_id' => $id_disease],
-            ['hospital_id' => $id_hospital],
-            ['cost_id' => $id_cost],
-            ['anamnesia' => $anamnesia]
+            ['disease_id' => $id_disease,
+            'hospital_id' => $id_hospital,
+            'cost_id' => $id_cost,
+            'anamnesia' => $anamnesia]
         );
 
     }
