@@ -12,7 +12,7 @@ class UpdateMedicalDataController extends Controller
     {
         $patient = new PatientUseCase();
         $list_patient = $patient->getListPatient();
-
+        
         $list_patient_nameid = [];
         foreach ($list_patient as $data) {
             $array = [];

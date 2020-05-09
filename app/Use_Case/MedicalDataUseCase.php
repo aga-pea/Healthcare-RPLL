@@ -5,7 +5,7 @@
     
     class MedicalDataUseCase
     {
-        public static function getAllData($patient_id)
+        public static function getAllDataByPatientId($patient_id)
         {
             $cek_record =  new MedicalDataDao();
             $med_record=$cek_record->getMedicalRecord($patient_id);

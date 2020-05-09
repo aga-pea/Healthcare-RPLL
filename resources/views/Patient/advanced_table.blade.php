@@ -279,7 +279,7 @@
                 <thead>
                   <tr>
                     <th>Anamnesia</th>
-                    <th>Diagnosa</th>
+                    <th>Treatment</th>
                     <th class="hidden-phone">Medicine(s)</th>
                     <th class="hidden-phone">Referral</th>
                     <th class="hidden-phone">Doctor</th>
@@ -287,13 +287,17 @@
                 </thead>
                 <tbody>
              
-                @foreach($med_record as $data)
+                @foreach($record_data as $data)
                   <tr class="gradeA">
-                    <td>{{$data->anamnesia}}</td>
-                    <td>{{$record_data[$data->record_id-1]["disease"]}}</td>
-                    <td>{{$record_data[$data->record_id-1]["medicine"]}}</td>
-                    <td>{{$record_data[$data->record_id-1]["hospital"]}}</td>
-                    <td>{{$record_data[$data->record_id-1]["doctor"]}}</td>
+                    <td>{{$data["anamnesia"]}}</td>
+                    <td>{{$data["treatment"]}}</td>
+                    <td>
+                      @foreach($data["medicine"] as $medicine)
+                        Nama Obat : {{$medicine["medicine_name"]}}(jumlah : {{$medicine["medicine_qty"]}}),
+                      @endforeach
+                    </td>
+                    <td>{{$data["hospital"]}}</td>
+                    <td>{{$data["medstaff"]}}</td>
                   </tr>
                 @endforeach
                 </tbody>
