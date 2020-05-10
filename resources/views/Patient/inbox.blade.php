@@ -216,7 +216,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">{{Session::get('name')}}</h5>
           <li>
             <a href="{{url('/patient_main')}}">
@@ -225,9 +225,9 @@
               </a>
           </li>
           <li>
-            <a href="{{url('/patient_inbox')}}">
+            <a href="{{url('/patient_appointment')}}">
               <i class="fa fa-envelope"></i>
-              <span>Mail </span>
+              <span>Appointment</span>
               <!-- <span class="label label-theme pull-right mail-info">2</span> -->
               </a>
           </li>

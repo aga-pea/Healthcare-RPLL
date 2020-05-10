@@ -258,26 +258,25 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{url('/patient_main')}}"><img src="{{asset('assets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">{{Session::get('name')}}</h5>
-                    <li class="sub-menu">
-            <a href="/receiptionist_patient_register">
-              <i class="fa fa-book"></i>
-              <span>Patient Registration</span>  
-              </a>
-            </li>
           <li>
-            <a href="receiptionist_patient_appointment">
-              <i class="fa fa-envelope"></i>
-              <span>Appointment Handle</span>
-              <span class="label label-theme pull-right mail-info"></span>
+            <a href="{{url('/patient_main')}}">
+              <i class="fa fa-user"></i>
+              <span>Profile</span>
               </a>
           </li>
           <li>
-            <a class="active" href="view_schedule">
+            <a href="{{url('/patient_appointment')}}">
+              <i class="fa fa-envelope"></i>
+              <span>Appointment</span>
+              <!-- <span class="label label-theme pull-right mail-info">2</span> -->
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="{{url('/patient_medical_record')}}">
               <i class="fa fa-th"></i>
-              <span>View Schedule</span>
-              <span class="label label-theme pull-right mail-info"></span>
+              <span>Medical Records</span>
               </a>
           </li>
         </ul>
